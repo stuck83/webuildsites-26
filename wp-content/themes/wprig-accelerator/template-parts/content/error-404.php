@@ -23,6 +23,7 @@ namespace WP_Rig\WP_Rig;
 			?>
 		</div><!-- .error-404-search -->
 
+		<?php
 		wp_rig()->print_styles( 'wp-rig-widgets' );
 		the_widget( 'WP_Widget_Recent_Posts' );
 		?>
