@@ -277,3 +277,5 @@ input[type="submit"] {
 .error-404-search input[type="submit"]:hover {
     background-color: #d36110;  
 }
+
+body{background-color: #d36110;}
