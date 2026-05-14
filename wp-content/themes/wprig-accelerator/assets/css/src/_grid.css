@@ -1,0 +1,154 @@
+/* Add this to the top of your CSS file to prevent the "sideways bounce" */
+html, body {
+    overflow-x: hidden;
+}
+
+:root {
+    /* Grid Configuration */
+    --grid-columns: 12;
+    --grid-gutter: 2rem;      /* Space between columns */
+    --container-width: 1200px; /* Maximum width of your content */
+    --container-padding: 1.5rem; /* Padding on mobile so text doesn't hit the edge */
+}
+
+/* The Main Container */
+.grid-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+/* The Grid Wrapper */
+.grid-row {
+    display: grid;
+    gap: var(--grid-gutter);
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    align-items: start;
+}
+
+
+/* Disable the sidebar grid layout specifically for the Homepage template */
+.page-template-homepage .site {
+    display: block !important; /* Overrides the grid display */
+    max-width: 100%;
+    margin: 0;
+}
+
+.page-template-homepage .site-main {
+    max-width: 100%; /* Allows your 1200px grid to expand */
+}
+
+/*Footer*/
+
+/* Ensure the footer background is full width */
+.site-footer {
+    width: 100%;
+    background-color: var(--brand-blue-deep);
+    font-size: var(--font-size-small);
+    margin: 0;
+    padding: 0;
+}
+
+/* This is the wrapper inside the footer */
+.site-info-widgets {
+    max-width: 100%; /* Background spans everything */
+}
+
+/* This ensures the columns stay centered and match the nav width */
+.site-info-widgets .grid-row {
+    max-width: var(--container-width, 1400px); 
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+    padding: 4rem 1.5rem;
+}
+
+/* 1. Base Footer Styles (Mobile First) */
+.site-info-widgets .grid-row {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to 1 column for mobile */
+    gap: 2rem;
+    padding: 2rem 1.5rem; /* Tighter padding for mobile */
+    max-width: var(--container-width, 1400px); 
+    margin: 0 auto;
+}
+
+/* 2. Tablet & Desktop Styles */
+@media (min-width: 768px) {
+    .site-info-widgets .grid-row {
+        grid-template-columns: repeat(12, 1fr); /* Back to 12 columns for desktop */
+        padding: 4rem 1.5rem; /* More breathing room on desktop */
+    }
+}
+
+
+/* Apply your established grid logic to the WordPress block classes */
+.grid-12, 
+.service-card-grid {
+    display: grid !important;
+    gap: var(--grid-gutter);
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    align-items: start;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* Ensure the columns inside these blocks respect the span utilities */
+.grid-12 > .wp-block-column,
+.service-card-grid > .wp-block-column {
+    /* This ensures WordPress's default flex-basis doesn't fight your grid */
+    flex-basis: unset !important; 
+    width: 100%; 
+}
+
+
+
+
+
+
+
+
+/**PATTERNS**/
+
+/* ==========================================================================
+   1. UNIVERSAL GRID UTILITIES (Desktop First)
+   ========================================================================== */
+
+/* These allow you to say "this div should take up X columns" */
+.col-1 { grid-column: span 1 / span 1 !important; }
+.col-2 { grid-column: span 2 / span 2 !important; }
+.col-3 { grid-column: span 3 / span 3 !important; }
+.col-4 { grid-column: span 4 / span 4 !important; }
+.col-6 { grid-column: span 6 / span 6 !important; }
+.col-8 { grid-column: span 8 / span 8 !important; }
+.col-12 { grid-column: span 12 / span 12 !important; }
+
+/* Optional: Center alignment utility */
+.align-center { align-items: center; }
+
+
+/* ==========================================================================
+   2. RESPONSIVE HANDLING (Mobile Reset) - MUST BE AT THE BOTTOM
+   ========================================================================== */
+
+@media (max-width: 767px) {
+    /* Simplify the parent grid to a single column */
+    .grid-12, 
+    .service-card-grid, 
+    .banner-grid,
+    .grid-row {
+        grid-template-columns: 1fr !important;
+        display: grid !important;
+    }
+
+    /* Force all columns to break out of their 'spans' and fill 100% width */
+    .col-1, .col-2, .col-3, .col-4, .col-6, .col-8, .col-12,
+    .wp-block-column {
+        grid-column: 1 / -1 !important; 
+        flex-basis: 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+    }
+}

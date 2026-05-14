@@ -1,0 +1,87 @@
+/**
+ * Custom Properties
+ * aka CSS variables.
+ *
+ * @link: https://developer.mozilla.org/en-US/docs/Web/CSS/--*
+ **/
+
+:root {
+    --content-width: 1200rem;
+    --dropdown-symbol-width: 0.7em;
+
+    /* Typography */
+    --global-font-family: "Raleway", sans-serif;
+    --global-font-secondary: "Raleway", sans-serif;
+    --global-font-size: 20;
+    --global-font-line-height: 1.4;
+
+    /* Matching your Brand Board weights */
+    --global--font-weight-normal: 400;
+    --global--font-weight-bold: 600; 
+
+    /* Custom editor font sizes */
+    --font-size-small: calc(16 / var(--global-font-size) * 1rem);
+    --font-size-regular: calc(var(--global-font-size) / 16 * 1rem);
+    --font-size-large: calc(36 / var(--global-font-size) * 1rem);
+    --font-size-larger: calc(48 / var(--global-font-size) * 1rem);
+
+    /* --- BRAND COLORS (The Accelerator Palette) --- */
+    --brand-blue-dark: #10374C;    /* Main Primary Blue */
+    --brand-blue-deep: #022949;    /* Secondary/Darker Blue */
+    --brand-orange: #EC7C30;       /* Main Brand Orange */
+    --brand-grey-light: #F0F0F0;   /* Light Grey for sections */
+    --brand-white: #FFFFFF;
+
+    /* --- FUNCTIONAL MAPPING (This makes the theme work) --- */
+    --global-font-color: var(--brand-blue-dark);
+    --background-color: var(--brand-white);
+    
+    /* Layout Backgrounds */
+    --header-background-color: var(--brand-grey-light);
+    --footer-background-color: var(--brand-blue-dark);
+    --sub-content-background-color: var(--brand-grey-light);
+
+    /* Links */
+    --color-link: var(--brand-blue-dark);
+    --color-link-visited: var(--brand-blue-deep);
+    --color-link-active: var(--brand-orange);
+
+    /* Buttons */
+    --button--color-background: var(--brand-orange);
+    --button--color-text: var(--brand-white);
+
+    /* WP Editor Palette (Ensures Gutenberg colors match brand) */
+    --color-theme-primary: var(--brand-blue-dark);
+    --color-theme-secondary: var(--brand-orange);
+    --color-theme-white: var(--brand-white);
+    --color-theme-black: var(--brand-blue-deep);
+    /*--color-theme-grey: var(--brand-grey-light);*/
+
+    /* Borders */
+    --border-color-dark: var(--brand-blue-dark);
+    --border-color-light: var(--brand-grey-light);
+
+
+	/*
+	@media (prefers-color-scheme: dark) {
+		/* Global color adjustments for dark mode /
+		--global-font-color: #fff; /* Default text color /
+		--background-color: #121212; /* Page background color /
+		--content-background-color: #181818; /* Content-specific background /
+		--sub-content-background-color: #333;
+		--header-background-color: #1a1a1a;
+		--footer-background-color: #1a1a1a;
+		--color-link: #4e9efd; /* Link color /
+		--color-link-active: #bbdfff; /* Link hover/focus color /
+		--color-link-visited: #bbdfff; /* Link hover/focus color /
+
+		/* reverse dark/light colors /
+		--border-color-dark: #ccc;
+		--border-color-light: #333;
+	}*/
+}
+
+
+
+
+

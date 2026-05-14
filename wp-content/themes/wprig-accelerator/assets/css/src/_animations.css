@@ -1,0 +1,138 @@
+@media (--wide-menu-query) {
+
+    /* 1. The Initial State (Hidden but rendered) */
+    .nav--toggle-sub ul ul {
+        /* Force display block so the transition can actually play */
+        display: block !important; 
+        
+        /* Hide it visually */
+        visibility: hidden;
+        opacity: 0;
+        
+        /* The slide effect */
+        transform: translateY(10px); 
+        
+        /* The timing */
+        transition: opacity 0.5s ease, transform 0.5s ease, visibility 0.5s;
+        
+        /* Prevent accidental clicks when hidden */
+        pointer-events: none;
+        
+        /* Keep your aqua color for a second if you want to see the fade! */
+        /* background-color: aqua; */
+    }
+
+    /* 2. The Hover State (The Reveal) */
+    .nav--toggle-sub li:hover > ul {
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+    }
+
+}
+
+
+/*Mobile Navigation Slide*/
+
+@media (--narrow-menu-query) {
+    /* 1. Keep the main toggle button on top of the sliding menu */
+    .menu-toggle {
+        z-index: 1000 !important;
+        position: relative;
+    }
+
+    /* 2. Push the drawer down so the logo is visible */
+    .primary-menu-container {
+        display: flex !important;
+        position: fixed;
+        
+        /* Adjust 100px to match the actual height of your logo bar */
+        top: 73px; 
+        right: 0;
+        width: 100%;
+        height: calc(100vh - 100px);
+        background: #ffffff !important;
+        z-index: 999;
+        
+        /* The Smooth Slide */
+        transform: translateX(100%); 
+        visibility: hidden;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                    visibility 0s linear 0.6s;
+        
+        border-top: 1px solid #eee;
+    }
+
+    /* 3. The Active State Trigger */
+    body.mobile-menu-open .primary-menu-container {
+        transform: translateX(0);
+        visibility: visible;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                    visibility 0s linear 0s;
+    }
+}
+
+/* Force the icons to be dark so they show up on the white drawer */
+.menu-toggle svg {
+    fill: #0b212d !important; /* Use your dark brand blue */
+}
+
+/* Ensure the 'close' icon specifically is visible when expanded */
+.menu-toggle[aria-expanded="true"] .close {
+    display: block !important;
+    opacity: 1 !important;
+}
+
+
+.primary-menu-container .mobile-menu-header {
+    display: none !important;
+}
+
+/* 1. When the menu is CLOSED: Show hamburger, hide X */
+.menu-toggle[aria-expanded="false"] .open-menu {
+    display: block;
+    opacity: 1;
+}
+.menu-toggle[aria-expanded="false"] .close {
+    display: none;
+}
+
+/* 2. When the menu is OPEN: Hide hamburger, show X */
+.menu-toggle[aria-expanded="true"] .open-menu {
+    display: none !important;
+}
+.menu-toggle[aria-expanded="true"] .close {
+    display: block !important;
+    opacity: 1;
+    /* Optional: add a little rotation to the X for that Wix feel */
+    transform: rotate(0deg); 
+    transition: transform 0.3s ease;
+}
+
+
+@media (--wide-menu-query) {
+    /* 1. Ensure the chevron/toggle is visible on desktop */
+    .main-navigation .dropdown-toggle {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: none;
+        padding: 0 5px;
+        cursor: pointer;
+    }
+
+    /* 2. Setup the rotation transition for the SVG arrow */
+    .main-navigation .dropdown-toggle svg {
+        transition: transform 0.3s ease;
+        fill: currentColor; /* Matches the link text color */
+    }
+
+    /* 3. The Trigger: Rotate when the parent LI is hovered */
+    .main-navigation li:hover > .dropdown-toggle svg {
+        transform: rotate(180deg);
+    }
+}
+
+

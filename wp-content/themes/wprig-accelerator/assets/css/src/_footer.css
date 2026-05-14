@@ -1,0 +1,232 @@
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.site-footer {
+	margin: 1em 0 0;
+	padding: 2em 0;
+	font-family: var(--highlight-font-family);
+	font-stretch: condensed;
+}
+
+.site-footer a:hover {
+    color: var(--brand-orange);
+}
+
+.site-info {
+	text-align: center;
+}
+
+
+/*Footer**/
+.site-info-widgets {
+    background-color: var(--brand-blue-deep);
+    color: #ffffff;
+    /*padding: 4rem 0;*/
+}
+
+
+
+/* Targets the heading text */
+.footer-column h2 {
+    display: block;
+    font-size: 1.5rem; /* Adjust to your preferred size */
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+
+/* Creates the horizontal line (hr) effect */
+.footer-column h2::after {
+    content: "";
+    display: block;
+    width: 100px; /* Adjust width: 100% for full width, or px for short line */
+    height: 1px;
+    background-color: var(--border-color-light);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+
+.site-info-widgets .widget-title {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.site-info-widgets a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
+
+.site-footer a{
+	color: #fff;
+}
+
+.footer-credits p{
+	color:#ffffff;
+}
+
+ul.footer-contact-list{
+	padding:0px;
+}
+
+.footer-contact-list li {
+    display: flex;
+    align-items: left; 
+    margin-bottom: 12px;
+	list-style: none;
+}
+
+
+.footer-contact-list i,
+.footer-contact-list svg.svg-inline--fa {
+    width: 1.5em !important;      /* Explicit width for SVGs */
+    height: auto;
+    margin-right: 20px !important;
+    color: var(--brand-white);  
+    fill: currentColor;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+
+.social-icon svg.svg-inline--fa {
+    font-size: 1.5rem;
+    color: var(--brand-white);
+    transition: color 0.2s ease;
+}
+
+.social-icon svg.svg-inline--fa:hover {
+    color: var(--brand-orange);
+}
+
+/* Search modal */
+.search-modal {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.55);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 10002;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.search-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+body.search-modal-open {
+    overflow: hidden;
+}
+
+.search-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+}
+
+.search-modal__panel {
+    position: relative;
+    width: min(100%, 560px);
+    background: #ffffff;
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 2rem;
+    box-shadow: 0 28px 60px rgba(0,0,0,0.35);
+    z-index: 1;
+}
+
+.search-modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+    color: #000000;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+
+.search-modal__close:hover,
+.search-modal__close:focus {
+    background: rgba(255,255,255,0.16);
+}
+
+.search-modal__title {
+    margin: 0 0 1rem;
+    color: #000000;
+    font-size: 1.6rem;
+}
+
+.search-modal__form {
+    display: grid;
+    gap: 1rem;
+}
+
+.search-modal__input {
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0 1.25rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 1rem;
+}
+
+.search-modal__input::placeholder {
+    color: rgba(255,255,255,0.65);
+}
+
+.search-modal__input:focus {
+    outline: none;
+    border-color: var(--brand-orange);
+    box-shadow: 0 0 0 4px rgba(52, 34, 1, 0.12);
+}
+
+.search-modal__submit {
+    min-height: 3rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--brand-orange);
+    color: #fdfdfd;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0 1.25rem;
+}
+
+.search-modal__submit:hover,
+.search-modal__submit:focus {
+    background: #d36110;
+}
+
+.screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

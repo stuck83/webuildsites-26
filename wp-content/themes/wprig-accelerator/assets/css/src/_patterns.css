@@ -1,0 +1,424 @@
+/***MAIN SERVICES BLOCK***/
+
+.service-card {
+    background-color: var(--brand-grey-light);
+    
+    padding: 10px;
+    position: relative;
+    margin-bottom: 50px;
+    border-radius: 12px;;
+    z-index: 1;
+    color: var(--global-font-color);
+}
+
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 100%;
+    height: 100%;
+    border: 4px solid #f0f0f0;
+    border-radius: 12px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.service-card h3 {
+    font-size: 1.25rem;
+    color: var(--global-font-color);
+    margin-top: 0;
+}
+
+.service-card .learn-more a {
+    color: #ff7300; /* Your orange brand color */
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+.services-section {
+    background-color: var(--global-font-color);
+    color: #ffffff;
+    
+    /* Updated Breakout Math */
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%); /* This is more precise than left: 50% */
+    
+    /* Remove the old margin-left/right and use this instead */
+    margin-top: 0;
+    margin-bottom: 0;
+
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+/* Ensure the grid inside doesn't hit the screen edges on smaller monitors */
+.services-section .grid-12 {
+    max-width: 1200px; /* Match your theme's container width */
+    margin: 0 auto;
+    padding: 0 20px; /* Side padding so text doesn't touch mobile edges */
+}
+
+/* Target the Font Awesome Plugin Block specifically */
+.wp-block-font-awesome-icon {
+    text-align: center;
+    line-height: 1;
+    display: block;
+    margin-bottom: 25px; /* Adds space between icon and number */
+}
+
+/* Force icons to be larger and use brand orange */
+.wp-block-font-awesome-icon i, 
+.wp-block-font-awesome-icon svg {
+    font-size: 3rem !important; /* Adjust this to 3rem or 5rem if needed */
+    width: auto;
+    height: 1em;
+    color: var(--brand-orange) !important;
+    fill: var(--brand-orange) !important;
+    transition: transform 0.3s ease;
+}
+
+
+
+/* Numbers - using brand blue */
+.trust-section .stat-number {
+    font-size: 3.5rem;
+    color: var(--brand-dark-blue);
+    font-weight: 700;
+    margin-top: 0; /* Reset since icon has margin-bottom now */
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+/* Labels - using dark gray */
+.trust-section .stat-label {
+    color: var(--brand-dark-blue);
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+
+/***service-intro***/
+.service-intro-content {
+    background-color: var(--brand-grey-light);
+    padding:20px;
+}
+
+
+/**SLIDER***/
+
+/* Partners Slider */
+.partners-slider-section {
+    padding: 60px 0;
+}
+
+.logos-track-container {
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.logos-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    animation: logo-scroll 30s linear infinite;
+    width: max-content;
+}
+
+.logos-track:hover {
+    animation-play-state: paused;
+}
+
+.logo-item {
+    flex: 0 0 auto;
+    padding: 0 40px;
+}
+
+.logo-item img {
+    height: 120px;
+    width: auto;
+    object-fit: contain;
+    /*filter: grayscale(100%);
+    opacity: 0.6;*/
+    transition: all 0.3s ease;
+}
+
+.logo-item img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+@keyframes logo-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+
+/******services banner image-text***/
+
+/* ── Full-width breakout ── */
+.service-banner-section {
+    padding: 0;
+    width: 100vw;
+    max-width: 100vw;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Strip WP's constrained inner container */
+.service-banner-section > * {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    box-sizing: border-box;
+}
+
+/* ── Columns wrapper ── */
+.service-banner-section .service-banner-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    min-height: 480px;
+    width: 100%;
+}
+
+/* ── Content column ── */
+.service-banner-section .service-banner-content {
+    position: relative;
+    background-color: var(--brand-blue-dark);
+    padding: 70px 140px 70px 80px;
+    flex: 0 0 55%;
+    width: 55%;
+    z-index: 2;
+    clip-path: polygon(0 0, calc(100% - 80px) 0, 100% 100%, 0 100%);
+    margin-right: -80px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Headings */
+.service-banner-section .service-banner-content h1,
+.service-banner-section .service-banner-content h2,
+.service-banner-section .service-banner-content h3 {
+    color: #ffffff;
+    /*font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 0;*/
+}
+
+/* Orange accent bar — AFTER the heading using the heading's ::after */
+.service-banner-section .service-banner-content h1::after,
+.service-banner-section .service-banner-content h2::after,
+.service-banner-section .service-banner-content h3::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 4px;
+    background-color: var(--brand-orange);
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+/* Body text */
+.service-banner-section .service-banner-content p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+/* Button wrapper */
+.service-banner-section .service-banner-buttons {
+    margin-top: 28px;
+}
+
+/* Button */
+/*.service-banner-section .service-banner-buttons .wp-block-button__link {
+    /*background-color: #ff6b35;
+    color: #ffffff;
+    padding: 14px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+    display: inline-block;
+}*/
+
+.service-banner-section .service-banner-buttons .wp-block-button__link:hover {
+    background-color: #e55a25;
+    color: #ffffff;
+}
+
+/* ── Image column ── */
+.service-banner-section .service-banner-image {
+    flex: 1 1 0%;
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
+}
+
+.service-banner-section .service-banner-image .wp-block-image,
+.service-banner-section .service-banner-image figure {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.service-banner-section .service-banner-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 0;
+    max-width: none;
+    margin: 0;
+}
+
+.service-banner-section .service-banner-image figcaption {
+    display: none;
+}
+
+/* ── Reverse variant ── */
+.service-banner-section.reverse .service-banner-wrapper {
+    flex-direction: row-reverse;
+}
+
+.service-banner-section.reverse .service-banner-content {
+    clip-path: polygon(80px 0, 100% 0, 100% 100%, 0 100%);
+    margin-right: 0;
+    margin-left: -80px;
+    padding: 70px 80px 70px 140px;
+}
+
+
+
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .service-banner-section {
+        left: 0;
+        transform: none;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .service-banner-section .service-banner-wrapper {
+        flex-direction: column;
+        min-height: unset;
+    }
+
+    .service-banner-section .service-banner-content {
+        flex: 0 0 auto;
+        width: 100%;
+        clip-path: none;
+        margin-right: 0;
+        margin-left: 0;
+        padding: 60px 32px;
+    }
+
+    .service-banner-section .service-banner-image {
+        min-height: 320px;
+        width: 100%;
+    }
+
+    .service-banner-section .service-banner-content h2 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-banner-section .service-banner-content {
+        padding: 40px 20px;
+    }
+
+    .service-banner-section .service-banner-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Override theme's entry-content child constraints */
+.entry-content > .service-banner-section {
+    max-width: 100vw;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+/* ── Service Content column fade in from left ── */
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.service-banner-section .service-banner-content h1,
+.service-banner-section .service-banner-content h2,
+.service-banner-section .service-banner-content h3,
+.service-banner-section .service-banner-content p,
+.service-banner-section .service-banner-buttons {
+    animation: slideInLeft 0.7s ease-out forwards;
+}
+
+/* Stagger each element slightly */
+.service-banner-section .service-banner-content h1,
+.service-banner-section .service-banner-content h2,
+.service-banner-section .service-banner-content h3 {
+    animation-delay: 0.1s;
+}
+
+.service-banner-section .service-banner-content p:nth-of-type(1) {
+    animation-delay: 0.25s;
+}
+
+.service-banner-section .service-banner-content p:nth-of-type(2) {
+    animation-delay: 0.4s;
+}
+
+.service-banner-section .service-banner-buttons {
+    animation-delay: 0.55s;
+}
+
+/* Prevent flash of un-animated state */
+.service-banner-section .service-banner-content h1,
+.service-banner-section .service-banner-content h2,
+.service-banner-section .service-banner-content h3,
+.service-banner-section .service-banner-content p,
+.service-banner-section .service-banner-buttons {
+    opacity: 0;
+}

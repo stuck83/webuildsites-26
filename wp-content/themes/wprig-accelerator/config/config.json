@@ -1,0 +1,32 @@
+{
+  "theme": {
+    "PHPNamespace": "Accelerator",
+    "slug": "accelerator",
+    "name": "Accelerator",
+    "theme_uri": "https://accelerator.uk.com",
+    "author": "Simon Tucker",
+    "author_uri": "https://webuildsites.nz/",
+    "description": "A custom high-performance theme for the Accelerator 26 project.",
+    "version": "1.0.0",
+    "enableBlocks": true
+  },
+  "dev": {
+    "browserSync": {
+      "proxyURL": "accelerator-26.local",
+      "live": true,
+      "https": false
+    }
+  },
+  "export": {
+    "filesToCopy": [
+      "LICENSE", "readme.txt", "screenshot.png", "theme.json",
+      "assets/css/admin/**", "assets/css/editor/**", "assets/css/vendor/**",
+      "assets/css/*.css", "assets/css/*.map",
+      "assets/js/admin/**", "assets/js/vendor/**",
+      "assets/js/*.js", "assets/js/*.map",
+      "assets/images/**", "assets/svg/**", "assets/video/**",
+      "assets/fonts/**", "patterns", "patterns/**",
+      "template-parts", "template-parts/**", "languages/**"
+    ]
+  }
+}
