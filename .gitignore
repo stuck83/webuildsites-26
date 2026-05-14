@@ -65,7 +65,15 @@
 !.browserslistrc
 !/patterns/
 
-*.DS_Store
+# OS Metadata
+.DS_Store
+.DS_Store?
+**/.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
 # Playwright
 test-results/
@@ -75,3 +83,9 @@ blob-report/
 # Lighthouse CI
 .lighthouseci/
 config/config.local.json
+
+# Dependencies
+node_modules/
+vendor/
+bun.lockb
+.aider*
