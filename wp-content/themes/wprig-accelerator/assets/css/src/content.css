@@ -488,3 +488,55 @@ were hidden (via .neverending) before. */
 		min-width: 0;
 	}
 }
+
+/*--------------------------------------------------------------
+# 404 Error Page Search
+--------------------------------------------------------------*/
+
+.error-404-search {
+	margin: 2rem 0;
+	max-width: 100%;
+}
+
+.error-404-search form {
+	display: flex;
+	gap: 0.5rem;
+	align-items: center;
+}
+
+.error-404-search input[type="search"] {
+	flex: 1;
+	min-height: 2.75rem;
+	padding: 0 1rem;
+	border: 1px solid var(--border-color-light);
+	border-radius: 999px;
+	background: var(--sub-content-background-color);
+	color: var(--global-font-color);
+	font-size: 1rem;
+}
+
+.error-404-search input[type="search"]:focus {
+	outline: none;
+	border-color: var(--brand-orange);
+	box-shadow: 0 0 0 3px rgba(52, 34, 1, 0.12);
+}
+
+.error-404-search button[type="submit"] {
+	min-height: 2.75rem;
+	padding: 0 1.5rem;
+	border: none;
+	border-radius: 999px;
+	background: var(--brand-orange);
+	color: #ffffff;
+	font-weight: 600;
+	font-size: 0.9rem;
+	cursor: pointer;
+	white-space: nowrap;
+	transition: background-color 0.2s ease;
+}
+
+.error-404-search button[type="submit"]:hover,
+.error-404-search button[type="submit"]:focus {
+	background: #d36110;
+	outline: none;
+}

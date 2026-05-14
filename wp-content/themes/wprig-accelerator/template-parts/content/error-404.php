@@ -16,8 +16,12 @@ namespace WP_Rig\WP_Rig;
 			<?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'wp-rig' ); ?>
 		</p>
 
-		<?php
-		get_search_form();
+		<div class="error-404-search">
+			<?php
+			wp_rig()->print_styles( 'wp-rig-content' );
+			get_search_form();
+			?>
+		</div><!-- .error-404-search -->
 
 		wp_rig()->print_styles( 'wp-rig-widgets' );
 		the_widget( 'WP_Widget_Recent_Posts' );
