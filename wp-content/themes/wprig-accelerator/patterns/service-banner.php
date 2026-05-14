@@ -14,8 +14,8 @@
 <!-- wp:column {"className":"service-banner-content col-6"} -->
 <div class="wp-block-column service-banner-content col-6">
 
-<!-- wp:heading {"level":2,"className":"service-banner-title"} -->
-<h2 class="wp-block-heading service-banner-title">Service Title Goes Here</h2>
+<!-- wp:heading {"level":1,"className":"service-banner-title"} -->
+<h1 class="wp-block-heading service-banner-title">Service Title Goes Here</h1>
 <!-- /wp:heading -->
 
 <!-- wp:paragraph {"className":"service-banner-description"} -->

@@ -13,7 +13,7 @@
         <!-- wp:column {"className":"col-6"} -->
         <div class="wp-block-column col-6">
             <!-- wp:image {"sizeSlug":"large"} -->
-            <figure class="wp-block-image size-large"><img src="https://via.placeholder.com/800x600" alt="accelerator ltd"/></figure>
+            <figure class="wp-block-image size-large"><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/placeholder.jpg" alt="Service visual"/></figure>
             <!-- /wp:image -->
         </div>
         <!-- /wp:column -->
