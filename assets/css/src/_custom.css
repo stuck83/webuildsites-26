@@ -1,0 +1,279 @@
+/****LOGO SIZE***/
+
+.site-branding .custom-logo {
+    max-width: 250px; /* Adjust this number until it looks right */
+    height: auto;     /* Maintains aspect ratio */
+}
+
+
+/***no overflow of logo in mobile***/
+
+@media screen and (max-width: 37.5em) {
+    .site-branding .custom-logo {
+        width: 100%;       /* Allow it to take up available width */
+        max-width: 240px;  /* Cap it so it doesn't push off-screen */
+        height: auto;      /* Keep the aspect ratio perfect */
+        display: block;
+    }
+
+    .site-branding {
+        overflow: hidden;  /* Prevents any accidental "pokes" out of the side */
+        display: flex;
+        align-items: center;
+    }
+}
+
+
+
+/***VIDEO HOMEPAGE*****/
+.accelerator-hero-video {
+    position: relative;
+    width: 100vw;       /* Force viewport width to ignore parent padding */
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 550px;      /* Adjust height as needed */
+    overflow: hidden;
+}
+
+/* Make the video fill the background perfectly */
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Position the container that holds the text */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+/* Match your grid and anchor the box to the bottom */
+.video-overlay .grid-container {
+    position: relative;
+    height: 100%;
+}
+
+
+.hero-text-box {
+    position: absolute;
+    bottom: 60;          /* Aligns the box to the very bottom of the video */
+    right: 1%;         /* Keeps it aligned to the right side */
+    background-color: #f0f0f0e8;
+    padding: 20px;
+    max-width: 410px;
+    z-index: 10;
+    border-radius: 12px;
+    /* Optional: Add a slight transform if you want it overlapping the next section */
+    /* transform: translateY(20px); */
+}
+
+/* Typography Styling */
+.hero-title {
+    color: var(--global-font-color);
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.orange-divider {
+    max-width: 200px;
+    height: 4px;
+    background-color: var(--brand-orange);
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    color: #022949;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+/* Remove default side padding on the main site container for the homepage */
+.page-template-homepage .site {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/*****annimations on scrowl******/
+/* Hide elements until the observer adds the animation class */
+.reveal-on-scroll {
+    opacity: 0;
+}
+
+/* Show them once the animation starts */
+.reveal-on-scroll.animate__animated {
+    opacity: 1;
+}
+
+/* Blog cards grid */
+.blog-page-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.blog-post-grid {
+    display: grid;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--brand-white, #ffffff);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+}
+
+.blog-card-image-link {
+    display: block !important;
+    width: 100% !important;
+    height: 250px !important;
+    max-height: 250px !important;
+    overflow: hidden !important;
+    background-color: var(--brand-grey-light, #f7f8fb) !important;
+}
+
+.blog-card-image-link > img,
+.blog-card-image-link img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 250px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+.blog-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.blog-card-meta {
+    margin-bottom: 0.75rem;
+    color: var(--brand-grey-dark, #5d6d7d);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.blog-card-title {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.blog-card-title a {
+    color: var(--brand-dark-blue, #032d44);
+    text-decoration: none;
+}
+
+.blog-card-title a:hover {
+    color: var(--brand-orange, #f28524);
+}
+
+.blog-card-excerpt {
+    margin-bottom: 1.5rem;
+    color: var(--text-color, #4f5f6f);
+    line-height: 1.7;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+}
+
+.blog-card-readmore {
+    display: inline-block;
+    margin-top: auto;
+    color: var(--brand-orange, #f28524);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.blog-card-readmore:hover {
+    text-decoration: underline;
+}
+
+.blog-pagination {
+    text-align: center;
+}
+
+.blog-pagination .page-numbers {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.blog-pagination .page-numbers a,
+.blog-pagination .page-numbers span {
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 999px;
+    color: var(--brand-dark-blue, #032d44);
+    text-decoration: none;
+}
+
+.blog-pagination .page-numbers .current {
+    background: var(--brand-orange, #f28524);
+    color: #ffffff;
+    border-color: var(--brand-orange, #f28524);
+}
+
+@media (max-width: 1080px) {
+    .blog-post-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .blog-post-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.error-404-search{
+    button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	
+	
+	background: var(--brand-orange);
+	color: var(--global-font-color);
+	font-size: 0.75rem;
+	padding: 9px;
+    color: var(--brand-white);
+	cursor: pointer;
+
+}
+}
+
+.error-404-search button:hover,
+.error-404-search input[type="button"]:hover,
+.error-404-search input[type="reset"]:hover,
+.error-404-search input[type="submit"]:hover {
+    background-color: #d36110;  
+}
