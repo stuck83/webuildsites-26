@@ -254,28 +254,3 @@
     }
 }
 
-.error-404-search{
-    button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-	
-	
-	background: var(--brand-orange);
-	color: var(--global-font-color);
-	font-size: 0.75rem;
-	padding: 9px;
-    color: var(--brand-white);
-	cursor: pointer;
-
-}
-}
-
-.error-404-search button:hover,
-.error-404-search input[type="button"]:hover,
-.error-404-search input[type="reset"]:hover,
-.error-404-search input[type="submit"]:hover {
-    background-color: #d36110;  
-}
-
-body{background-color: #d36110;}

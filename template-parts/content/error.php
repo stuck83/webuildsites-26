@@ -31,6 +31,7 @@ namespace WP_Rig\WP_Rig;
 				);
 				?>
 			</p>
+			
 			<?php
 		} elseif ( is_search() ) {
 			?>
@@ -43,6 +44,8 @@ namespace WP_Rig\WP_Rig;
 			<p>
 				<?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'wp-rig' ); ?>
 			</p>
+
+			
 			<?php
 		}
 
