@@ -1,7 +1,7 @@
 /****LOGO SIZE***/
 
 .site-branding .custom-logo {
-    max-width: 250px; /* Adjust this number until it looks right */
+    width: 80%; /* Adjust this number until it looks right */
     height: auto;     /* Maintains aspect ratio */
 }
 

@@ -36,7 +36,7 @@ if ( is_singular( get_post_type() ) ) {
 	}
 
 	// Show comments only when the post type supports it and when comments are open or at least one comment exists.
-	if ( post_type_supports( get_post_type(), 'comments' ) && ( comments_open() || get_comments_number() ) ) {
-		comments_template();
-	}
+	// if ( post_type_supports( get_post_type(), 'comments' ) && ( comments_open() || get_comments_number() ) ) {
+	// 	comments_template();
+	// }
 }
