@@ -73,6 +73,31 @@
 	}
 }
 
+@media (min-width: 64em) {
+	header#masthead.site-header {
+		display: grid;
+		grid-template-columns: repeat(12, minmax(0, 1fr));
+		gap: 1.5rem;
+		align-items: center;
+	}
+
+	header#masthead.site-header .site-branding {
+		grid-column: span 3;
+		justify-self: start;
+		text-align: left;
+		padding: 0;
+		justify-content: flex-start;
+	}
+
+	header#masthead.site-header .primary-menu-container {
+		grid-column: span 9;
+	}
+
+	header#masthead.site-header .menu-toggle {
+		display: none;
+	}
+}
+
 .site-title a {
 	text-decoration: none;
 	color: inherit;

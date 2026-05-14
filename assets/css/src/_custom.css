@@ -1,27 +1,12 @@
 /****LOGO SIZE***/
 
 .site-branding .custom-logo {
-    width: 80%; /* Adjust this number until it looks right */
+    width: 90%; /* Adjust this number until it looks right */
     height: auto;     /* Maintains aspect ratio */
 }
 
 
-/***no overflow of logo in mobile***/
 
-@media screen and (max-width: 37.5em) {
-    .site-branding .custom-logo {
-        width: 100%;       /* Allow it to take up available width */
-        max-width: 240px;  /* Cap it so it doesn't push off-screen */
-        height: auto;      /* Keep the aspect ratio perfect */
-        display: block;
-    }
-
-    .site-branding {
-        overflow: hidden;  /* Prevents any accidental "pokes" out of the side */
-        display: flex;
-        align-items: center;
-    }
-}
 
 
 

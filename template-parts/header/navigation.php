@@ -12,7 +12,8 @@ if ( ! wp_rig()->is_primary_nav_menu_active() ) {
 }
 
 ?>
-<div class="primary-menu-container flex-grow">
+<div class="primary-menu-container flex-grow col-9">
+	
 	<div class="mobile-menu-header">
 		<?php get_template_part( 'template-parts/header/mobile-menu-toggle' ); ?>
 		<?php get_template_part( 'template-parts/header/branding' ); ?>

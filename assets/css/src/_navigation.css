@@ -794,7 +794,7 @@ body.mobile-menu-open {
 
 /***swap toggle*******/
 
-@media screen and (max-width: 37.5em) {
+@media screen and (max-width: 951px) {
     /* 1. Force the header to stay a 2-column grid no matter what */
     header#masthead.site-header {
         display: grid !important;
@@ -836,7 +836,7 @@ body.mobile-menu-open {
 
 
 
-@media screen and (max-width: 37.5em) {
+@media screen and (max-width: 951px) {
     /* 1. Force the button to be a fixed size and center its contents */
     .menu-toggle {
         display: flex !important;
@@ -901,6 +901,42 @@ body.mobile-menu-open .primary-menu-container {
     max-height: 100vh;           /* Ensure it doesn't exceed screen height */
     -webkit-overflow-scrolling: touch; /* Smooth scrolling for iPhones */
     padding-bottom: 100px;       /* Extra space so the last link isn't cut off */
+}
+
+
+/***no overflow of logo in mobile***/
+
+@media screen and (max-width: 951px) {
+    .site-branding .custom-logo {
+        width: 100%;       /* Allow it to take up available width */
+        max-width: 240px;  /* Cap it so it doesn't push off-screen */
+        height: auto;      /* Keep the aspect ratio perfect */
+        display: block;
+    }
+
+    .site-branding {
+        overflow: hidden;  /* Prevents any accidental "pokes" out of the side */
+        display: flex;
+        align-items: center;
+    }
+
+    /* Remove orange hover background from mobile submenu chevrons */
+    .nav--toggle-sub .dropdown,
+    .nav--toggle-sub .dropdown-toggle,
+    .nav--toggle-sub .wp-block-navigation__submenu-icon,
+    .nav--toggle-sub button.wp-block-navigation-submenu__toggle {
+        background: transparent !important;
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+
+    .nav--toggle-sub .dropdown:hover,
+    .nav--toggle-sub .dropdown-toggle:hover,
+    .nav--toggle-sub .wp-block-navigation__submenu-icon:hover,
+    .nav--toggle-sub button.wp-block-navigation-submenu__toggle:hover {
+        background: transparent !important;
+        background-color: transparent !important;
+    }
 }
 
 
