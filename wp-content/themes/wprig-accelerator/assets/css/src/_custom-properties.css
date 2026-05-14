@@ -20,8 +20,8 @@
     --global--font-weight-bold: 600; 
 
     /* Custom editor font sizes */
-    --font-size-small: calc(16 / var(--global-font-size) * 1rem);
-    --font-size-regular: calc(var(--global-font-size) / 16 * 1rem);
+    --font-size-small: calc(19 / var(--global-font-size) * 1rem);
+    --font-size-regular: calc(var(--global-font-size) / 19 * 1rem);
     --font-size-large: calc(36 / var(--global-font-size) * 1rem);
     --font-size-larger: calc(48 / var(--global-font-size) * 1rem);
 
