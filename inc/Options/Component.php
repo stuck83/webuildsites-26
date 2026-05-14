@@ -40,6 +40,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		add_action( 'admin_enqueue_scripts', array( $this, 'theme_options_enqueue_scripts' ) );
 		add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
 		add_action( 'rest_api_init', array( $this, 'register_settings_endpoint' ) );
+		add_action( 'template_redirect', array( $this, 'maybe_render_maintenance_page' ) );
 	}
 
 	/**
@@ -76,7 +77,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		wp_localize_script(
 			'wp-rig-theme-settings',
-			'wpRigThemeSettings',
+			'wprigAcceleratorThemeSettings',
 			array(
 				'nonce'    => wp_create_nonce( 'wp_rest' ),
 				'settings' => $settings,
@@ -89,8 +90,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 */
 	public function add_admin_menu(): void {
 		add_menu_page(
-			__( 'WP Rig Settings', 'wp-rig' ),
-			__( 'WP Rig Settings', 'wp-rig' ),
+			__( 'Accelerator Settings', 'wp-rig' ),
+			__( 'Accelerator Settings', 'wp-rig' ),
 			'manage_options',
 			'wp-rig-settings',
 			array( $this, 'render_settings_page' )
@@ -117,6 +118,36 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'permission_callback' => array( $this, 'settings_permissions_check' ),
 			)
 		);
+	}
+
+	/**
+	 * Checks whether maintenance mode should be displayed for visitors.
+	 */
+	public function maybe_render_maintenance_page(): void {
+		if ( is_admin() || wp_doing_ajax() || wp_doing_cron() ) {
+			return;
+		}
+
+		if ( current_user_can( 'manage_options' ) ) {
+			return;
+		}
+
+		$settings = get_option( 'wp_rig_theme_settings', array() );
+		if ( ! is_array( $settings ) ) {
+			$settings = array();
+		}
+
+		if ( empty( $settings['maintenance_mode'] ) ) {
+			return;
+		}
+
+		status_header( 503 );
+		nocache_headers();
+
+		/** @noinspection PhpUndefinedFunctionInspection */
+		echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' . esc_html__( 'Maintenance', 'wp-rig' ) . '</title>';
+		echo '<style>body{margin:0;background:#0d1f57;color:#fff;font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;padding:1.5rem;} .maintenance-message{max-width:720px;} .maintenance-message h1{margin:0 0 1rem;font-size:2.25rem;} .maintenance-message p{margin:0;font-size:1.1rem;line-height:1.6;}</style></head><body><div class="maintenance-message"><h1>' . esc_html__( 'Maintenance Mode Enabled', 'wp-rig' ) . '</h1><p>' . esc_html__( 'We are currently performing maintenance. Please check back soon. If your matter is urgent please call Support on: 0207 993 3100 or email: support@accelerator.uk.com', 'wp-rig' ) . '</p></div></body></html>';
+		exit;
 	}
 
 	/**
@@ -164,6 +195,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 					break;
 				case 'url_option':
 					$sanitized_settings[ $sanitized_key ] = esc_url_raw( $value );
+					break;
+				case 'maintenance_mode':
+					$sanitized_settings[ $sanitized_key ] = rest_sanitize_boolean( $value );
 					break;
 				default:
 					$sanitized_settings[ $sanitized_key ] = sanitize_text_field( $value );

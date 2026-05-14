@@ -20,7 +20,7 @@ const textControlTypes = [
 
 const SettingsPage = () => {
 	const [ settings, setSettings ] = useState(
-		window.wpRigThemeSettings.settings
+		window.wpRigThemeSettings.settings || {}
 	);
 	const [ snackbarNotices, setSnackbarNotices ] = useState( [] );
 	const timeoutRef = useRef( null );
@@ -78,11 +78,11 @@ const SettingsPage = () => {
 			>
 				{ ( tab ) => (
 					<div>
-						{ formFieldsData.tabs
-							.find( ( t ) => t.id === tab.name )
-							.tabContent.fields.map( ( field ) => (
-								<PanelRow key={ field.name }>
-									{ field.type === 'toggle' && (
+							{ formFieldsData.tabs
+								.find( ( t ) => t.id === tab.name )
+								.tabContent.fields.map( ( field ) => (
+									<PanelRow key={ field.name }>
+										{ field.type === 'toggle' && (
 										<BaseControl
 											label={ field.label }
 											id={ `wp-rig-control-${ field.name }` } // ID for the label element
@@ -144,6 +144,21 @@ const SettingsPage = () => {
 					</div>
 				) }
 			</TabPanel>
+			{ settings.maintenance_mode && (
+				<div
+					style={{
+						marginTop: '1.5rem',
+						padding: '1.5rem',
+						backgroundColor: '#0d1f57',
+						color: '#ffffff',
+						borderRadius: '8px',
+					}}
+				>
+					<p style={{ margin: 0, fontSize: '1rem', lineHeight: 1.6 }}>
+						Maintenance mode is enabled. Visitors will see the maintenance page.
+					</p>
+				</div>
+			)}
 			<div id="settings-saved">
 				<SnackbarList notices={ snackbarNotices } />
 			</div>
