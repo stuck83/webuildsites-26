@@ -18,7 +18,9 @@ namespace WP_Rig\WP_Rig;
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
-<a href="/contact/" class="floating-contact-button">Contact Us</a>
+<?php if ( ! is_page_template( 'contactpage.php' ) ) : ?>
+    <a href="/contact/" class="floating-contact-button">Contact Us</a>
+<?php endif; ?>
 
 <div id="search-modal" class="search-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="search-modal-title">
 	<div class="search-modal__backdrop" data-action="close-search-modal"></div>
