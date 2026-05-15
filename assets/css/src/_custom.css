@@ -265,3 +265,42 @@
         height: 4px;
     }
 }
+
+
+/* Floating Contact Button */
+.floating-contact-button {
+    /* Positioning */
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: right bottom;
+    z-index: 99999;
+    
+    /* Matching your existing button styles */
+    display: inline-block;
+    text-decoration: none;
+    /*border: 1px solid;*/
+    background: var(--brand-orange);
+    color: #ffffff !important; /* brand-white */
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.floating-contact-button:hover {
+    background-color: #d36110; /* Matching your hover state */
+    color: #ffffff !important;
+}
+
+
+/* Optional: Hide on very small screens if it covers content */
+@media (max-width: 480px) {
+    .floating-contact-button {
+        display: none;
+    }
+}
