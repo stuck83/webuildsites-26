@@ -13,6 +13,9 @@ get_header();
 wp_rig()->print_styles( 'wp-rig-content' );
 
 ?>
+<div class="scroll-progress-container">
+    <div id="blog-progress-bar" class="scroll-progress-bar"></div>
+</div>
 
 
     <main id="primary" class="site-main">

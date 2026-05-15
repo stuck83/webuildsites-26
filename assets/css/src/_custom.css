@@ -239,3 +239,34 @@
     }
 }
 
+/**
+ * Scroll Progress Bar for Single Posts
+ */
+
+/* The outer container */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px; /* Adjust thickness here */
+    /*background-color: rgba(255, 255, 255, 0.1); /* Subtle background so you can see the track */
+    z-index: 999999; /* Higher than the header/top-bar */
+    pointer-events: none; /* Allows clicks to pass through to links underneath */
+}
+
+/* The moving orange bar */
+.scroll-progress-bar {
+    height: 100%;
+    width: 0%; /* Initial state controlled by JS */
+    background-color: #ec7c30; /* Your brand orange */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: width 0.1s ease-out; /* Makes the movement feel fluid */
+}
+
+/* Responsive tweak: slightly thinner on mobile */
+@media (max-width: 768px) {
+    .scroll-progress-container {
+        height: 4px;
+    }
+}
