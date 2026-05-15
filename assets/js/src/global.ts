@@ -28,4 +28,3 @@ window.isWidthMobile = (): boolean => {
 	return emValue <= window.mobileBreakpoint;
 };
 
-
