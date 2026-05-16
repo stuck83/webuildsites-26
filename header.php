@@ -19,7 +19,28 @@ namespace WP_Rig\WP_Rig;
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
-	<?php wp_head(); ?>
+	 <?php
+// Fetch the Google Analytics ID from the customizer settings
+$ga_id = get_theme_mod( 'ga_id' );
+
+// Only output the tracking script if the ID has actually been filled out
+if ( ! empty( $ga_id ) ) : 
+?>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( $ga_id ); ?>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', '<?php echo esc_js( $ga_id ); ?>');
+    </script>
+<?php 
+endif; 
+?>
+    
+    
+    <?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -56,4 +77,6 @@ namespace WP_Rig\WP_Rig;
 		
 
 		<?php get_template_part( 'template-parts/header/navigation' ); ?>
+
+       
 	</header><!-- #masthead -->

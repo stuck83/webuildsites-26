@@ -1,10 +1,10 @@
 {
-  "theme_name": "wp-rig",
-  "settings_id": "wp-rig_theme",
+  "theme_name": "accelerator",
+  "settings_id": "accelerator_theme",
   "sections": [
     {
       "id": "global",
-      "title": "WP Rig Settings",
+      "title": "Accelerator Settings",
       "priority": 30
     }
   ],
