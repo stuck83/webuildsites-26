@@ -1,7 +1,7 @@
 {
   "theme": {
     "PHPNamespace": "WP_Rig\\WP_Rig",
-    "slug": "wp-rig",
+    "slug": "accelerator-production",
     "name": "WP Rig",
     "theme_uri": "https://github.com/wprig/wprig/",
     "author": "The WP Rig Contributors",

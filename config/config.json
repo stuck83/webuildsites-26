@@ -1,7 +1,7 @@
 {
   "theme": {
     "PHPNamespace": "Accelerator",
-    "slug": "accelerator",
+    "slug": "accelerator-production",
     "name": "Accelerator",
     "theme_uri": "https://accelerator.uk.com",
     "author": "Simon Tucker",
