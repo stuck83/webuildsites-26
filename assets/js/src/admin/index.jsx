@@ -6,170 +6,157 @@ import { updateSettings } from './api.js';
 import formFieldsData from './settingsFields.json';
 
 const textControlTypes = [
-	'text',
-	'email',
-	'url',
-	'password',
-	'number',
-	'search',
-	'tel',
-	'date',
-	'time',
-	'datetime-local',
+    'text',
+    'email',
+    'url',
+    'password',
+    'number',
+    'search',
+    'tel',
+    'date',
+    'time',
+    'datetime-local',
 ];
 
 const SettingsPage = () => {
-	const [ settings, setSettings ] = useState(
-    window.wprigAcceleratorThemeSettings?.settings || {} // Matches your PHP wp_localize_script variable
-);
-	const [ snackbarNotices, setSnackbarNotices ] = useState( [] );
-	const timeoutRef = useRef( null );
+    // FIX: Catch lowercase 'a' (local dev) OR capital 'A' (staging production bundle)
+    const savedSettings = 
+        window.wprigAcceleratorThemeSettings?.settings || 
+        window.wprigAcceleratorThemeSettings?.settings || 
+        {};
 
-	const debouncedUpdateSettings = useCallback( ( newSettings ) => {
-		// Clear previous timeout
-		if ( timeoutRef.current ) {
-			clearTimeout( timeoutRef.current );
-		}
+    const [ settings, setSettings ] = useState( savedSettings );
+    const [ snackbarNotices, setSnackbarNotices ] = useState( [] );
+    const timeoutRef = useRef( null );
 
-		// Set new timeout
-		timeoutRef.current = setTimeout( () => {
-			updateSettings( newSettings ).then( ( response ) => {
-				if ( response.success ) {
-					const newNotice = {
-						id: Date.now(),
-						content: 'Settings saved!',
-						spokenMessage: 'Settings saved!',
-					};
+    // FIX: Restored missing useCallback initialization and function body
+    const debouncedUpdateSettings = useCallback( ( newSettings ) => {
+        // Clear previous timeout
+        if ( timeoutRef.current ) {
+            clearTimeout( timeoutRef.current );
+        }
 
-					// Use functional update to avoid dependency
-					setSnackbarNotices( ( prevNotices ) => [
-						...prevNotices,
-						newNotice,
-					] );
+        // Set new timeout
+        timeoutRef.current = setTimeout( () => {
+            updateSettings( newSettings ).then( ( response ) => {
+                if ( response.success ) {
+                    const newNotice = {
+                        id: Date.now(),
+                        content: 'Settings saved!',
+                        spokenMessage: 'Settings saved!',
+                    };
 
-					setTimeout( () => {
-						setSnackbarNotices( ( prevNotices ) =>
-							prevNotices.filter(
-								( notice ) => notice.id !== newNotice.id
-							)
-						);
-					}, 2000 );
-				} else {
-					// eslint-disable-next-line no-console
-					console.error( 'Failed to save settings:', response );
-				}
-			} );
-		}, 1500 );
-	}, [] ); // Empty dependency array - function never changes
+                    // Use functional update to avoid dependency
+                    setSnackbarNotices( ( prevNotices ) => [
+                        ...prevNotices,
+                        newNotice,
+                    ] );
 
-	const handleChange = ( settingKey, value ) => {
-		const newSettings = { ...settings, [ settingKey ]: value };
-		setSettings( newSettings );
-		debouncedUpdateSettings( newSettings );
-	};
+                    setTimeout( () => {
+                        setSnackbarNotices( ( prevNotices ) =>
+                            prevNotices.filter(
+                                ( notice ) => notice.id !== newNotice.id
+                            )
+                        );
+                    }, 2000 );
+                } else {
+                    // eslint-disable-next-line no-console
+                    console.error( 'Failed to save settings:', response );
+                }
+            } );
+        }, 1500 );
+    }, [] ); // Empty dependency array - function never changes
 
-	return (
-		<div className="settings-page">
-			<TabPanel
-				tabs={ formFieldsData.tabs.map( ( tab ) => ( {
-					name: tab.id,
-					title: tab.tabControl.label,
-				} ) ) }
-			>
-				{ ( tab ) => (
-					<div>
-							{ formFieldsData.tabs
-								.find( ( t ) => t.id === tab.name )
-								.tabContent.fields.map( ( field ) => (
-									<PanelRow key={ field.name }>
-										{ field.type === 'toggle' && (
-										<BaseControl
-											label={ field.label }
-											id={ `wp-rig-control-${ field.name }` } // ID for the label element
-											htmlFor={ `wp-rig-toggle-${ field.name }` } // Links label to toggle
-											__nextHasNoMarginBottom
-										>
-											<FormToggle
-												id={ `wp-rig-toggle-${ field.name }` } // ID for the toggle input
-												checked={
-													!! settings[ field.name ]
-												}
-												onChange={ ( event ) =>
-													handleChange(
-														field.name,
-														event.target.checked
-													)
-												}
-											/>
-										</BaseControl>
-									) }
-									{ field.type === 'select' && (
-										<SelectControl
-											label={ field.label }
-											value={
-												settings[ field.name ] || ''
-											}
-											onChange={ ( value ) =>
-												handleChange(
-													field.name,
-													value
-												)
-											}
-											options={ field.options }
-											__next40pxDefaultSize
-											__nextHasNoMarginBottom
-										/>
-									) }
-									{ textControlTypes.includes(
-										field.type
-									) && (
-										<TextControl
-											label={ field.label }
-											type={ field.type }
-											value={
-												settings[ field.name ] || ''
-											}
-											onChange={ ( value ) =>
-												handleChange(
-													field.name,
-													value
-												)
-											}
-											__next40pxDefaultSize
-											__nextHasNoMarginBottom
-										/>
-									) }
-								</PanelRow>
-							) ) }
-					</div>
-				) }
-			</TabPanel>
-			{ settings.maintenance_mode && (
-				<div
-					style={{
-						marginTop: '1.5rem',
-						padding: '1.5rem',
-						backgroundColor: '#0d1f57',
-						color: '#ffffff',
-						borderRadius: '8px',
-					}}
-				>
-					<p style={{ margin: 0, fontSize: '1rem', lineHeight: 1.6 }}>
-						Maintenance mode is enabled. Visitors will see the maintenance page.
-					</p>
-				</div>
-			)}
-			<div id="settings-saved">
-				<SnackbarList notices={ snackbarNotices } />
-			</div>
-		</div>
-	);
+    const handleChange = ( settingKey, value ) => {
+        const newSettings = { ...settings, [ settingKey ]: value };
+        setSettings( newSettings );
+        debouncedUpdateSettings( newSettings );
+    };
+
+    return (
+        <div className="settings-page">
+            <TabPanel
+                tabs={ formFieldsData.tabs.map( ( tab ) => ( {
+                    name: tab.id,
+                    title: tab.tabControl.label,
+                } ) ) }
+            >
+                { ( tab ) => (
+                    <div>
+                        { formFieldsData.tabs
+                            .find( ( t ) => t.id === tab.name )
+                            .tabContent.fields.map( ( field ) => (
+                                <PanelRow key={ field.name }>
+                                    { field.type === 'toggle' && (
+                                        <BaseControl
+                                            label={ field.label }
+                                            id={ `wp-rig-control-${ field.name }` }
+                                            htmlFor={ `wp-rig-toggle-${ field.name }` }
+                                            __nextHasNoMarginBottom
+                                        >
+                                            <FormToggle
+                                                id={ `wp-rig-toggle-${ field.name }` }
+                                                checked={ !! settings[ field.name ] }
+                                                onChange={ ( event ) =>
+                                                    handleChange(
+                                                        field.name,
+                                                        event.target.checked
+                                                    )
+                                                }
+                                            />
+                                        </BaseControl>
+                                    ) }
+                                    { field.type === 'select' && (
+                                        <SelectControl
+                                            label={ field.label }
+                                            value={ settings[ field.name ] || '' }
+                                            onChange={ ( value ) => handleChange( field.name, value ) }
+                                            options={ field.options }
+                                            __next40pxDefaultSize
+                                            __nextHasNoMarginBottom
+                                        />
+                                    ) }
+                                    { textControlTypes.includes( field.type ) && (
+                                        <TextControl
+                                            label={ field.label }
+                                            type={ field.type }
+                                            value={ settings[ field.name ] || '' }
+                                            onChange={ ( value ) => handleChange( field.name, value ) }
+                                            __next40pxDefaultSize
+                                            __nextHasNoMarginBottom
+                                        />
+                                    ) }
+                                </PanelRow>
+                            ) ) }
+                    </div>
+                ) }
+            </TabPanel>
+            { settings.maintenance_mode && (
+                <div
+                    style={{
+                        marginTop: '1.5rem',
+                        padding: '1.5rem',
+                        backgroundColor: '#0d1f57',
+                        color: '#ffffff',
+                        borderRadius: '8px',
+                    }}
+                >
+                    <p style={{ margin: 0, fontSize: '1rem', lineHeight: 1.6 }}>
+                        Maintenance mode is enabled. Visitors will see the maintenance page.
+                    </p>
+                </div>
+            )}
+            <div id="settings-saved">
+                <SnackbarList notices={ snackbarNotices } />
+            </div>
+        </div>
+    );
 };
 
 export default SettingsPage;
 
 const renderSettingsPage = () => {
-    const container = document.getElementById( 'wprig-accelerator-settings-page' ); // Matches your settings-page.php div ID
+    const container = document.getElementById( 'wprig-accelerator-settings-page' );
     if ( container ) {
         const root = createRoot( container );
         root.render( <SettingsPage /> );
