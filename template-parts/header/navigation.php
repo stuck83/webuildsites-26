@@ -25,10 +25,7 @@ namespace Accelerator;
 		<?php wprig_accelerator()->display_primary_nav_menu( array( 'menu_id' => 'primary-menu' ) ); ?>
 	</nav><!-- #site-navigation -->
     
-    <div class="mobile-menu-header">
-        <?php get_template_part( 'template-parts/header/mobile-menu-toggle' ); ?>
-        <?php get_template_part( 'template-parts/header/branding' ); ?>
-    </div>
+   
     
     <nav id="site-navigation" class="main-navigation nav--toggle-sub nav--toggle-small" aria-label="<?php esc_attr_e( 'Main menu', 'wprig-accelerator' ); ?>">
         <?php 
