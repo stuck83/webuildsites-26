@@ -37,8 +37,8 @@ function wp_rig(): Template_Tags {
         };
     </script>
     <?php
-}, 1 );
-*/
+}, 1 );*/
+
 
 add_action( 'wp_enqueue_scripts', function() {
     wp_enqueue_style( 'aos-css', 'https://unpkg.com/aos@2.3.1/dist/aos.css' );

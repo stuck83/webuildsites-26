@@ -1,4 +1,10 @@
+// 1. Keep the global declaration
 declare const wpRigScreenReaderText: { [ key: string ]: string };
+
+// 2. Add a safe helper variable right below it that will never crash
+const screenReaderText = typeof wpRigScreenReaderText !== 'undefined' 
+    ? wpRigScreenReaderText 
+    : { "expand": "Expand child menu", "collapse": "Collapse child menu" };
 
 // Module-level variable to store navigation elements
 let navElements: NodeListOf< HTMLElement >;
@@ -432,7 +438,7 @@ function toggleSubMenu(
 		subMenu!.classList.remove( 'toggle-show' );
 		toggleButton.setAttribute(
 			'aria-label',
-			wpRigScreenReaderText.collapse
+			screenReaderText.collapse
 		);
 
 		if ( limitOpenSubmenus ) {
@@ -457,7 +463,7 @@ function toggleSubMenu(
 
 		parentMenuItem.classList.add( 'menu-item--toggled-on' );
 		subMenu!.classList.add( 'toggle-show' );
-		toggleButton.setAttribute( 'aria-label', wpRigScreenReaderText.expand );
+		toggleButton.setAttribute( 'aria-label', screenReaderText.expand );
 	}
 }
 
@@ -479,7 +485,7 @@ function closeAllSubMenus(): void {
  * The button element will have the 'dropdown-toggle' class,
  * an 'aria-expanded' attribute set to 'false', and
  * an 'aria-label' attribute with the text for expanding
- * the dropdown from the global wpRigScreenReaderText object.
+ * the dropdown from the global screenReaderText object.
  *
  * @return {HTMLElement} The configured dropdown button element.
  */
@@ -487,7 +493,7 @@ function getDropdownButton(): HTMLElement {
 	const dropdownButton = document.createElement( 'button' );
 	dropdownButton.classList.add( 'dropdown-toggle' );
 	dropdownButton.setAttribute( 'aria-expanded', 'false' );
-	dropdownButton.setAttribute( 'aria-label', wpRigScreenReaderText.expand );
+	dropdownButton.setAttribute( 'aria-label', screenReaderText.expand );
 	return dropdownButton;
 }
 
