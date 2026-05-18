@@ -46,19 +46,19 @@ endif;
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div class="top-bar-navigation">
-        <div class="container flex justify-end">
-            <?php
-            wp_nav_menu(
-                array(
-                    'theme_location' => 'topmenu', // This must match your registration slug
-                    'menu_id'        => 'top-menu',
-                    'container'      => 'nav',
-                    'fallback_cb'    => false,
-                )
-            );
-            ?>
-        </div>
+    <div class="container flex justify-end">
+        <?php
+        wp_nav_menu(
+            array(
+                'theme_location' => 'topmenu', // Dev environment uses 'topmenu' natively
+                'menu_id'        => 'top-menu',
+                'container'      => 'nav',
+                'fallback_cb'    => false,
+            )
+        );
+        ?>
     </div>
+</div>
 
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'wprig-accelerator' ); ?></a>
