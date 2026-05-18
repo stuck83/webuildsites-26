@@ -1,13 +1,13 @@
 <?php
 /**
- * WP_Rig\WP_Rig\Localization\Component class
+ * Accelerator\Localization\Component class
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig\Localization;
+namespace Accelerator\Localization;
 
-use WP_Rig\WP_Rig\Component_Interface;
+use Accelerator\Component_Interface;
 use function add_action;
 use function load_theme_textdomain;
 use function get_template_directory;
@@ -59,6 +59,6 @@ class Component implements Component_Interface {
 		 * should not bundle translations in your theme. In that case you also need to get rid of the
 		 * second parameter in the following function call.
 		 */
-		load_theme_textdomain( 'wp-rig', $this->translation_directory );
+		load_theme_textdomain( 'wprig-accelerator', $this->translation_directory );
 	}
 }

@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's footer
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
 ?>
 <footer class="entry-footer">

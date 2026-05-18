@@ -1,11 +1,11 @@
 <?php
 /**
- * WP_Rig\WP_Rig\Component_Interface interface
+ * Accelerator\Component_Interface interface
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
 /**
  * Interface for a theme component.

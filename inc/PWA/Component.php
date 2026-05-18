@@ -1,13 +1,13 @@
 <?php
 /**
- * WP_Rig\WP_Rig\PWA\Component class
+ * Accelerator\PWA\Component class
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig\PWA;
+namespace Accelerator\PWA;
 
-use WP_Rig\WP_Rig\Component_Interface;
+use Accelerator\Component_Interface;
 use function add_action;
 use function add_theme_support;
 

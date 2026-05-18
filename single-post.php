@@ -2,15 +2,15 @@
 /**
  * The template for displaying all single blog posts
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
 get_header();
 
 
-wp_rig()->print_styles( 'wp-rig-content' );
+wprig_accelerator()->print_styles( 'wprig-accelerator-content' );
 
 ?>
 <div class="scroll-progress-container">

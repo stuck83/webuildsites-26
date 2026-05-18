@@ -1,26 +1,26 @@
 <?php
 /**
- * WP_Rig\WP_Rig\Base_Support\Component class
+ * Accelerator\Base_Support\Component class
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig\Options;
+namespace Accelerator\Options;
 
 use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
 use WP_REST_Server;
-use WP_Rig\WP_Rig\Component_Interface;
-use WP_Rig\WP_Rig\Templating_Component_Interface;
+use Accelerator\Component_Interface;
+use Accelerator\Templating_Component_Interface;
 use function add_action;
 
 /**
  * Class for adding basic theme support, most of which is mandatory to be implemented by all themes.
  *
  * Exposes template tags:
- * * `wp_rig()->get_version()`
- * * `wp_rig()->get_asset_version( string $filepath )`
+ * * `wprig_accelerator()->get_version()`
+ * * `wprig_accelerator()->get_asset_version( string $filepath )`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -44,7 +44,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wp_rig()`.
+	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_accelerator()`.
 	 *
 	 * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
@@ -55,45 +55,45 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Enqueues the theme options admin scripts.
-	 */
-	public function theme_options_enqueue_scripts(): void {
-		wp_enqueue_script(
-			'wp-rig-theme-settings',
-			get_template_directory_uri() . '/assets/js/admin/index.min.js',
-			array( 'wp-element', 'wp-components', 'wp-data' ),
-			filemtime( get_template_directory() . '/assets/js/admin/index.min.js' ),
-			true
-		);
+     * Enqueues the theme options admin scripts.
+     */
+    public function theme_options_enqueue_scripts(): void {
+        wp_enqueue_script(
+            'wprig-accelerator-theme-settings',
+            get_template_directory_uri() . '/assets/js/admin/index.min.js',
+            array( 'wp-element', 'wp-components', 'wp-data' ),
+            '1.0.1', // Safe, hardcoded version string
+            true
+        );
 
-		wp_enqueue_style(
-			'wp-rig-theme-settings',
-			get_template_directory_uri() . '/assets/css/admin/theme-settings.min.css',
-			array(),
-			filemtime( get_template_directory() . '/assets/css/admin/theme-settings.min.css' ),
-		);
+        wp_enqueue_style(
+            'wprig-accelerator-theme-settings',
+            get_template_directory_uri() . '/assets/css/admin/theme-settings.min.css',
+            array(),
+            '1.0.1' // Safe, hardcoded version string
+        );
 
-		$settings = get_option( 'wp_rig_theme_settings', '' );
+        $settings = get_option( 'wprig_accelerator_theme_settings', '' );
 
-		wp_localize_script(
-			'wp-rig-theme-settings',
-			'wprigAcceleratorThemeSettings',
-			array(
-				'nonce'    => wp_create_nonce( 'wp_rest' ),
-				'settings' => $settings,
-			)
-		);
-	}
+        wp_localize_script(
+            'wprig-accelerator-theme-settings',
+            'wprigAcceleratorThemeSettings',
+            array(
+                'nonce'    => wp_create_nonce( 'wp_rest' ),
+                'settings' => $settings,
+            )
+        );
+    }
 
 	/**
-	 * Adds an admin menu page for WP Rig settings.
+	 * Adds an admin menu page for Accelerator settings.
 	 */
 	public function add_admin_menu(): void {
 		add_menu_page(
-			__( 'Accelerator Settings', 'wp-rig' ),
-			__( 'Accelerator Settings', 'wp-rig' ),
+			__( 'Accelerator Settings', 'wprig-accelerator' ),
+			__( 'Accelerator Settings', 'wprig-accelerator' ),
 			'manage_options',
-			'wp-rig-settings',
+			'wprig-accelerator-settings',
 			array( $this, 'render_settings_page' )
 		);
 	}
@@ -134,7 +134,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
             return;
         }
 
-        $settings = get_option( 'wp_rig_theme_settings', array() );
+        $settings = get_option( 'wprig_accelerator_theme_settings', array() );
         if ( ! is_array( $settings ) ) {
             $settings = array();
         }
@@ -150,13 +150,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
         $logo_url = get_template_directory_uri() . '/assets/images/acc-logo.png';
 
         /** @noinspection PhpUndefinedFunctionInspection */
-        echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' . esc_html__( 'Maintenance', 'wp-rig' ) . '</title>';
+        echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' . esc_html__( 'Maintenance', 'wprig-accelerator' ) . '</title>';
         echo '<style>body{margin:0;background:#0d1f57;color:#fff;font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;padding:1.5rem;} .maintenance-message{max-width:720px;} .maintenance-logo{max-width:240px; height:auto; margin-bottom:2rem;} .maintenance-message h1{margin:0 0 1rem;font-size:2.25rem;} .maintenance-message p{margin:0;font-size:1.1rem;line-height:1.6;}</style></head><body><div class="maintenance-message">';
         
         // Output the image right above the heading
-        echo '<img src="' . esc_url( $logo_url ) . '" alt="' . esc_attr__( 'Accelerator Logo', 'wp-rig' ) . '" class="maintenance-logo" />';
+        echo '<img src="' . esc_url( $logo_url ) . '" alt="' . esc_attr__( 'Accelerator Logo', 'wprig-accelerator' ) . '" class="maintenance-logo" />';
         
-        echo '<h1>' . esc_html__( 'Maintenance Mode Enabled', 'wp-rig' ) . '</h1><p>' . esc_html__( 'We are currently performing maintenance. Please check back soon. If your matter is urgent please call Support on: 0207 993 3100 or email: support@accelerator.uk.com', 'wp-rig' ) . '</p></div></body></html>';
+        echo '<h1>' . esc_html__( 'Maintenance Mode Enabled', 'wprig-accelerator' ) . '</h1><p>' . esc_html__( 'We are currently performing maintenance. Please check back soon. If your matter is urgent please call Support on: 0207 993 3100 or email: support@accelerator.uk.com', 'wprig-accelerator' ) . '</p></div></body></html>';
         exit;
     }
 
@@ -176,7 +176,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		$settings = $this->sanitize_theme_settings( $settings );
 
-		update_option( 'wp_rig_theme_settings', $settings );
+		update_option( 'wprig_accelerator_theme_settings', $settings );
 
 		return new WP_REST_Response(
 			array(

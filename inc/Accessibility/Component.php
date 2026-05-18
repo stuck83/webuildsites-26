@@ -1,16 +1,16 @@
 <?php
 /**
- * WP_Rig\WP_Rig\Accessibility\Component class
+ * Accelerator\Accessibility\Component class
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig\Accessibility;
+namespace Accelerator\Accessibility;
 
-use WP_Rig\WP_Rig\Component_Interface;
+use Accelerator\Component_Interface;
 use WP_Post;
 
-use function WP_Rig\WP_Rig\wp_rig;
+use function Accelerator\wprig_accelerator;
 use function add_action;
 use function add_filter;
 use function wp_enqueue_script;
@@ -55,7 +55,7 @@ class Component implements Component_Interface {
                 $handle,
                 get_theme_file_uri( '/assets/js/navigation.min.js' ),
                 array(),
-                wp_rig()->get_asset_version( get_theme_file_path( '/assets/js/navigation.min.js' ) ),
+                wprig_accelerator()->get_asset_version( get_theme_file_path( '/assets/js/navigation.min.js' ) ),
                 false
         );
         wp_script_add_data( $handle, 'async', true );
@@ -64,8 +64,8 @@ class Component implements Component_Interface {
                 $handle,
                 $object_name,
                 array(
-                        'expand'   => __( 'Expand child menu', 'wp-rig' ),
-                        'collapse' => __( 'Collapse child menu', 'wp-rig' ),
+                        'expand'   => __( 'Expand child menu', 'wprig-accelerator' ),
+                        'collapse' => __( 'Collapse child menu', 'wprig-accelerator' ),
                 )
         );
 }

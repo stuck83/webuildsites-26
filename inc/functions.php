@@ -1,11 +1,11 @@
 <?php
 /**
- * The `wp_rig()` function.
+ * The `wprig_accelerator()` function.
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
 /**
  * Provides access to all available template tags of the theme.
@@ -14,7 +14,7 @@ namespace WP_Rig\WP_Rig;
  *
  * @return Template_Tags Template tags instance exposing template tag methods.
  */
-function wp_rig(): Template_Tags {
+function wprig_accelerator(): Template_Tags {
 	static $theme = null;
 
 	if ( null === $theme ) {

@@ -2,12 +2,12 @@
 /**
  * Template part for displaying the header navigation menu
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
-if ( ! wp_rig()->is_primary_nav_menu_active() ) {
+if ( ! wprig_accelerator()->is_primary_nav_menu_active() ) {
 	return;
 }
 
@@ -20,7 +20,7 @@ if ( ! wp_rig()->is_primary_nav_menu_active() ) {
 		
 		
 	</div>
-	<nav id="<?php echo apply_filters( 'wp_rig_site_navigation_id', 'site-navigation' ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>" class="<?php echo apply_filters( 'wp_rig_site_navigation_classes', 'main-navigation nav--toggle-sub nav--toggle-small' ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>" aria-label="<?php esc_attr_e( 'Main menu', 'wp-rig' ); ?>">
-		<?php wp_rig()->display_primary_nav_menu( array( 'menu_id' => 'primary-menu' ) ); ?>
+	<nav id="<?php echo apply_filters( 'wprig_accelerator_site_navigation_id', 'site-navigation' ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>" class="<?php echo apply_filters( 'wprig_accelerator_site_navigation_classes', 'main-navigation nav--toggle-sub nav--toggle-small' ); /* phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped */ ?>" aria-label="<?php esc_attr_e( 'Main menu', 'wprig-accelerator' ); ?>">
+		<?php wprig_accelerator()->display_primary_nav_menu( array( 'menu_id' => 'primary-menu' ) ); ?>
 	</nav><!-- #site-navigation -->
 </div>

@@ -1,13 +1,13 @@
 <?php
 /**
- * WP_Rig\WP_Rig\Post_Thumbnails\Component class
+ * Accelerator\Post_Thumbnails\Component class
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig\Post_Thumbnails;
+namespace Accelerator\Post_Thumbnails;
 
-use WP_Rig\WP_Rig\Component_Interface;
+use Accelerator\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function add_image_size;
@@ -47,6 +47,6 @@ class Component implements Component_Interface {
 	 * Adds custom image sizes.
 	 */
 	public function action_add_image_sizes() {
-		add_image_size( 'wp-rig-featured', 720, 480, true );
+		add_image_size( 'wprig-accelerator-featured', 720, 480, true );
 	}
 }

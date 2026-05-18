@@ -1,13 +1,13 @@
 <?php
 /**
- * WP_Rig\WP_Rig\Editor\Component class
+ * Accelerator\Editor\Component class
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig\Editor;
+namespace Accelerator\Editor;
 
-use WP_Rig\WP_Rig\Component_Interface;
+use Accelerator\Component_Interface;
 use function add_action;
 use function add_theme_support;
 
@@ -62,57 +62,57 @@ class Component implements Component_Interface {
 			'editor-color-palette',
 			array(
 				array(
-					'name'  => __( 'Primary', 'wp-rig' ),
+					'name'  => __( 'Primary', 'wprig-accelerator' ),
 					'slug'  => 'theme-primary',
 					'color' => '#e36d60',
 				),
 				array(
-					'name'  => __( 'Secondary', 'wp-rig' ),
+					'name'  => __( 'Secondary', 'wprig-accelerator' ),
 					'slug'  => 'theme-secondary',
 					'color' => '#41848f',
 				),
 				array(
-					'name'  => __( 'Red', 'wp-rig' ),
+					'name'  => __( 'Red', 'wprig-accelerator' ),
 					'slug'  => 'theme-red',
 					'color' => '#C0392B',
 				),
 				array(
-					'name'  => __( 'Green', 'wp-rig' ),
+					'name'  => __( 'Green', 'wprig-accelerator' ),
 					'slug'  => 'theme-green',
 					'color' => '#27AE60',
 				),
 				array(
-					'name'  => __( 'Blue', 'wp-rig' ),
+					'name'  => __( 'Blue', 'wprig-accelerator' ),
 					'slug'  => 'theme-blue',
 					'color' => '#2980B9',
 				),
 				array(
-					'name'  => __( 'Yellow', 'wp-rig' ),
+					'name'  => __( 'Yellow', 'wprig-accelerator' ),
 					'slug'  => 'theme-yellow',
 					'color' => '#F1C40F',
 				),
 				array(
-					'name'  => __( 'Black', 'wp-rig' ),
+					'name'  => __( 'Black', 'wprig-accelerator' ),
 					'slug'  => 'theme-black',
 					'color' => '#1C2833',
 				),
 				array(
-					'name'  => __( 'Grey', 'wp-rig' ),
+					'name'  => __( 'Grey', 'wprig-accelerator' ),
 					'slug'  => 'theme-grey',
 					'color' => '#95A5A6',
 				),
 				array(
-					'name'  => __( 'White', 'wp-rig' ),
+					'name'  => __( 'White', 'wprig-accelerator' ),
 					'slug'  => 'theme-white',
 					'color' => '#ECF0F1',
 				),
 				array(
-					'name'  => __( 'Dusty daylight', 'wp-rig' ),
+					'name'  => __( 'Dusty daylight', 'wprig-accelerator' ),
 					'slug'  => 'custom-daylight',
 					'color' => '#97c0b7',
 				),
 				array(
-					'name'  => __( 'Dusty sun', 'wp-rig' ),
+					'name'  => __( 'Dusty sun', 'wprig-accelerator' ),
 					'slug'  => 'custom-sun',
 					'color' => '#eee9d1',
 				),
@@ -129,26 +129,26 @@ class Component implements Component_Interface {
 			'editor-font-sizes',
 			array(
 				array(
-					'name'      => __( 'Small', 'wp-rig' ),
-					'shortName' => __( 'S', 'wp-rig' ),
+					'name'      => __( 'Small', 'wprig-accelerator' ),
+					'shortName' => __( 'S', 'wprig-accelerator' ),
 					'size'      => 16,
 					'slug'      => 'small',
 				),
 				array(
-					'name'      => __( 'Medium', 'wp-rig' ),
-					'shortName' => __( 'M', 'wp-rig' ),
+					'name'      => __( 'Medium', 'wprig-accelerator' ),
+					'shortName' => __( 'M', 'wprig-accelerator' ),
 					'size'      => 25,
 					'slug'      => 'medium',
 				),
 				array(
-					'name'      => __( 'Large', 'wp-rig' ),
-					'shortName' => __( 'L', 'wp-rig' ),
+					'name'      => __( 'Large', 'wprig-accelerator' ),
+					'shortName' => __( 'L', 'wprig-accelerator' ),
 					'size'      => 31,
 					'slug'      => 'large',
 				),
 				array(
-					'name'      => __( 'Larger', 'wp-rig' ),
-					'shortName' => __( 'XL', 'wp-rig' ),
+					'name'      => __( 'Larger', 'wprig-accelerator' ),
+					'shortName' => __( 'XL', 'wprig-accelerator' ),
 					'size'      => 39,
 					'slug'      => 'larger',
 				),

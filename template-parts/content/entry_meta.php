@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's metadata
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
 $post_type_obj = get_post_type_object( get_post_type() );
 
@@ -60,7 +60,7 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 			<?php
 			printf(
 				/* translators: %s: post date */
-				esc_html_x( 'Posted on %s', 'post date', 'wp-rig' ),
+				esc_html_x( 'Posted on %s', 'post date', 'wprig-accelerator' ),
 				$time_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			);
 			?>
@@ -73,10 +73,10 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 		<span class="posted-by">
 			<?php
 			/* translators: %s: post author */
-			$author_byline = _x( 'By %s', 'post author', 'wp-rig' );
+			$author_byline = _x( 'By %s', 'post author', 'wprig-accelerator' );
 			if ( '' !== $time_string && '0' !== $time_string ) {
 				/* translators: %s: post author */
-				$author_byline = _x( 'by %s', 'post author', 'wp-rig' );
+				$author_byline = _x( 'by %s', 'post author', 'wprig-accelerator' );
 			}
 			printf(
 				esc_html( $author_byline ),
@@ -92,13 +92,13 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 		<span class="posted-in">
 			<?php
 			/* translators: %s: post parent title */
-			$parent_note = _x( 'In %s', 'post parent', 'wp-rig' );
+			$parent_note = _x( 'In %s', 'post parent', 'wprig-accelerator' );
 			if ( ( '' !== $time_string && '0' !== $time_string ) || ( '' !== $author_string && '0' !== $author_string ) ) {
 				/* translators: %s: post parent title */
-				$parent_note = _x( 'in %s', 'post parent', 'wp-rig' );
+				$parent_note = _x( 'in %s', 'post parent', 'wprig-accelerator' );
 			} else {
 				/* translators: %s: post parent title */
-				$parent_note = _x( 'In %s', 'post parent', 'wp-rig' );
+				$parent_note = _x( 'In %s', 'post parent', 'wprig-accelerator' );
 			}
 			printf(
 				esc_html( $parent_note ),

@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's summary
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
 ?>
 

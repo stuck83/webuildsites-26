@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's header
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
 ?>
 

@@ -4,14 +4,14 @@
  *
  * @link https://github.com/xwp/pwa-wp#offline--500-error-handling
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
 get_header();
 
-wp_rig()->print_styles( 'wp-rig-content' );
+wprig_accelerator()->print_styles( 'wprig-accelerator-content' );
 
 ?>
 	<main id="primary" class="site-main">

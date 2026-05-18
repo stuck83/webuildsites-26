@@ -2,10 +2,10 @@
 /**
  * Template part for displaying the custom header media
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
 if ( ! has_header_image() ) {
 	return;

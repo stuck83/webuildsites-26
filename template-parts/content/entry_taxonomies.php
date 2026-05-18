@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's taxonomy terms
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig;
+namespace Accelerator;
 
 $taxonomies = wp_list_filter(
 	get_object_taxonomies( $post, 'objects' ),
@@ -21,27 +21,27 @@ $taxonomies = wp_list_filter(
 	foreach ( $taxonomies as $taxonomy ) { // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 
 		/* translators: separator between taxonomy terms */
-		$separator = _x( ', ', 'list item separator', 'wp-rig' );
+		$separator = _x( ', ', 'list item separator', 'wprig-accelerator' );
 
 		switch ( $taxonomy->name ) {
 			case 'category':
 				$class = 'category-links term-links';
 				$list  = get_the_category_list( esc_html( $separator ), '', $post->ID );
 				/* translators: %s: list of taxonomy terms */
-				$placeholder_text = __( 'Posted in %s', 'wp-rig' );
+				$placeholder_text = __( 'Posted in %s', 'wprig-accelerator' );
 				break;
 			case 'post_tag':
 				$class = 'tag-links term-links';
 				$list  = get_the_tag_list( '', esc_html( $separator ), '', $post->ID );
 				/* translators: %s: list of taxonomy terms */
-				$placeholder_text = __( 'Tagged %s', 'wp-rig' );
+				$placeholder_text = __( 'Tagged %s', 'wprig-accelerator' );
 				break;
 			default:
 				$class            = str_replace( '_', '-', $taxonomy->name ) . '-links term-links';
 				$list             = get_the_term_list( $post->ID, $taxonomy->name, '', esc_html( $separator ), '' );
 				$placeholder_text = sprintf(
 					/* translators: %s: taxonomy name */
-					__( '%s:', 'wp-rig' ),
+					__( '%s:', 'wprig-accelerator' ),
 					$taxonomy->labels->name // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 		}

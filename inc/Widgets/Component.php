@@ -1,13 +1,13 @@
 <?php
 /**
- * WP_Rig\WP_Rig\Widgets\Component class
+ * Accelerator\Widgets\Component class
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig\Widgets;
+namespace Accelerator\Widgets;
 
-use WP_Rig\WP_Rig\Component_Interface; // Corrected from 'import'
+use Accelerator\Component_Interface; // Corrected from 'import'
 use function add_action;
 use function register_sidebar;
 use function sprintf;
@@ -52,7 +52,7 @@ class Component implements Component_Interface {
 				array_merge(
 					$widget_wrapper,
 					array(
-						'name' => sprintf( __( 'Footer Column %d', 'wp-rig' ), $i ),
+						'name' => sprintf( __( 'Footer Column %d', 'wprig-accelerator' ), $i ),
 						'id'   => 'footer-col-' . $i,
 					)
 				)

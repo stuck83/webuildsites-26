@@ -2,7 +2,7 @@
 /**
  * Shims for recent WordPress functions
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
 /**

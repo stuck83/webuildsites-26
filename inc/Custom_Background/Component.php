@@ -1,13 +1,13 @@
 <?php
 /**
- * WP_Rig\WP_Rig\Custom_Background\Component class
+ * Accelerator\Custom_Background\Component class
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig\Custom_Background;
+namespace Accelerator\Custom_Background;
 
-use WP_Rig\WP_Rig\Component_Interface;
+use Accelerator\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function apply_filters;
@@ -40,7 +40,7 @@ class Component implements Component_Interface {
 		add_theme_support(
 			'custom-background',
 			apply_filters(
-				'wp_rig_custom_background_args',
+				'wprig_accelerator_custom_background_args',
 				array(
 					'default-color' => 'ffffff',
 					'default-image' => '',

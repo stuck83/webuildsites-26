@@ -1,13 +1,13 @@
 <?php
 /**
- * WP_Rig\WP_Rig\Custom_Header\Component class
+ * Accelerator\Custom_Header\Component class
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig\Custom_Header;
+namespace Accelerator\Custom_Header;
 
-use WP_Rig\WP_Rig\Component_Interface;
+use Accelerator\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function apply_filters;
@@ -46,7 +46,7 @@ class Component implements Component_Interface {
 		add_theme_support(
 			'custom-header',
 			apply_filters(
-				'wp_rig_custom_header_args',
+				'wprig_accelerator_custom_header_args',
 				array(
 					'default-image'      => '',
 					'default-text-color' => '000000',

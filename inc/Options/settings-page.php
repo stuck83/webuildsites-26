@@ -3,7 +3,7 @@
  * Content to display in Theme Settings admin page.
  * React loads in the app container div wprig-accelerator-settings-page.
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
 wp_enqueue_style(

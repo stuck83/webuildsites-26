@@ -1,17 +1,17 @@
 <?php
 /**
- * WP_Rig\WP_Rig\EZ_Customizer\Component class
+ * Accelerator\EZ_Customizer\Component class
  *
- * @package wp_rig
+ * @package wprig_accelerator
  */
 
-namespace WP_Rig\WP_Rig\EZ_Customizer;
+namespace Accelerator\EZ_Customizer;
 
 use WP_Customize_Color_Control;
 use WP_Customize_control;
 use WP_Customize_Date_Time_Control;
 use WP_Customize_Media_Control;
-use WP_Rig\WP_Rig\Component_Interface;
+use Accelerator\Component_Interface;
 use function add_action;
 use function get_theme_file_uri;
 
@@ -85,7 +85,7 @@ class Component implements Component_Interface {
 	private function get_theme_settings_config() {
 		$get_menu_icon        = wp_remote_get( get_theme_file_uri() . '/inc/EZ_Customizer/themeCustomizeSettings.json' );
 		$theme_settings_json  = wp_remote_retrieve_body( $get_menu_icon );
-		$this->theme_settings = apply_filters( 'wp_rig_customizer_settings', json_decode( $theme_settings_json, FILE_USE_INCLUDE_PATH ) );
+		$this->theme_settings = apply_filters( 'wprig_accelerator_customizer_settings', json_decode( $theme_settings_json, FILE_USE_INCLUDE_PATH ) );
 	}
 
 	/**
