@@ -20,8 +20,8 @@ const textControlTypes = [
 
 const SettingsPage = () => {
 	const [ settings, setSettings ] = useState(
-		window.wpRigThemeSettings.settings || {}
-	);
+    window.wprigAcceleratorThemeSettings?.settings || {} // Matches your PHP wp_localize_script variable
+);
 	const [ snackbarNotices, setSnackbarNotices ] = useState( [] );
 	const timeoutRef = useRef( null );
 
@@ -169,11 +169,11 @@ const SettingsPage = () => {
 export default SettingsPage;
 
 const renderSettingsPage = () => {
-	const container = document.getElementById( 'wp-rig-settings-page' );
-	if ( container ) {
-		const root = createRoot( container );
-		root.render( <SettingsPage /> );
-	}
+    const container = document.getElementById( 'wprig-accelerator-settings-page' ); // Matches your settings-page.php div ID
+    if ( container ) {
+        const root = createRoot( container );
+        root.render( <SettingsPage /> );
+    }
 };
 
 document.addEventListener( 'DOMContentLoaded', renderSettingsPage );
