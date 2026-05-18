@@ -5,19 +5,14 @@
 * Categories: featured
 */
 ?>
-<!-- wp:group {"metadata":{"categories":["featured"],"patternName":"accelerator/
-features","name":"Features"},"className":"features-section","layout":
-{"type":"constrained"}} -->
-<div class="wp-block-group features-section" style="width: 100%; max-width: 100%;
-padding: 4rem 0; box-sizing: border-box;">
+<!-- wp:group {"metadata":{"categories":["featured"],"patternName":"accelerator/features","name":"Features"},"className":"features-section","layout":{"type":"constrained"}} -->
+<div class="wp-block-group features-section" style="width: 100%; max-width: 100%; padding: 4rem 0; box-sizing: border-box;">
 <!-- wp:heading {"textAlign":"center"} -->
 <h2 class="wp-block-heading has-text-align-center">Features</h2>
 <!-- /wp:heading -->
 <!-- wp:columns {"className":"features-grid grid-12 grid-row"} -->
 <div class="wp-block-columns features-grid grid-12 grid-row" style="display:
-flex !important; flex-wrap: wrap !important; width: 100% !important; max-width:
-100% !important; margin: 2rem auto 0 !important;">
-<!-- wp:column {"className":"col-4 reveal-on-scroll"} -->
+flex !important; flex-wrap: wrap !important; width: 100% !important; max-wid flex !important; flex-wrap: wrap !important; width: 100% !important; max-width: <!-- wp:column {"className":"col-4 reveal-on-scroll"} -->
 <div class="wp-block-column col-4 reveal-on-scroll">
 <!-- wp:paragraph {"align":"center"} -->
 <p class="has-text-align-center">[ICON]</p>
