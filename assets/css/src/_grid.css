@@ -61,7 +61,7 @@ html, body {
 
 /* ==========================================================================
    Column Widths — all 12 spans
-   ========================================================================== */
+   ========================================================================== 
 
 .col-1  { flex: 0 0 calc(8.333%  - var(--grid-gutter)); max-width: calc(8.333%  - var(--grid-gutter)); }
 .col-2  { flex: 0 0 calc(16.666% - var(--grid-gutter)); max-width: calc(16.666% - var(--grid-gutter)); }
@@ -76,7 +76,7 @@ html, body {
 .col-11 { flex: 0 0 calc(91.666% - var(--grid-gutter)); max-width: calc(91.666% - var(--grid-gutter)); }
 .col-12 { flex: 0 0 100%; max-width: 100%; }
 
-/* Apply to wp:column blocks specifically */
+ Apply to wp:column blocks specifically 
 .wp-block-column.col-1  { flex: 0 0 calc(8.333%  - var(--grid-gutter)) !important; max-width: calc(8.333%  - var(--grid-gutter)) !important; }
 .wp-block-column.col-2  { flex: 0 0 calc(16.666% - var(--grid-gutter)) !important; max-width: calc(16.666% - var(--grid-gutter)) !important; }
 .wp-block-column.col-3  { flex: 0 0 calc(25%     - var(--grid-gutter)) !important; max-width: calc(25%     - var(--grid-gutter)) !important; }
@@ -93,6 +93,84 @@ html, body {
 /* ==========================================================================
    Homepage template overrides
    ========================================================================== */
+
+/* ==========================================================================
+   Column Widths — Clean Dynamic Fractional Math
+   ========================================================================== */
+
+.col-1  { flex: 0 0 calc((100% / 12) * 1); max-width: calc((100% / 12) * 1); }
+.col-2  { flex: 0 0 calc((100% / 12) * 2); max-width: calc((100% / 12) * 2); }
+.col-3  { flex: 0 0 calc((100% / 12) * 3); max-width: calc((100% / 12) * 3); }
+.col-4  { flex: 0 0 calc((100% / 12) * 4); max-width: calc((100% / 12) * 4); } /* Exact 33.333% */
+.col-5  { flex: 0 0 calc((100% / 12) * 5); max-width: calc((100% / 12) * 5); }
+.col-6  { flex: 0 0 calc((100% / 12) * 6); max-width: calc((100% / 12) * 6); }
+.col-7  { flex: 0 0 calc((100% / 12) * 7); max-width: calc((100% / 12) * 7); }
+.col-8  { flex: 0 0 calc((100% / 12) * 8); max-width: calc((100% / 12) * 8); }
+.col-9  { flex: 0 0 calc((100% / 12) * 9); max-width: calc((100% / 12) * 9); }
+.col-10 { flex: 0 0 calc((100% / 12) * 10); max-width: calc((100% / 12) * 10); }
+.col-11 { flex: 0 0 calc((100% / 12) * 11); max-width: calc((100% / 12) * 11); }
+.col-12 { flex: 0 0 100%; max-width: 100%; }
+
+/* Apply to wp:column blocks specifically */
+.wp-block-column.col-1  { flex: 0 0 calc((100% / 12) * 1) !important; max-width: calc((100% / 12) * 1) !important; }
+.wp-block-column.col-2  { flex: 0 0 calc((100% / 12) * 2) !important; max-width: calc((100% / 12) * 2) !important; }
+.wp-block-column.col-3  { flex: 0 0 calc((100% / 12) * 3) !important; max-width: calc((100% / 12) * 3) !important; }
+.wp-block-column.col-4  { flex: 0 0 calc((100% / 12) * 4) !important; max-width: calc((100% / 12) * 4) !important; }
+.wp-block-column.col-5  { flex: 0 0 calc((100% / 12) * 5) !important; max-width: calc((100% / 12) * 5) !important; }
+.wp-block-column.col-6  { flex: 0 0 calc((100% / 12) * 6) !important; max-width: calc((100% / 12) * 6) !important; }
+.wp-block-column.col-7  { flex: 0 0 calc((100% / 12) * 7) !important; max-width: calc((100% / 12) * 7) !important; }
+.wp-block-column.col-8  { flex: 0 0 calc((100% / 12) * 8) !important; max-width: calc((100% / 12) * 8) !important; }
+.wp-block-column.col-9  { flex: 0 0 calc((100% / 12) * 9) !important; max-width: calc((100% / 12) * 9) !important; }
+.wp-block-column.col-10 { flex: 0 0 calc((100% / 12) * 10) !important; max-width: calc((100% / 12) * 10) !important; }
+.wp-block-column.col-11 { flex: 0 0 calc((100% / 12) * 11) !important; max-width: calc((100% / 12) * 11) !important; }
+.wp-block-column.col-12 { flex: 0 0 100% !important; max-width: 100% !important; }
+
+
+
+/* ==========================================================================
+   Blog Page Template Overrides — Desktop Only Grid
+   ========================================================================== */
+
+/* Target only screens wider than standard tablet viewports */
+@media (min-width: 1025px) {
+    .blog-page .blog-post-grid .blog-card.col-4 {
+        flex: 0 0 calc(33.333% - var(--grid-gutter)) !important;
+        max-width: calc(33.333% - var(--grid-gutter)) !important;
+        box-sizing: border-box !important;
+    }
+
+    .blog-page .blog-post-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: var(--grid-gutter) !important;
+    }
+}
+
+/* Specificity fix for tablet layout to sit nicely as 2 columns */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .blog-page .blog-post-grid .blog-card.col-4 {
+        flex: 0 0 calc(50% - var(--grid-gutter)) !important;
+        max-width: calc(50% - var(--grid-gutter)) !important;
+        box-sizing: border-box !important;
+    }
+    
+    .blog-page .blog-post-grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        gap: var(--grid-gutter) !important;
+    }
+}
+
+/* Mobile Layout fallback settings */
+@media (max-width: 768px) {
+    .blog-page .blog-post-grid .blog-card.col-4 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        margin-bottom: var(--grid-gutter);
+    }
+}
+
 
 .page-template-homepage .site {
     display: block !important;

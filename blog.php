@@ -37,7 +37,7 @@ $blog_query = new \WP_Query(
         </header>
 
         <?php if ( $blog_query->have_posts() ) : ?>
-            <div class="blog-post-grid grid-12">
+            <div class="blog-post-grid grid-12 grid-row">
                 <?php while ( $blog_query->have_posts() ) : $blog_query->the_post(); ?>
                     <article id="post-<?php the_ID(); ?>" <?php post_class( 'blog-card col-4 reveal-on-scroll' ); ?>>
                         <?php if ( has_post_thumbnail() ) : ?>

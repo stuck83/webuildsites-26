@@ -5,8 +5,8 @@
  * Categories: featured
  */
 ?>
-<!-- wp:group {"metadata":{"name":"Service Banner"},"className":"service-banner-section","layout":{"type":"default"}} -->
-<div class="wp-block-group service-banner-section">
+<!-- wp:group {"metadata":{"name":"Service Banner"},"className":"service-banner-section","align":"full","layout":{"type":"default"}} -->
+<div class="wp-block-group service-banner-section alignfull">
 
     <!-- wp:columns {"className":"service-banner-wrapper"} -->
     <div class="wp-block-columns service-banner-wrapper">
