@@ -19,6 +19,10 @@
     box-sizing: border-box;
 }
 
+.site-footer p{
+    color:var(--brand-white);
+}
+
 /* Centers your internal content elements (menus, widgets, copyrights) inside the expanded footer background */
 .site-footer > * {
     max-width: var(--container-width);
@@ -122,7 +126,7 @@
 }
 
 .site-info-widgets a {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--brand-white);
 }
 
 .footer-credits p {
@@ -167,6 +171,10 @@ ul.footer-contact-list {
     color: var(--brand-orange);
 }
 
+
+.address{
+    color: var(--brand-white);
+}
 
 /* ==========================================================================
    Search Modal Window

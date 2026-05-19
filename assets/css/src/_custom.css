@@ -423,3 +423,27 @@ body.single-post #page.site {
 .blog-card {
     box-sizing: border-box;
 }
+
+/* Blog cards grid container - Clean 3-Column Desktop Settings */
+.blog-post-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* Locks it to 3 columns on desktop screens */
+    gap: 2.5rem !important; /* Slightly larger gap looks great with 3 cards */
+    margin-bottom: 3rem;
+}
+
+/* Tablet view styling */
+@media (max-width: 1080px) {
+    .blog-post-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Seamlessly drops down to 2 columns on tablets */
+        gap: 2rem !important;
+    }
+}
+
+/* Mobile viewport layout */
+@media (max-width: 767px) {
+    .blog-post-grid {
+        grid-template-columns: 1fr !important; /* Stacks flat and full-width on mobile devices */
+        gap: 1.5rem !important;
+    }
+}

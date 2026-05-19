@@ -5,8 +5,8 @@
  * Categories: featured
  */
 ?>
-<!-- wp:group {"metadata":{"name":"Service Intro"},"className":"image-content-section grid-container","layout":{"type":"constrained"}} -->
-<div class="wp-block-group image-content-section grid-container">
+<!-- wp:group {"metadata":{"name":"Service Intro"},"className":"image-content-section","align":"full","layout":{"type":"default"}} -->
+<div class="wp-block-group image-content-section alignfull">
 
     <!-- wp:columns {"className":"grid-12"} -->
     <div class="wp-block-columns grid-12">

@@ -5,8 +5,8 @@
  * Categories: featured
  */
 ?>
-<!-- wp:group {"metadata":{"name":"Main Services"},"className":"services-section grid-container","layout":{"type":"constrained"}} -->
-<div class="wp-block-group services-section grid-container">
+<!-- wp:group {"metadata":{"name":"Main Services"},"className":"service-banner-section","align":"full","layout":{"type":"default"}} -->
+<div class="wp-block-group services-section alignfull">
 
     <!-- wp:columns {"className":"grid-12"} -->
     <div class="wp-block-columns grid-12">
@@ -14,8 +14,8 @@
         <!-- wp:column {"className":"col-4"} -->
         <div class="wp-block-column col-4">
 
-            <!-- wp:heading -->
-            <h2 class="wp-block-heading">Our Services</h2>
+            <!-- wp:heading {"level":1} -->
+            <h1 class="wp-block-heading">Our Services</h1>
             <!-- /wp:heading -->
 
             <!-- wp:paragraph -->

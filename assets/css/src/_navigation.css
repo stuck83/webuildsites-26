@@ -547,7 +547,7 @@ body.mobile-menu-open {
 		overflow: hidden;
 		display: flex;
 		flex-direction: column;
-		margin-top:48px;
+		margin-top:43px;
 
 		&:has(nav.nav--toggled-on) {
 			z-index: 5;
