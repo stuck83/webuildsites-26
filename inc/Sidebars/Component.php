@@ -75,7 +75,20 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				'after_title'   => '</h3>',
 			)
 		);
+		register_sidebar(
+    array(
+        'name'          => esc_html__( 'Blog Sidebar', 'wprig-accelerator' ),
+        'id'            => 'blog-sidebar',
+        'description'   => esc_html__( 'Widgets for the blog and single post pages.', 'wprig-accelerator' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h3 class="widget-title">',
+        'after_title'   => '</h3>',
+    )
+);
 	}
+
+
 
 	/**
 	 * Adds custom classes to indicate whether a sidebar is present to the array of body classes.

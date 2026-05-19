@@ -5,14 +5,14 @@
  * Categories: featured
  */
 ?>
-<!-- wp:group {"metadata":{"name":"Service Banner"},"className":"service-banner-section grid-container","layout":{"type":"constrained"}} -->
-<div class="wp-block-group service-banner-section grid-container">
+<!-- wp:group {"metadata":{"name":"Service Banner"},"className":"service-banner-section","layout":{"type":"default"}} -->
+<div class="wp-block-group service-banner-section">
 
-    <!-- wp:columns {"className":"grid-12"} -->
-    <div class="wp-block-columns grid-12">
+    <!-- wp:columns {"className":"service-banner-wrapper"} -->
+    <div class="wp-block-columns service-banner-wrapper">
 
-        <!-- wp:column {"className":"col-6 service-banner-content"} -->
-        <div class="wp-block-column col-6 service-banner-content">
+        <!-- wp:column {"className":"service-banner-content"} -->
+        <div class="wp-block-column service-banner-content">
 
             <!-- wp:heading {"level":1,"className":"service-banner-title"} -->
             <h1 class="wp-block-heading service-banner-title">Service Title Goes Here</h1>
@@ -39,8 +39,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"className":"col-6 service-banner-image"} -->
-        <div class="wp-block-column col-6 service-banner-image">
+        <!-- wp:column {"className":"service-banner-image"} -->
+        <div class="wp-block-column service-banner-image">
 
             <!-- wp:image {"sizeSlug":"large","className":"service-banner-img"} -->
             <figure class="wp-block-image size-large service-banner-img">

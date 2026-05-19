@@ -940,6 +940,14 @@ body.mobile-menu-open .primary-menu-container {
 }
 
 
+
+.main-navigation .menu-item a {
+    font-size: 0.9rem;
+	/*font-size: var(--font-size-small);*/
+    padding: 0.5rem 0.75rem;
+    white-space: nowrap;
+}
+
 /***wplocal live link****/
 /*uncomment this for testing in wp live link only*/
 

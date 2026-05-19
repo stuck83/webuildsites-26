@@ -304,3 +304,64 @@
         display: none;
     }
 }
+
+
+body.single-post #page.site {
+    display: block !important;
+    max-width: 100% !important;
+}
+
+
+/* ==========================================================================
+   Single Post Layout
+   ========================================================================== */
+
+body.single-post #page.site {
+    display: block !important;
+    max-width: 100% !important;
+}
+
+.single-post-wrapper {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 2rem var(--container-padding);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.single-post-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2rem;
+    width: 100%;
+}
+
+.single-post-main {
+    width: 100% !important;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+.single-post-sidebar {
+    width: 100% !important;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+@media (min-width: 952px) {
+    .single-post-row {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: flex-start;
+    }
+
+    .single-post-main {
+        flex: 0 0 calc(75% - 1rem) !important;
+        max-width: calc(75% - 1rem) !important;
+    }
+
+    .single-post-sidebar {
+        flex: 0 0 calc(25% - 1rem) !important;
+        max-width: calc(25% - 1rem) !important;
+    }
+}

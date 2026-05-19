@@ -8,7 +8,7 @@
 namespace Accelerator;
 
 ?>
-<div class="primary-menu-container flex-grow col-9">
+<div class="primary-menu-container flex-grow">
     
     <div class="mobile-menu-header">
         <?php get_template_part( 'template-parts/header/mobile-menu-toggle' ); ?>
