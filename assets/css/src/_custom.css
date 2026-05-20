@@ -1,3 +1,5 @@
+@import "virtual:preload.css";
+
 /* ==========================================================================
    Global Layout & Structural Container Constants
    ========================================================================== */
@@ -16,17 +18,22 @@
     padding: 0 !important;
 }
 
-/* 2. Global Centering Container Rules */
-.grid-container,
-.site-main > article,
-.entry-content > *:not(.alignfull) {
-    max-width: var(--container-width);
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding-left: var(--container-padding);
-    padding-right: var(--container-padding);
-    box-sizing: border-box;
-    width: 100%;
+/* ==========================================================================
+   WP RIG CORE OVERRIDE: Single Blog Post Reset
+   Neutralizes the aggressive padding & max-widths coming from content.css
+   ========================================================================== */
+body.single-post .single-post-main .entry,
+body.single-post .single-post-main .entry-header,
+body.single-post .single-post-main .entry-content,
+body.single-post .single-post-main .entry-footer,
+body.single-post .single-post-main .entry-content > * {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
 }
 
 /* 3. Safe full-width breakout sections (Hero & Block Editor banners) */
@@ -51,27 +58,72 @@ html, body {
     padding: 0;
 }
 
+/* ==========================================================================
+   Global Site Components
+   ========================================================================== */
 
-/****LOGO SIZE***/
-
+/**** LOGO SIZE ****/
 .site-branding .custom-logo {
-    width: 90%; /* Adjust this number until it looks right */
-    height: auto;     /* Maintains aspect ratio */
+    width: 90%; 
+    height: auto;
 }
 
-/***VIDEO HOMEPAGE*****/
+/**** ANIMATIONS ON SCROLL ****/
+.reveal-on-scroll {
+    opacity: 0;
+}
+.reveal-on-scroll.animate__animated {
+    opacity: 1;
+}
+
+/**** FLOATING CONTACT BUTTON ****/
+.floating-contact-button {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: right bottom;
+    z-index: 99999;
+    display: inline-block;
+    text-decoration: none;
+    background: var(--brand-orange);
+    color: #ffffff !important;
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.floating-contact-button:hover {
+    background-color: #d36110;
+    color: #ffffff !important;
+}
+
+@media (max-width: 480px) {
+    .floating-contact-button {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   Homepage Components
+   ========================================================================== */
+
+/*** VIDEO HOMEPAGE ***/
 .accelerator-hero-video {
     position: relative;
-    width: 100vw;       /* Force viewport width to ignore parent padding */
+    width: 100vw;       
     left: 50%;
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    height: 550px;      /* Adjust height as needed */
+    height: 550px;      
     overflow: hidden;
 }
 
-/* Make the video fill the background perfectly */
 .bg-video {
     position: absolute;
     top: 50%;
@@ -85,7 +137,6 @@ html, body {
     z-index: -1;
 }
 
-/* Position the container that holds the text */
 .video-overlay {
     position: absolute;
     top: 0;
@@ -95,27 +146,22 @@ html, body {
     z-index: 2;
 }
 
-/* Match your grid and anchor the box to the bottom */
 .video-overlay .grid-container {
     position: relative;
     height: 100%;
 }
 
-
 .hero-text-box {
     position: absolute;
-    bottom: 60;          /* Aligns the box to the very bottom of the video */
-    right: 1%;         /* Keeps it aligned to the right side */
+    bottom: 60px;          
+    right: 1%;         
     background-color: #f0f0f0e8;
     padding: 20px;
     max-width: 410px;
     z-index: 10;
     border-radius: 12px;
-    /* Optional: Add a slight transform if you want it overlapping the next section */
-    /* transform: translateY(20px); */
 }
 
-/* Typography Styling */
 .hero-title {
     color: var(--global-font-color);
     font-size: 2.5rem;
@@ -136,34 +182,19 @@ html, body {
     line-height: 1.5;
 }
 
-/* Remove default side padding on the main site container for the homepage */
 .page-template-homepage .site {
     max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
 }
 
-/*****annimations on scrowl******/
-/* Hide elements until the observer adds the animation class */
-.reveal-on-scroll {
-    opacity: 0;
-}
+/* ==========================================================================
+   Archive / Blog Roll Layout
+   ========================================================================== */
 
-/* Show them once the animation starts */
-.reveal-on-scroll.animate__animated {
-    opacity: 1;
-}
-
-/* Blog cards grid */
 .blog-page-header {
     margin-bottom: 2rem;
     text-align: center;
-}
-
-.blog-post-grid {
-    display: grid;
-    gap: 2rem;
-    margin-bottom: 3rem;
 }
 
 .blog-card {
@@ -174,6 +205,7 @@ html, body {
     border-radius: 0;
     overflow: hidden;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
 }
 
 .blog-card-image-link {
@@ -185,7 +217,6 @@ html, body {
     background-color: var(--brand-grey-light, #f7f8fb) !important;
 }
 
-.blog-card-image-link > img,
 .blog-card-image-link img {
     display: block !important;
     width: 100% !important;
@@ -276,104 +307,31 @@ html, body {
     border-color: var(--brand-orange, #f28524);
 }
 
+/* Blog Responsive Grid Structure */
+.blog-post-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; 
+    gap: 2.5rem !important; 
+    margin-bottom: 3rem;
+}
+
 @media (max-width: 1080px) {
     .blog-post-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
+        gap: 2rem !important;
     }
 }
 
 @media (max-width: 767px) {
     .blog-post-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important; 
+        gap: 1.5rem !important;
     }
 }
-
-/**
- * Scroll Progress Bar for Single Posts
- */
-
-/* The outer container */
-.scroll-progress-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px; /* Adjust thickness here */
-    /*background-color: rgba(255, 255, 255, 0.1); /* Subtle background so you can see the track */
-    z-index: 999999; /* Higher than the header/top-bar */
-    pointer-events: none; /* Allows clicks to pass through to links underneath */
-}
-
-/* The moving orange bar */
-.scroll-progress-bar {
-    height: 100%;
-    width: 0%; /* Initial state controlled by JS */
-    background-color: #ec7c30; /* Your brand orange */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: width 0.1s ease-out; /* Makes the movement feel fluid */
-}
-
-/* Responsive tweak: slightly thinner on mobile */
-@media (max-width: 768px) {
-    .scroll-progress-container {
-        height: 4px;
-    }
-}
-
-
-/* Floating Contact Button */
-.floating-contact-button {
-    /* Positioning */
-    position: fixed;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%) rotate(-90deg);
-    transform-origin: right bottom;
-    z-index: 99999;
-    
-    /* Matching your existing button styles */
-    display: inline-block;
-    text-decoration: none;
-    /*border: 1px solid;*/
-    background: var(--brand-orange);
-    color: #ffffff !important; /* brand-white */
-    font-size: 0.75rem;
-    line-height: 1;
-    padding: 12px 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.floating-contact-button:hover {
-    background-color: #d36110; /* Matching your hover state */
-    color: #ffffff !important;
-}
-
-
-/* Optional: Hide on very small screens if it covers content */
-@media (max-width: 480px) {
-    .floating-contact-button {
-        display: none;
-    }
-}
-
-
-body.single-post #page.site {
-    display: block !important;
-    max-width: 100% !important;
-}
-
 
 /* ==========================================================================
-   Single Post Layout
+   Single Post Detail Layout Modules (Cleaned & Unlocked)
    ========================================================================== */
-
-body.single-post #page.site {
-    display: block !important;
-    max-width: 100% !important;
-}
 
 .single-post-wrapper {
     max-width: var(--container-width);
@@ -386,16 +344,11 @@ body.single-post #page.site {
 .single-post-row {
     display: flex !important;
     flex-direction: column !important;
-    gap: 2rem;
+    gap: 2.5rem;
     width: 100%;
 }
 
-.single-post-main {
-    width: 100% !important;
-    box-sizing: border-box;
-    min-width: 0;
-}
-
+.single-post-main,
 .single-post-sidebar {
     width: 100% !important;
     box-sizing: border-box;
@@ -410,40 +363,84 @@ body.single-post #page.site {
     }
 
     .single-post-main {
-        flex: 0 0 calc(75% - 1rem) !important;
-        max-width: calc(75% - 1rem) !important;
+        flex: 0 0 calc(75% - 1.25rem) !important;
+        max-width: calc(75% - 1.25rem) !important;
     }
 
     .single-post-sidebar {
-        flex: 0 0 calc(25% - 1rem) !important;
-        max-width: calc(25% - 1rem) !important;
+        flex: 0 0 calc(25% - 1.25rem) !important;
+        max-width: calc(25% - 1.25rem) !important;
     }
 }
 
-.blog-card {
-    box-sizing: border-box;
+/* --------------------------------------------------------------------------
+   Isolated Typography & Content Rules for the New Elements
+   -------------------------------------------------------------------------- */
+
+.blog-view-article {
+    width: 100%;
 }
 
-/* Blog cards grid container - Clean 3-Column Desktop Settings */
-.blog-post-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; /* Locks it to 3 columns on desktop screens */
-    gap: 2.5rem !important; /* Slightly larger gap looks great with 3 cards */
-    margin-bottom: 3rem;
+.blog-view-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
 }
 
-/* Tablet view styling */
-@media (max-width: 1080px) {
-    .blog-post-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* Seamlessly drops down to 2 columns on tablets */
-        gap: 2rem !important;
+.blog-view-meta {
+    font-size: 0.9rem;
+    color: #5d6d7d;
+    margin-bottom: 2rem;
+}
+
+.blog-view-thumbnail img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.blog-view-content {
+    width: 100%;
+}
+
+/* Clean child item rules with zero inherited formatting conflicts */
+.blog-view-content > p,
+.blog-view-content > h2,
+.blog-view-content > h3,
+.blog-view-content > ul,
+.blog-view-content > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 1.5rem;
+}
+
+/* Scroll Progress Bar for Single Posts */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px; 
+    z-index: 999999; 
+    pointer-events: none; 
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    width: 0%; 
+    background-color: #ec7c30; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: width 0.1s ease-out; 
+}
+
+@media (max-width: 768px) {
+    .scroll-progress-container {
+        height: 4px;
     }
 }
 
-/* Mobile viewport layout */
-@media (max-width: 767px) {
-    .blog-post-grid {
-        grid-template-columns: 1fr !important; /* Stacks flat and full-width on mobile devices */
-        gap: 1.5rem !important;
-    }
-}
+
+

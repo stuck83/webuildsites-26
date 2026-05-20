@@ -15,6 +15,25 @@
       "proxyURL": "accelerator-26.local",
       "live": true,
       "https": false
+    },
+    "styles": {
+      "stage": 3,
+      "autoprefixer": {
+        "grid": false
+      },
+      "preload": [
+        "_custom-media.css"
+      ],
+      "features": {
+        "custom-media-queries": true,
+        "custom-properties": true,
+        "nesting-rules": true
+      }
+    },
+    "debug": {
+      "styles": true,
+      "scripts": false,
+      "phpcs": false
     }
   },
   "export": {

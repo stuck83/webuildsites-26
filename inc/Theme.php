@@ -76,18 +76,18 @@ class Theme {
 	}
 
 	/**
-	 * Adds the action and filter hooks to integrate with WordPress.
-	 *
-	 * This method must only be called once in the request lifecycle.
-	 */
-	public function initialize() {
-		array_walk(
-			$this->components,
-			function ( Component_Interface $component ) {
-				$component->initialize();
-			}
-		);
-	}
+     * Adds the action and filter hooks to integrate with WordPress.
+     *
+     * This method must only be called once in the request lifecycle.
+     */
+    public function initialize() {
+    array_walk(
+        $this->components,
+        function ( Component_Interface $component ) {
+            $component->initialize();
+        }
+    );
+}
 
 	/**
 	 * Retrieves the template tags instance, the entry point exposing template tag methods.
@@ -156,7 +156,7 @@ class Theme {
 			new Styles\Component(),
 			new Scripts\Component(),
 			new Excerpts\Component(),
-			new Options\Component(),
+			/*new Options\Component(),*/
 			new Widgets\Component(),
 		);
 

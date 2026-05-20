@@ -28,55 +28,50 @@
 # Post and page content
 --------------------------------------------------------------*/
 
-/* Custom rule  for sticky posts:
-.sticky {
-
-}
-*/
-
 .entry {
-	margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
 .entry-meta,
 .entry-footer {
-	font-family: var(--highlight-font-family);
-	font-stretch: condensed;
-	font-size: 80%;
+    font-family: var(--highlight-font-family);
+    font-stretch: condensed;
+    font-size: 80%;
 }
 
 .entry-meta {
-	margin: 1em 0;
+    margin: 1em 0;
 }
 
 /* Hides the update date and time. */
 .updated:not(.published) {
-	display: none;
+    display: none;
 }
 
 .post-thumbnail img {
-	margin: 0 auto;
+    margin: 0 auto;
 }
 
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+    margin: 1.5em 0 0;
 }
 
 .entry-content > ul,
 .entry-content > ol {
-	padding-left: 3.5em;
+    padding-left: 3.5em;
 }
 
+/* CLEANUP: Removed auto-padding and fixed the broken rem/px max width */
 .page-content > *,
 .entry-content > *,
 .entry-summary > * {
-	margin-right: auto;
-	margin-left: auto;
-	padding-right: 1.5rem;
-	padding-left: 1.5rem;
-	max-width: var(--content-width);
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0;
+    padding-left: 0;
+    max-width: 100%;
 }
 
 .page-header,
@@ -86,10 +81,11 @@
 .post-navigation,
 .page-navigation,
 .comments-area {
-	margin-top: 1.5em;
-	margin-bottom: 1.5em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
 }
 
+/* CLEANUP: Stripped the double margin/padding rules so containers can breathe */
 .page-content > *,
 .entry-content > *,
 .entry-summary > *,
@@ -100,48 +96,11 @@
 .post-navigation,
 .page-navigation,
 .comments-area {
-	margin-left: auto;
-	margin-right: auto;
-	padding-right: 1.5rem;
-	padding-left: 1.5rem;
-	max-width: var(--content-width);
-}
-
-@media (--content-query) {
-
-	.entry-content > ul,
-	.entry-content > ol {
-		padding-left: 2.5em;
-		padding-right: 2.5em;
-	}
-}
-
-/* Align .more-link with the content. */
-.entry-content > .more-link {
-	display: block;
-}
-
-.page-links {
-	clear: both;
-	margin-bottom: 1.5em;
-}
-
-.entry-footer span {
-	margin-right: 1em;
-}
-
-.entry-footer {
-	clear: both;
-	padding: 1.5em 1.5rem 3em;
-	border-bottom: 1px solid var(--global-font-color);
-}
-
-@media (--content-query) {
-
-	.entry-footer {
-		padding-right: 0;
-		padding-left: 0;
-	}
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 0;
+    padding-left: 0;
+    max-width: 100%;
 }
 
 /*--------------------------------------------------------------

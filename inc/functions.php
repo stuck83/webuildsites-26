@@ -53,3 +53,4 @@ add_action( 'wp_enqueue_scripts', function() {
         AOS.init({ duration: 800, once: true });
     ");
 });
+

@@ -120,48 +120,40 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 	}
 
-/**
-     * Checks whether maintenance mode should be displayed for visitors.
-     */
-    public function maybe_render_maintenance_page(): void {
-        if ( is_admin() || wp_doing_ajax() || wp_doing_cron() ) {
-            return;
-        }
-
-        if ( current_user_can( 'manage_options' ) ) {
-            return;
-        }
-
-        $settings = get_option( 'wprig_accelerator_theme_settings', array() );
-        // FIX: Match the option name used in update_option()
-        $settings = get_option( 'wp_rig_theme_settings', array() );
-        if ( ! is_array( $settings ) ) {
-            $settings = array();
-        }
-
-        // BULLETPROOF CHECK: Loose checking for true, 1, "1"
-        if ( empty( $settings['maintenance_mode'] ) || $settings['maintenance_mode'] === false || $settings['maintenance_mode'] === '0' ) {
-            return;
-        }
-
-        status_header( 503 );
-        nocache_headers();
-
-        // Get the absolute path to your theme's compiled image directory
-        $logo_url = get_template_directory_uri() . '/assets/images/acc-logo.png';
-
-        /** @noinspection PhpUndefinedFunctionInspection */
-        echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' . esc_html__( 'Maintenance', 'wprig-accelerator' ) . '</title>';
-        echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' . esc_html__( 'Maintenance', 'wprig-accelerator' ) . '</title>';
-        echo '<style>body{margin:0;background:#0d1f57;color:#fff;font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;padding:1.5rem;} .maintenance-message{max-width:720px;} .maintenance-logo{max-width:240px; height:auto; margin-bottom:2rem;} .maintenance-message h1{margin:0 0 1rem;font-size:2.25rem;} .maintenance-message p{margin:0;font-size:1.1rem;line-height:1.6;}</style></head><body><div class="maintenance-message">';
-        
-        // Output the image right above the heading
-        echo '<img src="' . esc_url( $logo_url ) . '" alt="' . esc_attr__( 'Accelerator Logo', 'wprig-accelerator' ) . '" class="maintenance-logo" />';
-        echo '<img src="' . esc_url( $logo_url ) . '" alt="' . esc_attr__( 'Accelerator Logo', 'wprig-accelerator' ) . '" class="maintenance-logo" />';
-        
-        echo '<h1>' . esc_html__( 'Maintenance Mode Enabled', 'wprig-accelerator' ) . '</h1><p>' . esc_html__( 'We are currently performing maintenance. Please check back soon. If your matter is urgent please call Support on: 0207 993 3100 or email: support@accelerator.uk.com', 'wprig-accelerator' ) . '</p></div></body></html>';
-        exit;
+public function maybe_render_maintenance_page(): void {
+    if ( is_admin() || wp_doing_ajax() || wp_doing_cron() ) {
+        return;
     }
+
+    $settings = get_option( 'wprig_accelerator_theme_settings', array() );
+    error_log( 'RAW maintenance settings: ' . print_r( $settings, true ) );
+    error_log( 'maintenance_mode value: ' . var_export( $settings['maintenance_mode'] ?? 'NOT SET', true ) );
+    error_log( 'current user can manage: ' . var_export( current_user_can( 'manage_options' ), true ) );
+
+    if ( current_user_can( 'manage_options' ) ) {
+        error_log( 'BLOCKED: user is admin' );
+        return;
+    }
+
+    if ( ! is_array( $settings ) ) {
+        $settings = array();
+    }
+
+    if ( empty( $settings['maintenance_mode'] ) || $settings['maintenance_mode'] === false || $settings['maintenance_mode'] === '0' ) {
+        return;
+    }
+
+    status_header( 503 );
+    nocache_headers();
+
+    $logo_url = get_template_directory_uri() . '/assets/images/acc-logo.png';
+
+    echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' . esc_html__( 'Maintenance', 'wprig-accelerator' ) . '</title>';
+    echo '<style>body{margin:0;background:#0d1f57;color:#fff;font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;padding:1.5rem;} .maintenance-message{max-width:720px;} .maintenance-logo{max-width:240px;height:auto;margin-bottom:2rem;} .maintenance-message h1{margin:0 0 1rem;font-size:2.25rem;} .maintenance-message p{margin:0;font-size:1.1rem;line-height:1.6;}</style></head><body><div class="maintenance-message">';
+    echo '<img src="' . esc_url( $logo_url ) . '" alt="' . esc_attr__( 'Accelerator Logo', 'wprig-accelerator' ) . '" class="maintenance-logo" />';
+    echo '<h1>' . esc_html__( 'Maintenance Mode Enabled', 'wprig-accelerator' ) . '</h1><p>' . esc_html__( 'We are currently performing maintenance. Please check back soon. If your matter is urgent please call Support on: 0207 993 3100 or email: support@accelerator.uk.com', 'wprig-accelerator' ) . '</p></div></body></html>';
+    exit;
+}
 
 	/**
 	 * Updates settings based on the provided request.
