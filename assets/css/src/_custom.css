@@ -377,6 +377,10 @@ html, body {
    Isolated Typography & Content Rules for the New Elements
    -------------------------------------------------------------------------- */
 
+.blog-post-grid {
+    padding:20px;
+}
+
 .blog-view-article {
     width: 100%;
 }

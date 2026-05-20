@@ -156,7 +156,7 @@ class Theme {
 			new Styles\Component(),
 			new Scripts\Component(),
 			new Excerpts\Component(),
-			/*new Options\Component(),*/
+			new Options\Component(),
 			new Widgets\Component(),
 		);
 
