@@ -42,9 +42,31 @@ endif;
     <?php wp_head(); ?>
 
 </head>
-
+ 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
+<span id="top-target"></span>
+
+<div class="back-to-top-wrapper" id="btt-wrapper">
+    <a href="#top-target" class="back-to-top-btn" aria-label="Back to top">
+        <span class="chevron"></span>
+    </a>
+</div>
+
+<script>
+window.onscroll = function() {
+    var btt = document.getElementById('btt-wrapper');
+    // Displays the button only after scrolling down 40% of the viewport height (40vh)
+    if (window.scrollY > (window.innerHeight * 0.4)) {
+        btt.classList.add('is-visible');
+    } else {
+        btt.classList.remove('is-visible');
+    }
+};
+</script>
+
+
 <div class="top-bar-navigation">
     <div class="container flex justify-end">
         <?php
@@ -68,6 +90,9 @@ endif;
    
 
 	<header id="masthead" class="site-header flex">
+
+   
+
 		<?php get_template_part( 'template-parts/header/custom_header' ); ?>
 
 		<?php get_template_part( 'template-parts/header/branding' ); ?>
