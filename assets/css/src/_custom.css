@@ -447,8 +447,6 @@ html, body {
 }
 
 
-
-
 /* Enable smooth scrolling document-wide */
 html {
     scroll-behavior: smooth !important;
@@ -480,7 +478,7 @@ html {
     display: flex !important;
     width: 50px;
     height: 50px;
-    background-color: #ff6900 !important; /* Brand Orange */
+    background-color: var(--brand-orange)!important; /* Brand Orange */
     border-radius: 50% !important;
     align-items: center !important;
     justify-content: center !important;
