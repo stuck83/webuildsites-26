@@ -322,13 +322,25 @@
 
 .logo-item {
     flex: 0 0 auto;
-    padding: 0 40px;
+    /* Reduced padding slightly so the smaller logos don't feel too far apart */
+    padding: 0 30px; 
 }
 
 .logo-item img {
-    height: 120px;
-    width: auto;
+    /* ⚡️ THE FIX: Set a clean, capped layout width */
+    width: 130px; 
+    height: auto; /* Lets the height scale naturally without distortion */
+    
+    /* Ensures the image never stretches larger than its true file resolution */
+    max-width: 100%; 
+    
     object-fit: contain;
+    
+    /* ⚡️ OPTIONAL PRO-TIP: Tells the browser engine to use high-quality 
+       downscaling physics so the edges stay perfectly sharp */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    
     transition: all 0.3s ease;
 }
 
@@ -341,7 +353,6 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
 }
-
 
 /******services banner image-text***/
 
