@@ -267,8 +267,11 @@
 
 /* ── Responsive Tablet and Mobile Collapse ── */
 @media (max-width: 900px) {
+    /* Stack columns vertically instead of horizontally */
+    .image-content-section .wp-block-columns.grid-12,
     .image-content-section .wp-block-columns {
         flex-direction: column !important;
+        flex-wrap: wrap !important; /* Allows vertical stacking */
     }
 
     .image-content-section .wp-block-columns .wp-block-column {
@@ -277,16 +280,30 @@
         max-width: 100% !important;
     }
 
-    .image-content-section .wp-block-column:first-child {
-        min-height: 300px; /* Shorter image container height profile for mobile */
-    }
-
-    .image-content-section .wp-block-image img {
+    /* Clean up the image column box on mobile */
+    .image-content-section .wp-block-column:first-child,
+    .image-content-section .wp-block-image,
+    .image-content-section .wp-block-image figure {
+        height: 300px !important; /* Force a strict height box on mobile */
+        min-height: 300px !important;
         position: relative !important;
     }
 
-    .image-content-section .service-intro-content {
-        padding: 40px 24px !important; /* Tighter padding for mobile screen displays */
+    /* ⚡️ THE FIX: Break the image out of absolute desktop heights */
+    .image-content-section .wp-block-image img {
+        position: absolute !important; /* Keep absolute so object-fit works perfectly */
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important; 
+        object-fit: cover !important; /* Crops cleanly inside its 300px mobile box */
+    }
+
+    /* Restore visibility and apply tighter padding to your text box */
+    .image-content-section .wp-block-column.service-intro-content {
+        display: flex !important;
+        height: auto !important; /* Let content determine the box size naturally */
+        padding: 50px 24px !important; /* Tighter breathing room for phone screens */
     }
 }
 
