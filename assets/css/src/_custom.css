@@ -151,16 +151,33 @@ html, body {
     height: 100%;
 }
 
+
+
+
+
 .hero-text-box {
     position: absolute;
     bottom: 60px;          
-    right: 1%;         
+    right: 0%;         
     background-color: #f0f0f0e8;
     padding: 20px;
     max-width: 410px;
     z-index: 10;
     border-radius: 12px;
 }
+
+
+@media (min-width: 480px) {
+.hero-text-box {
+    position: absolute;
+    bottom: 110px;          
+    right: 20%;     
+
+}
+}
+
+
+
 
 .hero-title {
     color: var(--global-font-color);
