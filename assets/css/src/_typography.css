@@ -113,3 +113,13 @@ ins {
 big {
 	font-size: 125%;
 }
+
+/* Targets only the bullet points in an unordered list */
+ul li::marker {
+    color: var(--brand-orange) !important;
+}
+
+/* Optional: Targets only the numbers in an ordered list if you use them */
+ol li::marker {
+    color: var(--brand--orange) !important;
+}
