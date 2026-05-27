@@ -209,8 +209,8 @@ body.mobile-menu-open {
 	#primary-menu {
 		gap: 1em;
 		.sub-menu {
-			/*width: 50vw;*/
-			max-width: 220px;
+			max-width: 360px !important; /* Increases the max limit so long menu items fit on one line */
+    		width: 320px !important;     /* Sets a clean, solid base width for the dropdown box */
 
 			
 		}
