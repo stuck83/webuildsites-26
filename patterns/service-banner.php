@@ -30,7 +30,7 @@
             <div class="wp-block-buttons service-banner-buttons">
                 <!-- wp:button {"className":"is-style-fill"} -->
                 <div class="wp-block-button is-style-fill">
-                    <a class="wp-block-button__link wp-element-button" href="/contact">Book a free IT survey today</a>
+                    <a class="wp-block-button__link wp-element-button" href="/contact">Enquire Today</a>
                 </div>
                 <!-- /wp:button -->
             </div>
