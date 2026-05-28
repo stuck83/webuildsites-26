@@ -278,8 +278,9 @@ body.search-modal-open {
     min-height: 3rem;
     border: none;
     background: var(--brand-orange);
-    color: #fdfdfd;
-    font-weight: 700;
+    color: #000000;
+    font-weight: 900;
+    font-size: 1rem;
     cursor: pointer;
     padding: 0 1.25rem;
 }
