@@ -3,6 +3,7 @@
 .wp-block-button a,
 .wp-block-button a:hover,
 .wp-block-button a:focus {
-    color: #ffffff !important;
+    color: #000000 !important;
     text-decoration: none !important;
+    font-weight: 600 !important;
 }
