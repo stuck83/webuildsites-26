@@ -539,3 +539,63 @@ html {
         background-color: var(--brand-orange) !important; /* Hardcoded guarantee for mobile inheritance */
     }
 }
+
+/* ==========================================================================
+   Service & Location Page Templates: Full-Bleed Top Banner Fix
+   ========================================================================== */
+
+/* Break out of the CSS grid alignment specifically on custom templates */
+.page-template-service-page .site-main,
+.page-template-locationpage .site-main {
+    display: block !important;    /* Disables the layout grid pushing content down */
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Ensure the article wrapper inside has absolutely zero top spacing */
+.page-template-service-page .service-page-article,
+.page-template-locationpage .service-page-article,
+.page-template-locationpage article {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Ensure the entry content block is completely flush against the top */
+.page-template-service-page .entry-content,
+.page-template-locationpage .entry-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+}
+
+/* Remove top margin from ALL child elements in entry content */
+.page-template-service-page .entry-content > *,
+.page-template-locationpage .entry-content > * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Specifically target WordPress block groups and alignfull blocks */
+.page-template-service-page .entry-content > .wp-block-group,
+.page-template-service-page .entry-content > .alignfull,
+.page-template-service-page .entry-content > [class*="alignfull"],
+.page-template-locationpage .entry-content > .wp-block-group,
+.page-template-locationpage .entry-content > .alignfull,
+.page-template-locationpage .entry-content > [class*="alignfull"] {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Fallback rule for any element with template article classes */
+.service-page-article .entry-content,
+.page-template-locationpage article .entry-content {
+    margin: 0 !important;
+    padding-top: 0 !important;
+}
+
+.service-page-article .entry-content > *,
+.page-template-locationpage article .entry-content > * {
+    margin-top: 0 !important;
+}
+
