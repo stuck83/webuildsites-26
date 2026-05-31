@@ -270,11 +270,17 @@
     padding: 0 !important;
 }
 
-.image-content-section .service-intro-content p {
-    margin-top: 0 !important;
+/*.image-content-section .service-intro-content p {*/
+    /*margin-top: 0 !important;*/
+    /*margin-bottom: 18px !important; /* Restores a clean gap between text paragraphs */
+    /*padding: 0 !important;*/
+    /*line-height: 1.75 !important;*/
+/*}*/
+
+
+/* Optional: Strip the margin off the VERY LAST paragraph so it doesn't push down your button spacing */
+.image-content-section .service-intro-content p:last-of-type {
     margin-bottom: 0 !important;
-    padding: 0 !important;
-    line-height: 1.75 !important;
 }
 
 /* ── Responsive Tablet and Mobile Collapse ── */
@@ -658,4 +664,10 @@
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 !important;
+}
+
+
+/*Features Section*/
+.features-section p {
+    padding:0px 10px;
 }
