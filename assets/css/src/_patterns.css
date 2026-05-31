@@ -184,6 +184,7 @@
     box-sizing: border-box !important;
     background: transparent !important; 
     overflow: hidden;
+      
 }
 
 /* 2. Set up the columns wrapper to span full width with NO container gap restrictions */
@@ -212,15 +213,26 @@
 }
 
 /* 4. Left Side: Force the image container and image to completely fill its half */
-.image-content-section .wp-block-column:first-child,
+
+/* Force the outer Gutenberg column wrapper to match its flex parent height */
+.image-content-section .wp-block-columns .wp-block-column:first-child {
+    display: flex !important;
+    align-items: stretch !important;
+    min-height: 500px; /* Gives the row a nice minimum desktop height */
+    height: auto !important; /* Crucial: lets flexbox dictate the height */
+}
+
+/* Force the block container and the HTML figure wrapper to expand fully */
 .image-content-section .wp-block-image,
 .image-content-section .wp-block-image figure {
     position: relative !important;
+    width: 100% !important;
     height: 100% !important;
-    min-height: 450px; /* Gives the row a nice minimum desktop height */
     margin: 0 !important;
+    display: block !important;
 }
 
+/* Lock the actual image file down completely */
 .image-content-section .wp-block-image img {
     position: absolute !important;
     top: 0 !important;
@@ -443,16 +455,14 @@
     width: 50%;
     height: 4px;
     background-color: var(--brand-orange);
-    margin-top: 15px;
+    margin-top: 5px;
     margin-bottom: 0px;
 }
 
 /* Body text */
 .service-banner-section .service-banner-content p {
     color: rgba(255, 255, 255, 0.85);
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 14px;
+    /*margin-bottom: 14px;*/
     width: 100%;
 }
 
