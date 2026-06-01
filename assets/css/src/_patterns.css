@@ -580,6 +580,15 @@
     .service-banner-section .service-banner-content h2 {
         font-size: 2rem;
     }
+    .service-banner-section .service-banner-image {
+        min-height: 320px;
+        width: 100% !important;
+        flex: 0 0 auto !important;
+        
+        /* ⚡️ THE MOBILE RESET: Flatten out the desktop angle offsets */
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
 }
 
 @media (max-width: 480px) {
