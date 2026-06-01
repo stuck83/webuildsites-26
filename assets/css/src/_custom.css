@@ -599,3 +599,7 @@ html {
     margin-top: 0 !important;
 }
 
+/**Removed POSTED by NAME**/
+.posted-by{
+    display:none;
+}
