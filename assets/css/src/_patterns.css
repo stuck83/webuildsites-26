@@ -432,11 +432,18 @@
 .service-banner-section .service-banner-content {
     position: relative;
     background-color: var(--brand-blue-dark);
+    /* Extra right padding at the top keeps your text from hitting the slant */
     padding: 70px 140px 70px 80px;
     flex: 0 0 55% !important;
     width: 55% !important;
     z-index: 2;
-    clip-path: polygon(0 0, calc(100% - 80px) 0, 100% 100%, 0 100%);
+    
+    /* ⚡️ THE FORWARD SLASH FIX (/) 
+       Top-right corner stays all the way out (100% 0), 
+       Bottom-right corner cuts inward by 80px (calc(100% - 80px) 100%) */
+    clip-path: polygon(0 0, 100% 0, calc(100% - 160px) 100%, 0 100%);
+    
+    /* Pulls the image horizontally to seamlessly fill the cut-out gap */
     margin-right: -80px !important;
     box-sizing: border-box;
     display: flex;
@@ -493,6 +500,9 @@
     
     /* ADD THIS instead: Allow it to naturally grow and occupy all remaining space */
     flex-grow: 1 !important;
+    /* ⚡️ THE CORRECTION: Forces the image container box to break left and fill the 160px slant */
+    margin-left: -160px !important;
+    padding-left: 160px; /* Counter-balances the margin shift so the internal image content doesn't skew */
 }
 
 .service-banner-section .service-banner-image .wp-block-image,
