@@ -480,7 +480,7 @@ body.mobile-menu-open {
 	.main-navigation {
 
 		ul li {
-			margin: 0 0 0 0.5em;
+			/*margin: 0 0 0 0.5em;*/
 			a, button {
 				padding: 0.4em 0.5em;
 				text-align: left;
