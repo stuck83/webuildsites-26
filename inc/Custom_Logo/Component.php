@@ -44,8 +44,8 @@ class Component implements Component_Interface {
             apply_filters(
                 'wprig_accelerator_custom_logo_args',
                 array(
-                    'height'      => 250, // This becomes the "suggested" height
-                    'width'       => 600, // Increase this to a realistic max width
+                    'height'      => 155, // This becomes the "suggested" height
+                    'width'       => 800, // Increase this to a realistic max width
                     'flex-width'  => true,  // Allows the width to skip cropping
                     'flex-height' => true,  // Allows the height to skip cropping
                     'header-text' => array( 'site-title', 'site-description' ),
