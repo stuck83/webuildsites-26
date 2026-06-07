@@ -8,11 +8,11 @@
 <!-- wp:group {"metadata":{"name":"Service Intro"},"className":"image-content-section","align":"full","layout":{"type":"default"}} -->
 <div class="wp-block-group image-content-section alignfull">
 
-    <!-- wp:columns {"className":"grid-12"} -->
-    <div class="wp-block-columns grid-12">
+    <!-- wp:columns -->
+    <div class="wp-block-columns">
 
-        <!-- wp:column {"className":"col-6"} -->
-        <div class="wp-block-column col-6">
+        <!-- wp:column -->
+        <div class="wp-block-column">
             <!-- wp:image {"sizeSlug":"large"} -->
             <figure class="wp-block-image size-large">
                 <img src="" alt="Service image" />
@@ -21,8 +21,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"className":"col-6 service-intro-content"} -->
-        <div class="wp-block-column col-6 service-intro-content">
+        <!-- wp:column {"className":"service-intro-content"} -->
+        <div class="wp-block-column service-intro-content">
 
             <!-- wp:heading -->
             <h2 class="wp-block-heading">Section Headline Goes Here</h2>

@@ -8,11 +8,11 @@
 <!-- wp:group {"metadata":{"name":"Main Services"},"className":"service-banner-section","align":"full","layout":{"type":"default"}} -->
 <div class="wp-block-group services-section alignfull">
 
-    <!-- wp:columns {"className":"grid-12"} -->
-    <div class="wp-block-columns grid-12">
+    <!-- wp:columns -->
+    <div class="wp-block-columns">
 
-        <!-- wp:column {"className":"col-4"} -->
-        <div class="wp-block-column col-4">
+        <!-- wp:column -->
+        <div class="wp-block-column">
 
             <!-- wp:heading {"level":1} -->
             <h1 class="wp-block-heading">Our Services</h1>
@@ -35,14 +35,14 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"className":"col-8"} -->
-        <div class="wp-block-column col-8">
+        <!-- wp:column -->
+        <div class="wp-block-column">
 
-            <!-- wp:columns {"className":"service-card-grid grid-12"} -->
-            <div class="wp-block-columns service-card-grid grid-12">
+            <!-- wp:columns -->
+            <div class="wp-block-columns">
 
-                <!-- wp:column {"className":"col-6"} -->
-                <div class="wp-block-column col-6">
+                <!-- wp:column -->
+                <div class="wp-block-column">
 
                     <!-- wp:group {"className":"service-card","layout":{"type":"constrained"}} -->
                     <div class="wp-block-group service-card">
@@ -80,8 +80,8 @@
                 </div>
                 <!-- /wp:column -->
 
-                <!-- wp:column {"className":"col-6"} -->
-                <div class="wp-block-column col-6">
+                <!-- wp:column -->
+                <div class="wp-block-column">
 
                     <!-- wp:group {"className":"service-card","layout":{"type":"constrained"}} -->
                     <div class="wp-block-group service-card">

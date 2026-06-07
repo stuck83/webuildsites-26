@@ -12,11 +12,11 @@
     <h2 class="wp-block-heading has-text-align-center">Features</h2>
     <!-- /wp:heading -->
 
-    <!-- wp:columns {"className":"grid-12"} -->
-    <div class="wp-block-columns grid-12">
+    <!-- wp:columns -->
+    <div class="wp-block-columns">
 
-        <!-- wp:column {"className":"col-4 reveal-on-scroll"} -->
-        <div class="wp-block-column col-4 reveal-on-scroll">
+        <!-- wp:column {"className":"reveal-on-scroll"} -->
+        <div class="wp-block-column reveal-on-scroll">
             <!-- wp:paragraph {"align":"center"} -->
             <p class="has-text-align-center">[ICON]</p>
             <!-- /wp:paragraph -->
@@ -29,8 +29,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"className":"col-4 reveal-on-scroll"} -->
-        <div class="wp-block-column col-4 reveal-on-scroll">
+        <!-- wp:column {"className":"reveal-on-scroll"} -->
+        <div class="wp-block-column reveal-on-scroll">
             <!-- wp:paragraph {"align":"center"} -->
             <p class="has-text-align-center">[ICON]</p>
             <!-- /wp:paragraph -->
@@ -43,8 +43,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"className":"col-4 reveal-on-scroll"} -->
-        <div class="wp-block-column col-4 reveal-on-scroll">
+        <!-- wp:column {"className":"reveal-on-scroll"} -->
+        <div class="wp-block-column reveal-on-scroll">
             <!-- wp:paragraph {"align":"center"} -->
             <p class="has-text-align-center">[ICON]</p>
             <!-- /wp:paragraph -->

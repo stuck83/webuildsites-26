@@ -12,11 +12,11 @@
     <h2 class="wp-block-heading has-text-align-center">Your Trusted IT and Telecoms Partner</h2>
     <!-- /wp:heading -->
 
-    <!-- wp:columns {"className":"trust-grid grid-12"} -->
-    <div class="wp-block-columns trust-grid grid-12">
+    <!-- wp:columns {"className":"trust-grid"} -->
+    <div class="wp-block-columns trust-grid">
 
-        <!-- wp:column {"className":"col-3 reveal-on-scroll"} -->
-        <div class="wp-block-column col-3 reveal-on-scroll">
+        <!-- wp:column {"className":"reveal-on-scroll"} -->
+        <div class="wp-block-column reveal-on-scroll">
             <!-- wp:paragraph {"align":"center"} -->
             <p class="has-text-align-center">[ICON 1]</p>
             <!-- /wp:paragraph -->
@@ -29,8 +29,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"className":"col-3 reveal-on-scroll"} -->
-        <div class="wp-block-column col-3 reveal-on-scroll">
+        <!-- wp:column {"className":"reveal-on-scroll"} -->
+        <div class="wp-block-column reveal-on-scroll">
             <!-- wp:paragraph {"align":"center"} -->
             <p class="has-text-align-center">[ICON 2]</p>
             <!-- /wp:paragraph -->
@@ -43,8 +43,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"className":"col-3 reveal-on-scroll"} -->
-        <div class="wp-block-column col-3 reveal-on-scroll">
+        <!-- wp:column {"className":"reveal-on-scroll"} -->
+        <div class="wp-block-column reveal-on-scroll">
             <!-- wp:paragraph {"align":"center"} -->
             <p class="has-text-align-center">[ICON 3]</p>
             <!-- /wp:paragraph -->
@@ -57,8 +57,8 @@
         </div>
         <!-- /wp:column -->
 
-        <!-- wp:column {"className":"col-3 reveal-on-scroll"} -->
-        <div class="wp-block-column col-3 reveal-on-scroll">
+        <!-- wp:column {"className":"reveal-on-scroll"} -->
+        <div class="wp-block-column reveal-on-scroll">
             <!-- wp:paragraph {"align":"center"} -->
             <p class="has-text-align-center">[ICON 4]</p>
             <!-- /wp:paragraph -->
