@@ -45,7 +45,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		add_action( 'wp_enqueue_scripts', array( $this, 'action_enqueue_fonts' ) );
 		add_action( 'after_setup_theme', array( $this, 'action_add_editor_fonts' ) );
 		add_action( 'init', array( $this, 'wprig_register_fonts' ) );
-		add_filter( 'wp_resource_hints', array( $this, 'filter_resource_hints' ), 10, 2 );
+
+		// REMOVED: filter_resource_hints — no longer needed since fonts are served locally.
+		// REMOVED: add_filter( 'wp_resource_hints', ... ) — this was the preconnect hint to fonts.gstatic.com.
 	}
 
 	/**
@@ -173,46 +175,50 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Enqueues Google Fonts for the theme.
+	 * Enqueues the locally-hosted Raleway font CSS.
+	 *
+	 * Falls back to the Google Fonts CDN if the local CSS file has not yet been generated.
+	 * To generate it, call download_all_google_fonts() once via WP-CLI or a one-off admin action.
 	 */
 	public function action_enqueue_fonts(): void {
-		// Enqueue Google Fonts.
-		$google_fonts_url = $this->get_google_fonts_url();
-		if ( '' !== $google_fonts_url && '0' !== $google_fonts_url ) {
-			wp_enqueue_style( 'wprig-accelerator-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+		$local_css_path = get_template_directory() . '/assets/css/src/google-fonts.css';
+		$local_css_url  = get_template_directory_uri() . '/assets/css/src/google-fonts.css';
+
+		if ( file_exists( $local_css_path ) ) {
+			// Serve fonts from local files — zero external requests.
+			wp_enqueue_style(
+				'wprig-accelerator-fonts',
+				$local_css_url,
+				array(),
+				$this->get_asset_version( $local_css_path )
+			);
+		} else {
+			// Local fonts not yet downloaded — fall back to CDN so the site doesn't break.
+			// Run download_all_google_fonts() once to eliminate this fallback.
+			$google_fonts_url = $this->get_google_fonts_url();
+			if ( '' !== $google_fonts_url ) {
+				wp_enqueue_style( 'wprig-accelerator-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+			}
 		}
 	}
 
 	/**
-	 * Enqueues the Google Fonts for the WordPress editor.
+	 * Enqueues the font CSS for the WordPress block editor.
 	 *
-	 * Retrieves the URL for the Google Fonts and, if it is not empty,
-	 * adds the editor styles to the WordPress editor.
+	 * Uses the local CSS file if available, otherwise falls back to the Google Fonts URL.
 	 */
 	public function action_add_editor_fonts(): void {
-		// Enqueue Google Fonts.
-		$google_fonts_url = $this->get_google_fonts_url();
-		if ( '' !== $google_fonts_url && '0' !== $google_fonts_url ) {
-			add_editor_style( $this->get_google_fonts_url() );
-		}
-	}
+		$local_css_path = get_template_directory() . '/assets/css/src/google-fonts.css';
+		$local_css_url  = get_template_directory_uri() . '/assets/css/src/google-fonts.css';
 
-	/**
-	 * Adds preconnect resource hint for Google Fonts.
-	 *
-	 * @param array  $urls          URLs to print for resource hints.
-	 * @param string $relation_type The relation type the URLs are printed.
-	 * @return array URLs to print for resource hints.
-	 */
-	public function filter_resource_hints( array $urls, string $relation_type ): array {
-		if ( 'preconnect' === $relation_type && wp_style_is( 'wprig-accelerator-fonts', 'queue' ) ) {
-			$urls[] = array(
-				'href' => 'https://fonts.gstatic.com',
-				'crossorigin',
-			);
+		if ( file_exists( $local_css_path ) ) {
+			add_editor_style( $local_css_url );
+		} else {
+			$google_fonts_url = $this->get_google_fonts_url();
+			if ( '' !== $google_fonts_url ) {
+				add_editor_style( $google_fonts_url );
+			}
 		}
-
-		return $urls;
 	}
 
 	/**
@@ -226,8 +232,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$google_fonts = array(
-        'Raleway' => array( '400', '400i', '600', '600i' ), // Replaced defaults with Raleway
-    );
+			'Raleway' => array( '400', '400i', '600', '600i' ),
+		);
 
 		/**
 		 * Filters default Google Fonts.
@@ -242,6 +248,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Returns the Google Fonts URL to use for enqueuing Google Fonts CSS.
 	 *
+	 * Used only as a fallback before local fonts have been downloaded.
 	 * Uses `latin` subset by default. To use other subsets, add a `subset` key to $query_args and the desired value.
 	 *
 	 * @return string Google Fonts URL, or empty string if no Google Fonts should be used.
