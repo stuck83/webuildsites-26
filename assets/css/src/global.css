@@ -27,7 +27,7 @@
 @import "_accessibility.css";
 @import "_buttons.css";
 @import "_custom-properties.css";
-/*@import "_grid.css";*/
+@import "_aos.min.css";
 @import "_animations.css";
 @import "_patterns.css";
 @import "_custom.css";

@@ -40,7 +40,7 @@ function wprig_accelerator(): Template_Tags {
 }, 1 );*/
 
 
-add_action( 'wp_enqueue_scripts', function() {
+/*add_action( 'wp_enqueue_scripts', function() {
     wp_enqueue_style( 'aos-css', 'https://unpkg.com/aos@2.3.1/dist/aos.css' );
     wp_enqueue_script( 'aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), '2.3.1', true );
 
@@ -52,9 +52,28 @@ add_action( 'wp_enqueue_scripts', function() {
         });
         AOS.init({ duration: 800, once: true });
     ");
+});*/
+
+add_action( 'wp_enqueue_scripts', function() {
+    // Dynamically grabs the active theme folder path and links to the production CSS asset
+    /*wp_enqueue_style( 
+        'aos-css', 
+        get_stylesheet_directory_uri() . '/assets/css/aos.min.css', 
+        array(), 
+        '2.3.1' 
+    );*/
+
+    // Keeping your JS and inline configuration intact
+    wp_enqueue_script( 'aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', array(), '2.3.1', true );
+
+    wp_add_inline_script( 'aos-js', "
+        document.querySelectorAll('.reveal-on-scroll').forEach((el, index) => {
+            el.setAttribute('data-aos', 'fade-up');
+            el.setAttribute('data-aos-delay', (index + 1) * 100);
+        });
+        AOS.init({ duration: 800, once: true });
+    ");
 });
-
-
 
 
 
