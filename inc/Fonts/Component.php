@@ -177,15 +177,25 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Enqueues the locally-hosted Raleway font CSS.
 	 *
-	 * Falls back to the Google Fonts CDN if the local CSS file has not yet been generated.
-	 * To generate it, call download_all_google_fonts() once via WP-CLI or a one-off admin action.
+	 * Checks for the production minified file first, then the dev source file,
+	 * and falls back to the Google Fonts CDN only if neither local file exists.
 	 */
 	public function action_enqueue_fonts(): void {
-		$local_css_path = get_template_directory() . '/assets/css/src/google-fonts.css';
-		$local_css_url  = get_template_directory_uri() . '/assets/css/src/google-fonts.css';
+		$theme_dir = get_template_directory();
+		$theme_uri = get_template_directory_uri();
 
-		if ( file_exists( $local_css_path ) ) {
-			// Serve fonts from local files — zero external requests.
+		if ( file_exists( $theme_dir . '/assets/css/google-fonts.min.css' ) ) {
+			$local_css_path = $theme_dir . '/assets/css/google-fonts.min.css';
+			$local_css_url  = $theme_uri . '/assets/css/google-fonts.min.css';
+		} elseif ( file_exists( $theme_dir . '/assets/css/src/google-fonts.css' ) ) {
+			$local_css_path = $theme_dir . '/assets/css/src/google-fonts.css';
+			$local_css_url  = $theme_uri . '/assets/css/src/google-fonts.css';
+		} else {
+			$local_css_path = null;
+			$local_css_url  = null;
+		}
+
+		if ( $local_css_path ) {
 			wp_enqueue_style(
 				'wprig-accelerator-fonts',
 				$local_css_url,
@@ -193,8 +203,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				$this->get_asset_version( $local_css_path )
 			);
 		} else {
-			// Local fonts not yet downloaded — fall back to CDN so the site doesn't break.
-			// Run download_all_google_fonts() once to eliminate this fallback.
+			// No local file found — fall back to CDN so the site doesn't break.
 			$google_fonts_url = $this->get_google_fonts_url();
 			if ( '' !== $google_fonts_url ) {
 				wp_enqueue_style( 'wprig-accelerator-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
@@ -205,14 +214,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	/**
 	 * Enqueues the font CSS for the WordPress block editor.
 	 *
-	 * Uses the local CSS file if available, otherwise falls back to the Google Fonts URL.
+	 * Checks for the production minified file first, then the dev source file,
+	 * and falls back to the Google Fonts CDN only if neither local file exists.
 	 */
 	public function action_add_editor_fonts(): void {
-		$local_css_path = get_template_directory() . '/assets/css/src/google-fonts.css';
-		$local_css_url  = get_template_directory_uri() . '/assets/css/src/google-fonts.css';
+		$theme_dir = get_template_directory();
+		$theme_uri = get_template_directory_uri();
 
-		if ( file_exists( $local_css_path ) ) {
-			add_editor_style( $local_css_url );
+		if ( file_exists( $theme_dir . '/assets/css/google-fonts.min.css' ) ) {
+			add_editor_style( $theme_uri . '/assets/css/google-fonts.min.css' );
+		} elseif ( file_exists( $theme_dir . '/assets/css/src/google-fonts.css' ) ) {
+			add_editor_style( $theme_uri . '/assets/css/src/google-fonts.css' );
 		} else {
 			$google_fonts_url = $this->get_google_fonts_url();
 			if ( '' !== $google_fonts_url ) {
