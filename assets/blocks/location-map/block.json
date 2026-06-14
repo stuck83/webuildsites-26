@@ -1,0 +1,29 @@
+{
+
+  "apiVersion": 3,
+  "name": "accelerator/location-map",
+  "version": "0.1.0",
+  "title": "Location Map",
+  "category": "design",
+  "icon": "location-alt",
+  "description": "Custom wide location map component.",
+  "supports": {
+    "html": false,
+    "align": [ "wide", "full" ]
+  },
+  "attributes": {
+    "address": {
+      "type": "string",
+      "default": "London, United Kingdom"
+    },
+    "zoom": {
+      "type": "number",
+      "default": 13
+    }
+  },
+  "textdomain": "accelerator",
+  "editorScript": "file:./build/index.js",
+  "editorStyle": "file:./build/index.css",
+  "style": "file:./build/style.css",
+  "render": "file:./render.php"
+}

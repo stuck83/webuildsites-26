@@ -19,6 +19,7 @@
 !/assets/fonts/*
 !/assets/images/src/
 !/languages/
+!/blocks/
 !gulp/
 !node/
 !style.css
@@ -89,3 +90,9 @@ node_modules/
 vendor/
 bun.lockb
 .aider*
+
+# Allow tracking for our custom location map block assets inside the assets folder
+!/assets/blocks/
+/assets/blocks/*
+!/assets/blocks/location-map/
+/assets/blocks/location-map/build/
