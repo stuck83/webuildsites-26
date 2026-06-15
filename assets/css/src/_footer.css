@@ -279,7 +279,7 @@ body.search-modal-open {
     border: none;
     background: var(--brand-orange);
     color: #000000;
-    font-weight: 900;
+    font-weight: 600;
     font-size: 1rem;
     cursor: pointer;
     padding: 0 1.25rem;
