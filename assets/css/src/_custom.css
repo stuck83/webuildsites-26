@@ -599,6 +599,26 @@ html {
     margin-top: 0 !important;
 }
 
+
+/**PADDING FOR ALL COLUMN BLOCKS EXCKUDING PATTERSN***/
+@media (max-width: 768px) {
+    .entry-content {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+        box-sizing: border-box;
+    }
+
+    /* Ensure full-width blocks can still break out */
+    .entry-content .alignfull,
+    .entry-content .alignwide {
+        margin-left: -1.25rem;
+        margin-right: -1.25rem;
+        width: calc(100% + 2.5rem);
+        max-width: calc(100% + 2.5rem);
+    }
+}
+
+
 /**Removed POSTED by NAME**/
 .posted-by{
     display:none;
