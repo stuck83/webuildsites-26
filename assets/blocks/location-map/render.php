@@ -5,7 +5,7 @@
  * @package accelerator
  */
 
-$address = ! empty( $attributes['address'] ) ? esc_attr( $attributes['address'] ) : 'London, New United Kingdom';
+$address = ! empty( $attributes['address'] ) ? esc_attr( $attributes['address'] ) : 'London, United Kingdom';
 $zoom    = ! empty( $attributes['zoom'] ) ? intval( $attributes['zoom'] ) : 13;
 
 $wrapper_attributes = get_block_wrapper_attributes( array(

@@ -76,4 +76,16 @@ add_action( 'wp_enqueue_scripts', function() {
 });
 
 
+add_action( 'init', function() {
+    $blocks_dir = get_template_directory() . '/assets/blocks/';
+    
+    if ( ! is_dir( $blocks_dir ) ) {
+        return;
+    }
 
+    foreach ( glob( $blocks_dir . '*', GLOB_ONLYDIR ) as $block_dir ) {
+        if ( file_exists( $block_dir . '/block.json' ) ) {
+            register_block_type( $block_dir );
+        }
+    }
+} );
