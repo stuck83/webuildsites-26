@@ -600,23 +600,24 @@ html {
 }
 
 
-/**PADDING FOR ALL COLUMN BLOCKS EXCKUDING PATTERSN***/
-@media (max-width: 768px) {
-    .entry-content {
-        padding-left: 1.25rem;
-        padding-right: 1.25rem;
-        box-sizing: border-box;
-    }
-
-    /* Ensure full-width blocks can still break out */
-    .entry-content .alignfull,
-    .entry-content .alignwide {
-        margin-left: -1.25rem;
-        margin-right: -1.25rem;
-        width: calc(100% + 2.5rem);
-        max-width: calc(100% + 2.5rem);
-    }
+/* Pad paragraph blocks inside columns */
+.wp-block-paragraph {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    box-sizing: border-box;
 }
+
+/* But not inside patterns that handle their own layout */
+.service-banner-section .wp-block-paragraph,
+.services-section .wp-block-paragraph,
+.partners-slider-section .wp-block-paragraph,
+.trust-section .wp-block-paragraph,
+.features-section .wp-block-paragraph,
+.image-content-section .wp-block-paragraph {
+    padding-left: 0;
+    padding-right: 0;
+}
+
 
 
 /**Removed POSTED by NAME**/
