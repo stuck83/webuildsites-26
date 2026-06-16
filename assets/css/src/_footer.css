@@ -71,6 +71,11 @@
     max-width: calc(33.333% - 1.333rem) !important;
 }
 
+/* No Padding in footer block*/
+.site-footer .wp-block-paragraph{
+    padding:0px;
+}
+
 /* ==========================================================================
    Responsive Viewport Settings
    ========================================================================== */
