@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Partners Slider
- * Slug: accelerator/slider
+ * Slug: webuildsites/slider
  * Categories: featured
  */
 ?>

@@ -1,16 +1,16 @@
 <?php
 /**
- * Accelerator\Image_Sizes\Component class
+ * Webuildsites\Image_Sizes\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Image_Sizes;
+namespace Webuildsites\Image_Sizes;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use WP_Post;
 
-use function Accelerator\wprig_accelerator;
+use function Webuildsites\wprig_webuildsites;
 use function add_filter;
 
 /**
@@ -51,7 +51,7 @@ class Component implements Component_Interface {
 			$sizes = '100vw';
 		}
 
-		if ( wprig_accelerator()->is_primary_sidebar_active() ) {
+		if ( wprig_webuildsites()->is_primary_sidebar_active() ) {
 			$sizes = '(min-width: 960px) 75vw, 100vw';
 		}
 
@@ -87,7 +87,7 @@ class Component implements Component_Interface {
 	public function filter_post_thumbnail_sizes_attr( array $attr, WP_Post $attachment, array|string $size ): array {
 		$attr['sizes'] = '100vw';
 
-		if ( wprig_accelerator()->is_primary_sidebar_active() ) {
+		if ( wprig_webuildsites()->is_primary_sidebar_active() ) {
 			$attr['sizes'] = '(min-width: 960px) 75vw, 100vw';
 		}
 

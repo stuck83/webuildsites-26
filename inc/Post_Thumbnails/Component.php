@@ -1,13 +1,13 @@
 <?php
 /**
- * Accelerator\Post_Thumbnails\Component class
+ * Webuildsites\Post_Thumbnails\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Post_Thumbnails;
+namespace Webuildsites\Post_Thumbnails;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function add_image_size;
@@ -47,6 +47,6 @@ class Component implements Component_Interface {
 	 * Adds custom image sizes.
 	 */
 	public function action_add_image_sizes() {
-		add_image_size( 'wprig-accelerator-featured', 720, 480, true );
+		add_image_size( 'wprig-webuildsites-featured', 720, 480, true );
 	}
 }

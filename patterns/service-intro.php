@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Service Intro
- * Slug: accelerator/service-intro
+ * Slug: webuildsites/service-intro
  * Categories: featured
  */
 ?>

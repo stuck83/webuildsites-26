@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's comment and edit links
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 ?>
 <div class="entry-actions">
@@ -18,7 +18,7 @@ namespace Accelerator;
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'wprig-accelerator' ),
+						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'wprig-webuildsites' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -37,7 +37,7 @@ namespace Accelerator;
 		sprintf(
 			wp_kses(
 				/* translators: %s: post title */
-				__( 'Edit <span class="screen-reader-text">%s</span>', 'wprig-accelerator' ),
+				__( 'Edit <span class="screen-reader-text">%s</span>', 'wprig-webuildsites' ),
 				array(
 					'span' => array(
 						'class' => array(),

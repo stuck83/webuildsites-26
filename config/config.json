@@ -1,18 +1,18 @@
 {
   "theme": {
-    "PHPNamespace": "Accelerator",
-    "slug": "accelerator-production",
-    "name": "Accelerator",
-    "theme_uri": "https://accelerator.uk.com",
+    "PHPNamespace": "Webuildsites",
+    "slug": "webuildsites-production",
+    "name": "WeBuildSites",
+    "theme_uri": "https://webuildsites.co.nz",
     "author": "Simon Tucker",
-    "author_uri": "https://webuildsites.nz/",
-    "description": "A custom high-performance theme for the Accelerator 26 project.",
+    "author_uri": "https://webuildsites.co.nz/",
+    "description": "A custom high-performance theme for the WeBuildSites project.",
     "version": "1.0.0",
     "enableBlocks": true
   },
   "dev": {
     "browserSync": {
-      "proxyURL": "accelerator-26.local",
+      "proxyURL": "webuildsites.local",
       "live": true,
       "https": false
     },

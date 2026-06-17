@@ -1,7 +1,7 @@
 {
 
   "apiVersion": 3,
-  "name": "accelerator/location-map",
+  "name": "webuildsites/location-map",
   "version": "0.1.0",
   "title": "Location Map",
   "category": "design",
@@ -21,7 +21,7 @@
       "default": 13
     }
   },
-  "textdomain": "accelerator",
+  "textdomain": "webuildsites",
   "editorScript": "file:./build/index.js",
   "editorStyle": "file:./build/index.css",
   "style": "file:./build/style.css",

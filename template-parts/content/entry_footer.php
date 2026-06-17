@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's footer
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 ?>
 <footer class="entry-footer">

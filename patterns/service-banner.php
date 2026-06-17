@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Service Banner
- * Slug: accelerator/service-banner
+ * Slug: webuildsites/service-banner
  * Categories: featured
  */
 ?>

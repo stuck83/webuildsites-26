@@ -7,10 +7,10 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 /*
  * If the current post is protected by a password and
@@ -21,7 +21,7 @@ if ( post_password_required() ) {
 	return;
 }
 
-wprig_accelerator()->print_styles( 'wprig-accelerator-comments' );
+wprig_webuildsites()->print_styles( 'wprig-webuildsites-comments' );
 
 ?>
 <div id="comments" class="comments-area">
@@ -35,13 +35,13 @@ wprig_accelerator()->print_styles( 'wprig-accelerator-comments' );
 			if ( 1 === $comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'wprig-accelerator' ),
+					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'wprig-webuildsites' ),
 					'<span>' . get_the_title() . '</span>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			} else {
 				printf(
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'wprig-accelerator' ) ),
+					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'wprig-webuildsites' ) ),
 					// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					number_format_i18n( $comment_count ),
 					'<span>' . get_the_title() . '</span>' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -52,12 +52,12 @@ wprig_accelerator()->print_styles( 'wprig-accelerator-comments' );
 
 		<?php the_comments_navigation(); ?>
 
-		<?php wprig_accelerator()->the_comments(); ?>
+		<?php wprig_webuildsites()->the_comments(); ?>
 
 		<?php
 		if ( ! comments_open() ) {
 			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'wprig-accelerator' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'wprig-webuildsites' ); ?></p>
 			<?php
 		}
 	}

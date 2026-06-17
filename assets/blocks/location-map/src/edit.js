@@ -5,7 +5,7 @@ import { PanelBody, TextControl, RangeControl } from "@wordpress/components";
 export default function Edit({ attributes, setAttributes }) {
 	const { address, zoom } = attributes;
 	const blockProps = useBlockProps({
-		className: "accelerator-map-container alignwide",
+		className: "webuildsites-map-container alignwide",
 	});
 
 	const mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(
@@ -16,16 +16,16 @@ export default function Edit({ attributes, setAttributes }) {
 		<div {...blockProps}>
 			<InspectorControls>
 				<PanelBody
-					title={__("Map Settings", "accelerator")}
+					title={__("Map Settings", "webuildsites")}
 					initialOpen={true}
 				>
 					<TextControl
-						label={__("Map Address", "accelerator")}
+						label={__("Map Address", "webuildsites")}
 						value={address}
 						onChange={(value) => setAttributes({ address: value })}
 					/>
 					<RangeControl
-						label={__("Zoom Level", "accelerator")}
+						label={__("Zoom Level", "webuildsites")}
 						value={zoom}
 						onChange={(value) => setAttributes({ zoom: value })}
 						min={1}

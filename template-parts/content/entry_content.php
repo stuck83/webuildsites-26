@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's content
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 ?>
 
@@ -15,7 +15,7 @@ namespace Accelerator;
 		sprintf(
 			wp_kses(
 				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wprig-accelerator' ),
+				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wprig-webuildsites' ),
 				array(
 					'span' => array(
 						'class' => array(),
@@ -28,7 +28,7 @@ namespace Accelerator;
 
 	wp_link_pages(
 		array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wprig-accelerator' ),
+			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wprig-webuildsites' ),
 			'after'  => '</div>',
 		)
 	);

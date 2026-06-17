@@ -2,16 +2,16 @@
 /**
  * Template part for displaying a pagination
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 the_posts_pagination(
 	array(
 		'mid_size'           => 2,
-		'prev_text'          => _x( 'Previous', 'previous set of search results', 'wprig-accelerator' ),
-		'next_text'          => _x( 'Next', 'next set of search results', 'wprig-accelerator' ),
-		'screen_reader_text' => __( 'Page navigation', 'wprig-accelerator' ),
+		'prev_text'          => _x( 'Previous', 'previous set of search results', 'wprig-webuildsites' ),
+		'next_text'          => _x( 'Next', 'next set of search results', 'wprig-webuildsites' ),
+		'screen_reader_text' => __( 'Page navigation', 'wprig-webuildsites' ),
 	)
 );

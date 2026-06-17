@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Features
- * Slug: accelerator/features
+ * Slug: webuildsites/features
  * Categories: featured
  */
 ?>

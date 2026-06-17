@@ -5,7 +5,7 @@
  * @package wp_rig
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 if ( ! is_active_sidebar( 'blog-sidebar' ) ) {
     return;

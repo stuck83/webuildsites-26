@@ -1,13 +1,13 @@
 <?php
 /**
- * Accelerator\Base_Support\Component class
+ * Webuildsites\Base_Support\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Base_Support;
+namespace Webuildsites\Base_Support;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use function add_action;
 use function add_filter;
 use function add_theme_support;
@@ -21,8 +21,8 @@ use function wp_scripts;
  * Class for adding basic theme support, most of which is mandatory to be implemented by all themes.
  *
  * Exposes template tags:
- * * `wprig_accelerator()->get_version()`
- * * `wprig_accelerator()->get_asset_version( string $filepath )`
+ * * `wprig_webuildsites()->get_version()`
+ * * `wprig_webuildsites()->get_asset_version( string $filepath )`
  */
 class Component implements Component_Interface {
 

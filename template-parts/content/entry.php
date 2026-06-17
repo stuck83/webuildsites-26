@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 ?>
 
@@ -29,8 +29,8 @@ if ( is_singular( get_post_type() ) ) {
 	if ( 'post' === get_post_type() || get_post_type_object( get_post_type() )->has_archive ) {
 		the_post_navigation(
 			array(
-				'prev_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Previous:', 'wprig-accelerator' ) . '</span></div>%title',
-				'next_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Next:', 'wprig-accelerator' ) . '</span></div>%title',
+				'prev_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Previous:', 'wprig-webuildsites' ) . '</span></div>%title',
+				'next_text' => '<div class="post-navigation-sub"><span>' . esc_html__( 'Next:', 'wprig-webuildsites' ) . '</span></div>%title',
 			)
 		);
 	}

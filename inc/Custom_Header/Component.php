@@ -1,13 +1,13 @@
 <?php
 /**
- * Accelerator\Custom_Header\Component class
+ * Webuildsites\Custom_Header\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Custom_Header;
+namespace Webuildsites\Custom_Header;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function apply_filters;
@@ -46,7 +46,7 @@ class Component implements Component_Interface {
 		add_theme_support(
 			'custom-header',
 			apply_filters(
-				'wprig_accelerator_custom_header_args',
+				'wprig_webuildsites_custom_header_args',
 				array(
 					'default-image'      => '',
 					'default-text-color' => '000000',

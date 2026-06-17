@@ -1,11 +1,11 @@
 <?php
 /**
- * Accelerator\Component_Interface interface
+ * Webuildsites\Component_Interface interface
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 /**
  * Interface for a theme component.

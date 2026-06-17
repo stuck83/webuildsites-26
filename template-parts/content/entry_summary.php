@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's summary
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 ?>
 

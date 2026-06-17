@@ -1,16 +1,16 @@
 <?php
 /**
- * Accelerator\Accessibility\Component class
+ * Webuildsites\Accessibility\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Accessibility;
+namespace Webuildsites\Accessibility;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use WP_Post;
 
-use function Accelerator\wprig_accelerator;
+use function Webuildsites\wprig_webuildsites;
 use function add_action;
 use function add_filter;
 use function wp_enqueue_script;
@@ -55,7 +55,7 @@ class Component implements Component_Interface {
                 $handle,
                 get_theme_file_uri( '/assets/js/navigation.min.js' ),
                 array(),
-                wprig_accelerator()->get_asset_version( get_theme_file_path( '/assets/js/navigation.min.js' ) ),
+                wprig_webuildsites()->get_asset_version( get_theme_file_path( '/assets/js/navigation.min.js' ) ),
                 false
         );
         wp_script_add_data( $handle, 'async', true );
@@ -64,8 +64,8 @@ class Component implements Component_Interface {
                 $handle,
                 $object_name,
                 array(
-                        'expand'   => __( 'Expand child menu', 'wprig-accelerator' ),
-                        'collapse' => __( 'Collapse child menu', 'wprig-accelerator' ),
+                        'expand'   => __( 'Expand child menu', 'wprig-webuildsites' ),
+                        'collapse' => __( 'Collapse child menu', 'wprig-webuildsites' ),
                 )
         );
 }

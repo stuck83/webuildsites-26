@@ -1,15 +1,15 @@
 <?php
 /**
- * Accelerator\Styles\Component class
+ * Webuildsites\Styles\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Styles;
+namespace Webuildsites\Styles;
 
-use Accelerator\Component_Interface;
-use Accelerator\Templating_Component_Interface;
-use function Accelerator\wprig_accelerator;
+use Webuildsites\Component_Interface;
+use Webuildsites\Templating_Component_Interface;
+use function Webuildsites\wprig_webuildsites;
 use function add_action;
 use function add_filter;
 use function wp_enqueue_style;
@@ -36,7 +36,7 @@ use function add_query_arg;
  * Class for managing stylesheets.
  *
  * Exposes template tags:
- * * `wprig_accelerator()->print_styles()`
+ * * `wprig_webuildsites()->print_styles()`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -71,7 +71,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_accelerator()`.
+	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_webuildsites()`.
 	 *
 	 * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
@@ -98,7 +98,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		$css_files = $this->get_css_files();
 		foreach ( $css_files as $handle => $data ) {
 			$src     = $css_uri . $data['file'];
-			$version = wprig_accelerator()->get_asset_version( $css_dir . $data['file'] );
+			$version = wprig_webuildsites()->get_asset_version( $css_dir . $data['file'] );
 
 			/*
 			 * Enqueue global stylesheets immediately and register the other ones for later use
@@ -197,7 +197,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 				$is_valid = isset( $css_files[ $handle ] ) && ! $css_files[ $handle ]['global'];
 				if ( ! $is_valid ) {
 					/* translators: %s: stylesheet handle */
-					_doing_it_wrong( __CLASS__ . '::print_styles()', esc_html( sprintf( __( 'Invalid theme stylesheet handle: %s', 'wprig-accelerator' ), $handle ) ), 'Accelerator 2.0.0' );
+					_doing_it_wrong( __CLASS__ . '::print_styles()', esc_html( sprintf( __( 'Invalid theme stylesheet handle: %s', 'wprig-webuildsites' ), $handle ) ), 'Webuildsites 2.0.0' );
 				}
 				return $is_valid;
 			}
@@ -214,7 +214,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Determines whether to preload stylesheets and inject their link tags directly within the page content.
 	 *
 	 * Using this technique generally improves performance, however may not be preferred under certain circumstances.
-	 * {@see 'wprig_accelerator_preloading_styles_enabled'} filter can be used to tweak the return value.
+	 * {@see 'wprig_webuildsites_preloading_styles_enabled'} filter can be used to tweak the return value.
 	 *
 	 * @return bool True if preloading stylesheets and injecting them is enabled, false otherwise.
 	 */
@@ -225,7 +225,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		 *
 		 * @param bool $preloading_styles_enabled Whether preloading stylesheets and injecting them is enabled.
 		 */
-		return apply_filters( 'wprig_accelerator_preloading_styles_enabled', true );
+		return apply_filters( 'wprig_webuildsites_preloading_styles_enabled', true );
 	}
 
 	/**
@@ -239,33 +239,33 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		}
 
 		$css_files = array(
-			'wprig-accelerator-global'     => array(
+			'wprig-webuildsites-global'     => array(
 				'file'   => 'global.min.css',
 				'global' => true,
 			),
-			'wprig-accelerator-comments'   => array(
+			'wprig-webuildsites-comments'   => array(
 				'file'             => 'comments.min.css',
 				'preload_callback' => function () {
 					return ! post_password_required() && is_singular() && ( comments_open() || get_comments_number() );
 				},
 			),
-			'wprig-accelerator-content'    => array(
+			'wprig-webuildsites-content'    => array(
 				'file'             => 'content.min.css',
 				'preload_callback' => '__return_true',
 			),
-			'wprig-accelerator-sidebar'    => array(
+			'wprig-webuildsites-sidebar'    => array(
 				'file'             => 'sidebar.min.css',
 				'preload_callback' => function () {
-					return wprig_accelerator()->is_primary_sidebar_active();
+					return wprig_webuildsites()->is_primary_sidebar_active();
 				},
 			),
-			'wprig-accelerator-widgets'    => array(
+			'wprig-webuildsites-widgets'    => array(
 				'file'             => 'widgets.min.css',
 				'preload_callback' => function () {
-					return wprig_accelerator()->is_primary_sidebar_active();
+					return wprig_webuildsites()->is_primary_sidebar_active();
 				},
 			),
-			'wprig-accelerator-front-page' => array(
+			'wprig-webuildsites-front-page' => array(
 				'file'             => 'front-page.min.css',
 				'preload_callback' => function () {
 					global $template;
@@ -283,7 +283,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		 *                         enqueued instead of just being registered) and 'preload_callback' (callback)
 		 *                         function determining whether the file should be preloaded for the current request).
 		 */
-		$css_files = apply_filters( 'wprig_accelerator_css_files', $css_files );
+		$css_files = apply_filters( 'wprig_webuildsites_css_files', $css_files );
 
 		$this->css_files = array();
 		foreach ( $css_files as $handle => $data ) {

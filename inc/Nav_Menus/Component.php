@@ -1,17 +1,17 @@
 <?php
 /**
- * Accelerator\Nav_Menus\Component class
+ * Webuildsites\Nav_Menus\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Nav_Menus;
+namespace Webuildsites\Nav_Menus;
 
 use WP_Post;
-use Accelerator\Component_Interface;
-use Accelerator\Templating_Component_Interface;
+use Webuildsites\Component_Interface;
+use Webuildsites\Templating_Component_Interface;
 
-use function Accelerator\wprig_accelerator;
+use function Webuildsites\wprig_webuildsites;
 use function add_action;
 use function add_filter;
 use function register_nav_menus;
@@ -23,8 +23,8 @@ use function wp_nav_menu;
  * Class for managing navigation menus.
  *
  * Exposes template tags:
- * * `wprig_accelerator()->is_primary_nav_menu_active()`
- * * `wprig_accelerator()->display_primary_nav_menu( array $args = array() )`
+ * * `wprig_webuildsites()->is_primary_nav_menu_active()`
+ * * `wprig_webuildsites()->display_primary_nav_menu( array $args = array() )`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -80,13 +80,13 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * Preloads SVG assets to avoid multiple file reads during menu rendering.
 	 *
 	 * Each SVG can be filtered by theme developers using the provided hooks:
-	 * - 'wprig_accelerator_dropdown_icon_svg' - Filter the dropdown arrow icon used in navigation menus
-	 * - 'wprig_accelerator_menu_toggle_icon_svg' - Filter the hamburger menu icon
-	 * - 'wprig_accelerator_menu_close_icon_svg' - Filter the close (X) icon for the mobile menu
+	 * - 'wprig_webuildsites_dropdown_icon_svg' - Filter the dropdown arrow icon used in navigation menus
+	 * - 'wprig_webuildsites_menu_toggle_icon_svg' - Filter the hamburger menu icon
+	 * - 'wprig_webuildsites_menu_close_icon_svg' - Filter the close (X) icon for the mobile menu
 	 */
 	private function preload_svg_assets() {
 		// Load dropdown symbol SVG.
-		$dropdown_svg = wprig_accelerator()->get_theme_asset( 'dropdown-symbol.svg', 'svg', true ) ?? '';
+		$dropdown_svg = wprig_webuildsites()->get_theme_asset( 'dropdown-symbol.svg', 'svg', true ) ?? '';
 
 		/**
 		 * Filters the dropdown icon SVG markup used in navigation menus.
@@ -95,7 +95,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		 *
 		 * @param string $dropdown_svg The SVG markup for the dropdown arrow icon.
 		 */
-		$this->dropdown_symbol_svg = apply_filters( 'wprig_accelerator_dropdown_icon_svg', $dropdown_svg );
+		$this->dropdown_symbol_svg = apply_filters( 'wprig_webuildsites_dropdown_icon_svg', $dropdown_svg );
 
 		// Load menu toggle icons.
 		$menu_icon_path  = get_theme_file_uri() . '/assets/svg/menu-icon.svg';
@@ -114,7 +114,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		 *
 		 * @param string $menu_icon_svg The SVG markup for the hamburger menu icon.
 		 */
-		$this->menu_icon_svg = apply_filters( 'wprig_accelerator_menu_toggle_icon_svg', $menu_icon_svg );
+		$this->menu_icon_svg = apply_filters( 'wprig_webuildsites_menu_toggle_icon_svg', $menu_icon_svg );
 
 		/**
 		 * Filters the mobile menu close (X) icon SVG markup.
@@ -123,7 +123,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		 *
 		 * @param string $close_icon_svg The SVG markup for the close menu icon.
 		 */
-		$this->close_icon_svg = apply_filters( 'wprig_accelerator_menu_close_icon_svg', $close_icon_svg );
+		$this->close_icon_svg = apply_filters( 'wprig_webuildsites_menu_close_icon_svg', $close_icon_svg );
 	}
 
 	/**
@@ -132,15 +132,15 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function hooks() {
 		add_action( 'after_setup_theme', array( $this, 'action_register_nav_menus' ) );
 		add_filter( 'walker_nav_menu_start_el', array( $this, 'filter_primary_nav_menu_dropdown_symbol' ), 10, 4 );
-		add_filter( 'wprig_accelerator_menu_toggle_button', array( $this, 'customize_mobile_menu_toggle' ) );
-		add_filter( 'wprig_accelerator_site_navigation_classes', array( $this, 'customize_mobile_menu_nav_classes' ) );
+		add_filter( 'wprig_webuildsites_menu_toggle_button', array( $this, 'customize_mobile_menu_toggle' ) );
+		add_filter( 'wprig_webuildsites_site_navigation_classes', array( $this, 'customize_mobile_menu_nav_classes' ) );
 		add_filter( 'render_block_core/navigation', array( $this, 'add_nav_class_to_navigation_block' ), 10, 3 );
 		//add_filter( 'walker_nav_menu_start_el', array( $this, 'modify_menu_items_for_accessibility' ), 10, 4 );
 		add_filter( 'wp_nav_menu_objects', array( $this, 'inject_parent_link_into_submenu' ), 10, 2 );
 	}
 
 	/**
-	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_accelerator()`.
+	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_webuildsites()`.
 	 *
 	 * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
@@ -163,7 +163,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			return null;
 		} else {
 			$theme_settings_json  = wp_remote_retrieve_body( $response );
-			$this->theme_settings = apply_filters( 'wprig_accelerator_customizer_settings', json_decode( $theme_settings_json, true ) );
+			$this->theme_settings = apply_filters( 'wprig_webuildsites_customizer_settings', json_decode( $theme_settings_json, true ) );
 		}
 		return null;
 	}
@@ -174,8 +174,8 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function action_register_nav_menus() {
 		register_nav_menus(
 			array(
-				static::PRIMARY_NAV_MENU_SLUG => esc_html__( 'Primary', 'wprig-accelerator' ),
-				'topmenu' => esc_html__( 'Top Menu', 'wprig-accelerator' ),
+				static::PRIMARY_NAV_MENU_SLUG => esc_html__( 'Primary', 'wprig-webuildsites' ),
+				'topmenu' => esc_html__( 'Top Menu', 'wprig-webuildsites' ),
 				
 			)
 		);
@@ -211,7 +211,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		// Add the dropdown for items that have children.
 		if ( ! empty( $item->classes ) && in_array( 'menu-item-has-children', $item->classes, true ) ) {
-			return $item_output . '<button class="dropdown-toggle" aria-expanded="false" aria-label="' . esc_html__( 'Expand child menu', 'wprig-accelerator' ) . '">' . $this->dropdown_symbol_svg . '</button>';
+			return $item_output . '<button class="dropdown-toggle" aria-expanded="false" aria-label="' . esc_html__( 'Expand child menu', 'wprig-webuildsites' ) . '">' . $this->dropdown_symbol_svg . '</button>';
 		}
 
 		return $item_output;
@@ -248,7 +248,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	 * @return string Mobile Nav Toggle HTML.
 	 */
 	public function customize_mobile_menu_toggle() {
-		return '<button class="menu-toggle icon" aria-label="' . esc_html__( 'Open menu', 'wprig-accelerator' ) . '" aria-controls="primary-menu" aria-expanded="false">
+		return '<button class="menu-toggle icon" aria-label="' . esc_html__( 'Open menu', 'wprig-webuildsites' ) . '" aria-controls="primary-menu" aria-expanded="false">
 					' . $this->menu_icon_svg . '
 					' . $this->close_icon_svg . '
 					</button>';

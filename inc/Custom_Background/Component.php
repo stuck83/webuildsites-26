@@ -1,13 +1,13 @@
 <?php
 /**
- * Accelerator\Custom_Background\Component class
+ * Webuildsites\Custom_Background\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Custom_Background;
+namespace Webuildsites\Custom_Background;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function apply_filters;
@@ -40,7 +40,7 @@ class Component implements Component_Interface {
 		add_theme_support(
 			'custom-background',
 			apply_filters(
-				'wprig_accelerator_custom_background_args',
+				'wprig_webuildsites_custom_background_args',
 				array(
 					'default-color' => 'ffffff',
 					'default-image' => '',

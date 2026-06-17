@@ -1,22 +1,22 @@
 <?php
 /**
- * Accelerator\Fonts\Component class
+ * Webuildsites\Fonts\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Fonts;
+namespace Webuildsites\Fonts;
 
 use WP_Error;
-use Accelerator\Component_Interface;
-use Accelerator\Templating_Component_Interface;
+use Webuildsites\Component_Interface;
+use Webuildsites\Templating_Component_Interface;
 
 /**
  * Class for adding basic theme support, most of which is mandatory to be implemented by all themes.
  *
  * Exposes template tags:
- * * `wprig_accelerator()->get_version()`
- * * `wprig_accelerator()->get_asset_version( string $filepath )`
+ * * `wprig_webuildsites()->get_version()`
+ * * `wprig_webuildsites()->get_asset_version( string $filepath )`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -51,7 +51,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_accelerator()`.
+	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_webuildsites()`.
 	 *
 	 * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
@@ -100,14 +100,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_register_font_collection(
 				'modern-stacks',
 				array(
-					'name'          => __( 'Modern Stacks', 'wprig-accelerator' ),
-					'description'   => __( 'A collection of modern system fonts.', 'wprig-accelerator' ),
+					'name'          => __( 'Modern Stacks', 'wprig-webuildsites' ),
+					'description'   => __( 'A collection of modern system fonts.', 'wprig-webuildsites' ),
 					'font_families' => array(
 						array(
 							'font_family_settings' => array(
 								'fontFamily' => 'system-ui, sans-serif',
 								'slug'       => 'system-ui',
-								'name'       => __( 'System UI', 'wprig-accelerator' ),
+								'name'       => __( 'System UI', 'wprig-webuildsites' ),
 							),
 							'categories'           => array( 'sans-serif' ),
 						),
@@ -115,7 +115,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 							'font_family_settings' => array(
 								'fontFamily' => "Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif",
 								'slug'       => 'transitional',
-								'name'       => __( 'Transitional', 'wprig-accelerator' ),
+								'name'       => __( 'Transitional', 'wprig-webuildsites' ),
 							),
 							'categories'           => array( 'serif' ),
 						),
@@ -123,7 +123,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 							'font_family_settings' => array(
 								'fontFamily' => "'Nimbus Mono PS', 'Courier New', monospace",
 								'slug'       => 'monospace-slab-serif',
-								'name'       => __( 'Monospace Slab Serif', 'wprig-accelerator' ),
+								'name'       => __( 'Monospace Slab Serif', 'wprig-webuildsites' ),
 							),
 							'categories'           => array( 'monospace', 'serif' ),
 						),
@@ -131,26 +131,26 @@ class Component implements Component_Interface, Templating_Component_Interface {
 							'font_family_settings' => array(
 								'fontFamily' => "'Segoe Print', 'Bradley Hand', Chilanka, TSCu_Comic, casual, cursive",
 								'slug'       => 'handwritten',
-								'name'       => __( 'Handwritten', 'wprig-accelerator' ),
+								'name'       => __( 'Handwritten', 'wprig-webuildsites' ),
 							),
 							'categories'           => array( 'handwriting' ),
 						),
 					),
 					'categories'    => array(
 						array(
-							'name' => __( 'Handwriting', 'wprig-accelerator' ),
+							'name' => __( 'Handwriting', 'wprig-webuildsites' ),
 							'slug' => 'handwriting',
 						),
 						array(
-							'name' => __( 'Monospace', 'wprig-accelerator' ),
+							'name' => __( 'Monospace', 'wprig-webuildsites' ),
 							'slug' => 'monospace',
 						),
 						array(
-							'name' => __( 'Sans Serif', 'wprig-accelerator' ),
+							'name' => __( 'Sans Serif', 'wprig-webuildsites' ),
 							'slug' => 'sans-serif',
 						),
 						array(
-							'name' => __( 'Serif', 'wprig-accelerator' ),
+							'name' => __( 'Serif', 'wprig-webuildsites' ),
 							'slug' => 'serif',
 						),
 					),
@@ -160,7 +160,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			wp_register_font_collection(
 				'local-fonts',
 				array(
-					'name'          => __( 'Local Fonts', 'wprig-accelerator' ),
+					'name'          => __( 'Local Fonts', 'wprig-webuildsites' ),
 					'font_families' => array(
 						array(
 							'family' => 'My Local Font',
@@ -197,7 +197,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 
 		if ( $local_css_path ) {
 			wp_enqueue_style(
-				'wprig-accelerator-fonts',
+				'wprig-webuildsites-fonts',
 				$local_css_url,
 				array(),
 				$this->get_asset_version( $local_css_path )
@@ -206,7 +206,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 			// No local file found — fall back to CDN so the site doesn't break.
 			$google_fonts_url = $this->get_google_fonts_url();
 			if ( '' !== $google_fonts_url ) {
-				wp_enqueue_style( 'wprig-accelerator-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
+				wp_enqueue_style( 'wprig-webuildsites-fonts', $google_fonts_url, array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 			}
 		}
 	}
@@ -252,7 +252,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		 *
 		 * @param array $google_fonts Associative array of $font_name => $font_variants pairs.
 		 */
-		$this->google_fonts = (array) apply_filters( 'wprig_accelerator_google_fonts', $google_fonts );
+		$this->google_fonts = (array) apply_filters( 'wprig_webuildsites_google_fonts', $google_fonts );
 
 		return $this->google_fonts;
 	}

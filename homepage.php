@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<section class="accelerator-hero-video">
+<section class="webuildsites-hero-video">
     <div class="video-overlay">
         <div class="grid-container">
             <div class="hero-text-box">

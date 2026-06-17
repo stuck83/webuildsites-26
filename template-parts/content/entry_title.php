@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's title
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 if ( is_singular( get_post_type() ) ) {
 	the_title( '<h1 class="entry-title entry-title-singular">', '</h1>' );

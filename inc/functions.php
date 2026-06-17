@@ -1,11 +1,11 @@
 <?php
 /**
- * The `wprig_accelerator()` function.
+ * The `wprig_webuildsites()` function.
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 /**
  * Provides access to all available template tags of the theme.
@@ -14,7 +14,7 @@ namespace Accelerator;
  *
  * @return Template_Tags Template tags instance exposing template tag methods.
  */
-function wprig_accelerator(): Template_Tags {
+function wprig_webuildsites(): Template_Tags {
 	static $theme = null;
 
 	if ( null === $theme ) {

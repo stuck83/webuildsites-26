@@ -2,16 +2,16 @@
 /**
  * Template part for displaying the page header of the currently displayed page
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 if ( is_404() ) {
 	?>
 	<header class="page-header">
 		<h1 class="page-title">
-			<?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wprig-accelerator' ); ?>
+			<?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'wprig-webuildsites' ); ?>
 		</h1>
 	</header><!-- .page-header -->
 	<?php
@@ -19,7 +19,7 @@ if ( is_404() ) {
 	?>
 	<header class="page-header">
 		<h1 class="page-title">
-			<?php esc_html_e( 'Nothing Found', 'wprig-accelerator' ); ?>
+			<?php esc_html_e( 'Nothing Found', 'wprig-webuildsites' ); ?>
 		</h1>
 	</header><!-- .page-header -->
 	<?php
@@ -29,7 +29,7 @@ if ( is_404() ) {
 		<h1 class="page-title">
 			<?php
 			if ( is_front_page() ) {
-				esc_html_e( 'Latest Posts', 'wprig-accelerator' );
+				esc_html_e( 'Latest Posts', 'wprig-webuildsites' );
 			} else {
 				single_post_title();
 			}
@@ -44,7 +44,7 @@ if ( is_404() ) {
 			<?php
 			printf(
 				/* translators: %s: search query */
-				esc_html__( 'Search Results for: %s', 'wprig-accelerator' ),
+				esc_html__( 'Search Results for: %s', 'wprig-webuildsites' ),
 				'<span>' . get_search_query() . '</span>'
 			);
 			?>

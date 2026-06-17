@@ -1,13 +1,13 @@
 <?php
 /**
- * Accelerator\Localization\Component class
+ * Webuildsites\Localization\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Localization;
+namespace Webuildsites\Localization;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use function add_action;
 use function load_theme_textdomain;
 use function get_template_directory;
@@ -59,6 +59,6 @@ class Component implements Component_Interface {
 		 * should not bundle translations in your theme. In that case you also need to get rid of the
 		 * second parameter in the following function call.
 		 */
-		load_theme_textdomain( 'wprig-accelerator', $this->translation_directory );
+		load_theme_textdomain( 'wprig-webuildsites', $this->translation_directory );
 	}
 }

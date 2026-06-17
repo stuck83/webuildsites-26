@@ -2,14 +2,14 @@
 /**
  * Location Map Frontend Render Engine
  *
- * @package accelerator
+ * @package webuildsites
  */
 
 $address = ! empty( $attributes['address'] ) ? esc_attr( $attributes['address'] ) : 'London, United Kingdom';
 $zoom    = ! empty( $attributes['zoom'] ) ? intval( $attributes['zoom'] ) : 13;
 
 $wrapper_attributes = get_block_wrapper_attributes( array(
-    'class' => 'accelerator-map-container alignwide'
+    'class' => 'webuildsites-map-container alignwide'
 ) );
 
 $map_url = "https://maps.google.com/maps?q=" . urlencode( $address ) . "&t=&z=" . $zoom . "&ie=UTF8&iwloc=&output=embed";

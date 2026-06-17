@@ -1,11 +1,11 @@
 <?php
 /**
- * Accelerator\Template_Tags class
+ * Webuildsites\Template_Tags class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 use InvalidArgumentException;
 use BadMethodCallException;
@@ -16,8 +16,8 @@ use RuntimeException;
  *
  * This class provides access to all available template tag methods.
  *
- * Its instance can be accessed through `wprig_accelerator()`. For example, if there is a template tag called `posted_on`, it can
- * be accessed via `wprig_accelerator()->posted_on()`.
+ * Its instance can be accessed through `wprig_webuildsites()`. For example, if there is a template tag called `posted_on`, it can
+ * be accessed via `wprig_webuildsites()->posted_on()`.
  */
 class Template_Tags {
 
@@ -51,7 +51,7 @@ class Template_Tags {
 				throw new InvalidArgumentException(
 					sprintf(
 						/* translators: 1: classname/type of the variable, 2: interface name */
-						esc_html__( 'The theme templating component %1$s does not implement the %2$s interface.', 'wprig-accelerator' ),
+						esc_html__( 'The theme templating component %1$s does not implement the %2$s interface.', 'wprig-webuildsites' ),
 						esc_html( gettype( $component ) ),
 						Templating_Component_Interface::class
 					)
@@ -78,8 +78,8 @@ class Template_Tags {
 			throw new BadMethodCallException(
 				sprintf(
 					/* translators: %s: template tag name */
-					esc_html__( 'The template tag %s does not exist.', 'wprig-accelerator' ),
-					'wprig_accelerator()->' . esc_html( $method ) . '()'
+					esc_html__( 'The template tag %s does not exist.', 'wprig-webuildsites' ),
+					'wprig_webuildsites()->' . esc_html( $method ) . '()'
 				)
 			);
 		}
@@ -107,7 +107,7 @@ class Template_Tags {
 				throw new InvalidArgumentException(
 					sprintf(
 						/* translators: 1: template tag method name, 2: component class name */
-						esc_html__( 'The template tag method %1$s registered by theme component %2$s must either be a callable or an array.', 'wprig-accelerator' ),
+						esc_html__( 'The template tag method %1$s registered by theme component %2$s must either be a callable or an array.', 'wprig-webuildsites' ),
 						esc_html( $method_name ),
 						esc_html( get_class( $component ) )
 					)
@@ -118,7 +118,7 @@ class Template_Tags {
 				throw new RuntimeException(
 					sprintf(
 						/* translators: 1: template tag method name, 2: component class name */
-						esc_html__( 'The template tag method %1$s registered by theme component %2$s conflicts with an already registered template tag of the same name.', 'wprig-accelerator' ),
+						esc_html__( 'The template tag method %1$s registered by theme component %2$s conflicts with an already registered template tag of the same name.', 'wprig-webuildsites' ),
 						esc_html( $method_name ),
 						esc_html( get_class( $component ) )
 					)
@@ -200,7 +200,7 @@ class Template_Tags {
 			} catch ( \Exception $e ) {
 				// Log the error in debug mode, but don't crash.
 				if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-					error_log( 'Accelerator Asset Error: ' . $e->getMessage() );
+					error_log( 'Webuildsites Asset Error: ' . $e->getMessage() );
 				}
 				return null;
 			}

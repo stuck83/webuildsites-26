@@ -1,14 +1,14 @@
 <?php
 /**
- * Accelerator\Excerpts\Component class
+ * Webuildsites\Excerpts\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Excerpts;
+namespace Webuildsites\Excerpts;
 
-use Accelerator\Component_Interface;
-use function Accelerator\wprig_accelerator;
+use Webuildsites\Component_Interface;
+use function Webuildsites\wprig_webuildsites;
 use function add_filter;
 
 /**
@@ -41,7 +41,7 @@ class Component implements Component_Interface {
 			'<a href="%1$s" class="more-link">%2$s</a>',
 			esc_url( get_permalink( get_the_ID() ) ),
 			/* translators: %s: Post title. */
-			sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wprig-accelerator' ), get_the_title( get_the_ID() ) )
+			sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'wprig-webuildsites' ), get_the_title( get_the_ID() ) )
 		);
 		return ' &hellip; ' . $link;
 	}

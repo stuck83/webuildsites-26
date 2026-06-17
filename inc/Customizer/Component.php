@@ -1,16 +1,16 @@
 <?php
 /**
- * Accelerator\Customizer\Component class
+ * Webuildsites\Customizer\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Customizer;
+namespace Webuildsites\Customizer;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use WP_Customize_Manager;
 
-use function Accelerator\wprig_accelerator;
+use function Webuildsites\wprig_webuildsites;
 use function add_action;
 use function bloginfo;
 use function wp_enqueue_script;
@@ -76,7 +76,7 @@ class Component implements Component_Interface {
 		$wp_customize->add_section(
 			'theme_options',
 			array(
-				'title'    => __( 'Theme Options', 'wprig-accelerator' ),
+				'title'    => __( 'Theme Options', 'wprig-webuildsites' ),
 				'priority' => 130, // Before Additional CSS.
 			)
 		);
@@ -87,10 +87,10 @@ class Component implements Component_Interface {
 	 */
 	public function action_enqueue_customize_preview_js() {
 		wp_enqueue_script(
-			'wprig-accelerator-customizer',
+			'wprig-webuildsites-customizer',
 			get_theme_file_uri( '/assets/js/customizer.min.js' ),
 			array( 'customize-preview' ),
-			wprig_accelerator()->get_asset_version( get_theme_file_path( '/assets/js/customizer.min.js' ) ),
+			wprig_webuildsites()->get_asset_version( get_theme_file_path( '/assets/js/customizer.min.js' ) ),
 			true
 		);
 	}

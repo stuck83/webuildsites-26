@@ -25,7 +25,7 @@
     --font-size-large: calc(36 / var(--global-font-size) * 1rem);
     --font-size-larger: calc(48 / var(--global-font-size) * 1rem);
 
-    /* --- BRAND COLORS (The Accelerator Palette) --- */
+    /* --- BRAND COLORS (The Webuildsites Palette) --- */
     --brand-blue-dark: #10374C;    /* Main Primary Blue */
     --brand-blue-deep: #022949;    /* Secondary/Darker Blue */
     --brand-orange: #EC7C30;       /* Main Brand Orange */

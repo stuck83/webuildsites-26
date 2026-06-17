@@ -1,26 +1,26 @@
 <?php
 /**
- * Accelerator\Base_Support\Component class
+ * Webuildsites\Base_Support\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Options;
+namespace Webuildsites\Options;
 
 use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;
 use WP_REST_Server;
-use Accelerator\Component_Interface;
-use Accelerator\Templating_Component_Interface;
+use Webuildsites\Component_Interface;
+use Webuildsites\Templating_Component_Interface;
 use function add_action;
 
 /**
  * Class for adding basic theme support, most of which is mandatory to be implemented by all themes.
  *
  * Exposes template tags:
- * * `wprig_accelerator()->get_version()`
- * * `wprig_accelerator()->get_asset_version( string $filepath )`
+ * * `wprig_webuildsites()->get_version()`
+ * * `wprig_webuildsites()->get_asset_version( string $filepath )`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -44,7 +44,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_accelerator()`.
+	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_webuildsites()`.
 	 *
 	 * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
@@ -59,7 +59,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
      */
     public function theme_options_enqueue_scripts(): void {
         wp_enqueue_script(
-            'wprig-accelerator-theme-settings',
+            'wprig-webuildsites-theme-settings',
             get_template_directory_uri() . '/assets/js/admin/index.min.js',
             array( 'wp-element', 'wp-components', 'wp-data' ),
             '1.0.1', // Safe, hardcoded version string
@@ -67,17 +67,17 @@ class Component implements Component_Interface, Templating_Component_Interface {
         );
 
         wp_enqueue_style(
-            'wprig-accelerator-theme-settings',
+            'wprig-webuildsites-theme-settings',
             get_template_directory_uri() . '/assets/css/admin/theme-settings.min.css',
             array(),
             '1.0.1' // Safe, hardcoded version string
         );
 
-        $settings = get_option( 'wprig_accelerator_theme_settings', '' );
+        $settings = get_option( 'wprig_webuildsites_theme_settings', '' );
 
         wp_localize_script(
-            'wprig-accelerator-theme-settings',
-            'wprigAcceleratorThemeSettings',
+            'wprig-webuildsites-theme-settings',
+            'wprigWebuildsitesThemeSettings',
             array(
                 'nonce'    => wp_create_nonce( 'wp_rest' ),
                 'settings' => $settings,
@@ -86,14 +86,14 @@ class Component implements Component_Interface, Templating_Component_Interface {
     }
 
 	/**
-	 * Adds an admin menu page for Accelerator settings.
+	 * Adds an admin menu page for Webuildsites settings.
 	 */
 	public function add_admin_menu(): void {
 		add_menu_page(
-			__( 'Accelerator Settings', 'wprig-accelerator' ),
-			__( 'Accelerator Settings', 'wprig-accelerator' ),
+			__( 'Webuildsites Settings', 'wprig-webuildsites' ),
+			__( 'Webuildsites Settings', 'wprig-webuildsites' ),
 			'manage_options',
-			'wprig-accelerator-settings',
+			'wprig-webuildsites-settings',
 			array( $this, 'render_settings_page' )
 		);
 	}
@@ -125,7 +125,7 @@ public function maybe_render_maintenance_page(): void {
         return;
     }
 
-    $settings = get_option( 'wprig_accelerator_theme_settings', array() );
+    $settings = get_option( 'wprig_webuildsites_theme_settings', array() );
     error_log( 'RAW maintenance settings: ' . print_r( $settings, true ) );
     error_log( 'maintenance_mode value: ' . var_export( $settings['maintenance_mode'] ?? 'NOT SET', true ) );
     error_log( 'current user can manage: ' . var_export( current_user_can( 'manage_options' ), true ) );
@@ -148,10 +148,10 @@ public function maybe_render_maintenance_page(): void {
 
     $logo_url = get_template_directory_uri() . '/assets/images/acc-logo.png';
 
-    echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' . esc_html__( 'Maintenance', 'wprig-accelerator' ) . '</title>';
+    echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' . esc_html__( 'Maintenance', 'wprig-webuildsites' ) . '</title>';
     echo '<style>body{margin:0;background:#0d1f57;color:#fff;font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;text-align:center;padding:1.5rem;} .maintenance-message{max-width:720px;} .maintenance-logo{max-width:240px;height:auto;margin-bottom:2rem;} .maintenance-message h1{margin:0 0 1rem;font-size:2.25rem;} .maintenance-message p{margin:0;font-size:1.1rem;line-height:1.6;}</style></head><body><div class="maintenance-message">';
-    echo '<img src="' . esc_url( $logo_url ) . '" alt="' . esc_attr__( 'Accelerator Logo', 'wprig-accelerator' ) . '" class="maintenance-logo" />';
-    echo '<h1>' . esc_html__( 'Maintenance Mode Enabled', 'wprig-accelerator' ) . '</h1><p>' . esc_html__( 'We are currently performing maintenance. Please check back soon. If your matter is urgent please call Support on: 0207 993 3100 or email: support@accelerator.uk.com', 'wprig-accelerator' ) . '</p></div></body></html>';
+    echo '<img src="' . esc_url( $logo_url ) . '" alt="' . esc_attr__( 'Webuildsites Logo', 'wprig-webuildsites' ) . '" class="maintenance-logo" />';
+    echo '<h1>' . esc_html__( 'Maintenance Mode Enabled', 'wprig-webuildsites' ) . '</h1><p>' . esc_html__( 'We are currently performing maintenance. Please check back soon. If your matter is urgent please call Support on: 0207 993 3100 or email: support@webuildsites.uk.com', 'wprig-webuildsites' ) . '</p></div></body></html>';
     exit;
 }
 
@@ -171,7 +171,7 @@ public function maybe_render_maintenance_page(): void {
 
 		$settings = $this->sanitize_theme_settings( $settings );
 
-		update_option( 'wprig_accelerator_theme_settings', $settings );
+		update_option( 'wprig_webuildsites_theme_settings', $settings );
 
 		return new WP_REST_Response(
 			array(

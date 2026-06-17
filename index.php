@@ -9,14 +9,14 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 get_header();
 
-wprig_accelerator()->print_styles( 'wprig-accelerator-content' );
+wprig_webuildsites()->print_styles( 'wprig-webuildsites-content' );
 
 ?>
 	<main id="primary" class="site-main">

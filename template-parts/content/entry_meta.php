@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post's metadata
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 $post_type_obj = get_post_type_object( get_post_type() );
 
@@ -60,7 +60,7 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 			<?php
 			printf(
 				/* translators: %s: post date */
-				esc_html_x( 'Posted on %s', 'post date', 'wprig-accelerator' ),
+				esc_html_x( 'Posted on %s', 'post date', 'wprig-webuildsites' ),
 				$time_string // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			);
 			?>
@@ -73,10 +73,10 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 		<span class="posted-by">
 			<?php
 			/* translators: %s: post author */
-			$author_byline = _x( 'By %s', 'post author', 'wprig-accelerator' );
+			$author_byline = _x( 'By %s', 'post author', 'wprig-webuildsites' );
 			if ( '' !== $time_string && '0' !== $time_string ) {
 				/* translators: %s: post author */
-				$author_byline = _x( 'by %s', 'post author', 'wprig-accelerator' );
+				$author_byline = _x( 'by %s', 'post author', 'wprig-webuildsites' );
 			}
 			printf(
 				esc_html( $author_byline ),
@@ -92,13 +92,13 @@ if ( ! empty( $post->post_parent ) && 'attachment' === get_post_type() ) {
 		<span class="posted-in">
 			<?php
 			/* translators: %s: post parent title */
-			$parent_note = _x( 'In %s', 'post parent', 'wprig-accelerator' );
+			$parent_note = _x( 'In %s', 'post parent', 'wprig-webuildsites' );
 			if ( ( '' !== $time_string && '0' !== $time_string ) || ( '' !== $author_string && '0' !== $author_string ) ) {
 				/* translators: %s: post parent title */
-				$parent_note = _x( 'in %s', 'post parent', 'wprig-accelerator' );
+				$parent_note = _x( 'in %s', 'post parent', 'wprig-webuildsites' );
 			} else {
 				/* translators: %s: post parent title */
-				$parent_note = _x( 'In %s', 'post parent', 'wprig-accelerator' );
+				$parent_note = _x( 'In %s', 'post parent', 'wprig-webuildsites' );
 			}
 			printf(
 				esc_html( $parent_note ),

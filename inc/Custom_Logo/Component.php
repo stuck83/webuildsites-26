@@ -1,13 +1,13 @@
 <?php
 /**
- * Accelerator\Custom_Logo\Component class
+ * Webuildsites\Custom_Logo\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Custom_Logo;
+namespace Webuildsites\Custom_Logo;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function apply_filters;
@@ -42,7 +42,7 @@ class Component implements Component_Interface {
         add_theme_support(
             'custom-logo',
             apply_filters(
-                'wprig_accelerator_custom_logo_args',
+                'wprig_webuildsites_custom_logo_args',
                 array(
                     'height'      => 155, // This becomes the "suggested" height
                     'width'       => 800, // Increase this to a realistic max width

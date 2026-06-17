@@ -4,17 +4,17 @@
  *
  * @link https://github.com/xwp/pwa-wp#offline--500-error-handling
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 // Prevent showing nav menus.
 add_filter( 'has_nav_menu', '__return_false' );
 
 get_header();
 
-wprig_accelerator()->print_styles( 'wprig-accelerator-content' );
+wprig_webuildsites()->print_styles( 'wprig-webuildsites-content' );
 
 ?>
 	<main id="primary" class="site-main">

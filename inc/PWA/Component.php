@@ -1,13 +1,13 @@
 <?php
 /**
- * Accelerator\PWA\Component class
+ * Webuildsites\PWA\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\PWA;
+namespace Webuildsites\PWA;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use function add_action;
 use function add_theme_support;
 

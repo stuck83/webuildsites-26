@@ -1,14 +1,14 @@
 <?php
 /**
- * Accelerator\Comments\Component class
+ * Webuildsites\Comments\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Comments;
+namespace Webuildsites\Comments;
 
-use Accelerator\Component_Interface;
-use Accelerator\Templating_Component_Interface;
+use Webuildsites\Component_Interface;
+use Webuildsites\Templating_Component_Interface;
 use function add_action;
 use function is_singular;
 use function comments_open;
@@ -21,7 +21,7 @@ use function the_comments_navigation;
  * Class for managing comments UI.
  *
  * Exposes template tags:
- * * `wprig_accelerator()->the_comments( array $args = array() )`
+ * * `wprig_webuildsites()->the_comments( array $args = array() )`
  */
 class Component implements Component_Interface, Templating_Component_Interface {
 
@@ -42,7 +42,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_accelerator()`.
+	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_webuildsites()`.
 	 *
 	 * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of

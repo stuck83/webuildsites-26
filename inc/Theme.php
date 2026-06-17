@@ -1,11 +1,11 @@
 <?php
 /**
- * Accelerator\Theme class
+ * Webuildsites\Theme class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 use InvalidArgumentException;
 
@@ -26,9 +26,9 @@ class Theme {
 	/**
 	 * The template tags instance, providing access to all available template tags.
 	 *
-	 * @var \Accelerator\Template_Tags
+	 * @var \Webuildsites\Template_Tags
 	 */
-	protected \Accelerator\Template_Tags $template_tags;
+	protected \Webuildsites\Template_Tags $template_tags;
 
 	/**
 	 * Constructor.
@@ -54,7 +54,7 @@ class Theme {
 				throw new InvalidArgumentException(
 					sprintf(
 						/* translators: 1: classname/type of the variable, 2: interface name */
-						esc_html__( 'The theme component %1$s does not implement the %2$s interface.', 'wprig-accelerator' ),
+						esc_html__( 'The theme component %1$s does not implement the %2$s interface.', 'wprig-webuildsites' ),
 						esc_html( gettype( $component ) ),
 						Component_Interface::class
 					)
@@ -92,9 +92,9 @@ class Theme {
 	/**
 	 * Retrieves the template tags instance, the entry point exposing template tag methods.
 	 *
-	 * Calling `wprig_accelerator()` is a short-hand for calling this method on the main theme instance. The instance then allows
+	 * Calling `wprig_webuildsites()` is a short-hand for calling this method on the main theme instance. The instance then allows
 	 * for actual template tag methods to be called. For example, if there is a template tag called `posted_on`, it can
-	 * be accessed via `wprig_accelerator()->posted_on()`.
+	 * be accessed via `wprig_webuildsites()->posted_on()`.
 	 *
 	 * @return Template_Tags Template tags instance.
 	 */
@@ -117,7 +117,7 @@ class Theme {
 			throw new InvalidArgumentException(
 				sprintf(
 					/* translators: %s: slug */
-					esc_html__( 'No theme component with the slug %s exists.', 'wprig-accelerator' ),
+					esc_html__( 'No theme component with the slug %s exists.', 'wprig-webuildsites' ),
 					esc_html( $slug )
 				)
 			);

@@ -1,13 +1,13 @@
 <?php
 /**
- * Accelerator\Jetpack\Component class
+ * Webuildsites\Jetpack\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Jetpack;
+namespace Webuildsites\Jetpack;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 use function add_action;
 use function add_theme_support;
 use function have_posts;
@@ -73,7 +73,7 @@ class Component implements Component_Interface {
 			'jetpack-content-options',
 			array(
 				'post-details' => array(
-					'stylesheet' => 'wprig-accelerator-content',
+					'stylesheet' => 'wprig-webuildsites-content',
 					'date'       => '.posted-on',
 					'categories' => '.category-links',
 					'tags'       => '.tag-links',

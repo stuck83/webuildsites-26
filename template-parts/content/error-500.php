@@ -2,16 +2,16 @@
 /**
  * Template part for displaying the page content when a 500 error has occurred
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 ?>
 <section class="error">
 	<header class="page-header">
 		<h1 class="page-title">
-			<?php esc_html_e( 'Oops! Something went wrong.', 'wprig-accelerator' ); ?>
+			<?php esc_html_e( 'Oops! Something went wrong.', 'wprig-webuildsites' ); ?>
 		</h1>
 	</header><!-- .page-header -->
 

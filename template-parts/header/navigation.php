@@ -2,10 +2,10 @@
 /**
  * Template part for displaying the header navigation menu
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 ?>
 <div class="primary-menu-container flex-grow">
@@ -15,10 +15,10 @@ namespace Accelerator;
         <?php get_template_part( 'template-parts/header/branding' ); ?>
     </div>
     
-    <nav id="site-navigation" class="main-navigation nav--toggle-sub nav--toggle-small" aria-label="<?php esc_attr_e( 'Main menu', 'wprig-accelerator' ); ?>">
+    <nav id="site-navigation" class="main-navigation nav--toggle-sub nav--toggle-small" aria-label="<?php esc_attr_e( 'Main menu', 'wprig-webuildsites' ); ?>">
         <?php 
-        if ( function_exists( 'wprig_accelerator' ) ) {
-            wprig_accelerator()->display_primary_nav_menu( array( 'menu_id' => 'primary-menu' ) ); 
+        if ( function_exists( 'wprig_webuildsites' ) ) {
+            wprig_webuildsites()->display_primary_nav_menu( array( 'menu_id' => 'primary-menu' ) ); 
         } else {
             wp_nav_menu(
                 array(

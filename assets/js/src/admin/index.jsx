@@ -21,8 +21,8 @@ const textControlTypes = [
 const SettingsPage = () => {
     // FIX: Catch lowercase 'a' (local dev) OR capital 'A' (staging production bundle)
     const savedSettings = 
-        window.wprigAcceleratorThemeSettings?.settings || 
-        window.wprigAcceleratorThemeSettings?.settings || 
+        window.wprigWebuildsitesThemeSettings?.settings || 
+        window.wprigWebuildsitesThemeSettings?.settings || 
         {};
 
     const [ settings, setSettings ] = useState( savedSettings );
@@ -156,7 +156,7 @@ const SettingsPage = () => {
 export default SettingsPage;
 
 const renderSettingsPage = () => {
-    const container = document.getElementById( 'wprig-accelerator-settings-page' );
+    const container = document.getElementById( 'wprig-webuildsites-settings-page' );
     if ( container ) {
         const root = createRoot( container );
         root.render( <SettingsPage /> );

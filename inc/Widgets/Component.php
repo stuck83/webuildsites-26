@@ -1,13 +1,13 @@
 <?php
 /**
- * Accelerator\Widgets\Component class
+ * Webuildsites\Widgets\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Widgets;
+namespace Webuildsites\Widgets;
 
-use Accelerator\Component_Interface; // Corrected from 'import'
+use Webuildsites\Component_Interface; // Corrected from 'import'
 use function add_action;
 use function register_sidebar;
 use function sprintf;
@@ -52,7 +52,7 @@ class Component implements Component_Interface {
 				array_merge(
 					$widget_wrapper,
 					array(
-						'name' => sprintf( __( 'Footer Column %d', 'wprig-accelerator' ), $i ),
+						'name' => sprintf( __( 'Footer Column %d', 'wprig-webuildsites' ), $i ),
 						'id'   => 'footer-col-' . $i,
 					)
 				)

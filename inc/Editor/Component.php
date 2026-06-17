@@ -1,13 +1,13 @@
 <?php
 /**
- * Accelerator\Editor\Component class
+ * Webuildsites\Editor\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Editor;
+namespace Webuildsites\Editor;
 
-use Accelerator\Component_Interface;
+use Webuildsites\Component_Interface;
 
 use function add_action;
 use function add_theme_support;
@@ -58,57 +58,57 @@ class Component implements Component_Interface {
 			'editor-color-palette',
 			array(
 				array(
-					'name'  => __( 'Primary', 'wprig-accelerator' ),
+					'name'  => __( 'Primary', 'wprig-webuildsites' ),
 					'slug'  => 'theme-primary',
 					'color' => '#e36d60',
 				),
 				array(
-					'name'  => __( 'Secondary', 'wprig-accelerator' ),
+					'name'  => __( 'Secondary', 'wprig-webuildsites' ),
 					'slug'  => 'theme-secondary',
 					'color' => '#41848f',
 				),
 				array(
-					'name'  => __( 'Red', 'wprig-accelerator' ),
+					'name'  => __( 'Red', 'wprig-webuildsites' ),
 					'slug'  => 'theme-red',
 					'color' => '#C0392B',
 				),
 				array(
-					'name'  => __( 'Green', 'wprig-accelerator' ),
+					'name'  => __( 'Green', 'wprig-webuildsites' ),
 					'slug'  => 'theme-green',
 					'color' => '#27AE60',
 				),
 				array(
-					'name'  => __( 'Blue', 'wprig-accelerator' ),
+					'name'  => __( 'Blue', 'wprig-webuildsites' ),
 					'slug'  => 'theme-blue',
 					'color' => '#2980B9',
 				),
 				array(
-					'name'  => __( 'Yellow', 'wprig-accelerator' ),
+					'name'  => __( 'Yellow', 'wprig-webuildsites' ),
 					'slug'  => 'theme-yellow',
 					'color' => '#F1C40F',
 				),
 				array(
-					'name'  => __( 'Black', 'wprig-accelerator' ),
+					'name'  => __( 'Black', 'wprig-webuildsites' ),
 					'slug'  => 'theme-black',
 					'color' => '#1C2833',
 				),
 				array(
-					'name'  => __( 'Grey', 'wprig-accelerator' ),
+					'name'  => __( 'Grey', 'wprig-webuildsites' ),
 					'slug'  => 'theme-grey',
 					'color' => '#95A5A6',
 				),
 				array(
-					'name'  => __( 'White', 'wprig-accelerator' ),
+					'name'  => __( 'White', 'wprig-webuildsites' ),
 					'slug'  => 'theme-white',
 					'color' => '#ECF0F1',
 				),
 				array(
-					'name'  => __( 'Dusty daylight', 'wprig-accelerator' ),
+					'name'  => __( 'Dusty daylight', 'wprig-webuildsites' ),
 					'slug'  => 'custom-daylight',
 					'color' => '#97c0b7',
 				),
 				array(
-					'name'  => __( 'Dusty sun', 'wprig-accelerator' ),
+					'name'  => __( 'Dusty sun', 'wprig-webuildsites' ),
 					'slug'  => 'custom-sun',
 					'color' => '#eee9d1',
 				),
@@ -122,26 +122,26 @@ class Component implements Component_Interface {
 			'editor-font-sizes',
 			array(
 				array(
-					'name'      => __( 'Small', 'wprig-accelerator' ),
-					'shortName' => __( 'S', 'wprig-accelerator' ),
+					'name'      => __( 'Small', 'wprig-webuildsites' ),
+					'shortName' => __( 'S', 'wprig-webuildsites' ),
 					'size'      => 16,
 					'slug'      => 'small',
 				),
 				array(
-					'name'      => __( 'Medium', 'wprig-accelerator' ),
-					'shortName' => __( 'M', 'wprig-accelerator' ),
+					'name'      => __( 'Medium', 'wprig-webuildsites' ),
+					'shortName' => __( 'M', 'wprig-webuildsites' ),
 					'size'      => 25,
 					'slug'      => 'medium',
 				),
 				array(
-					'name'      => __( 'Large', 'wprig-accelerator' ),
-					'shortName' => __( 'L', 'wprig-accelerator' ),
+					'name'      => __( 'Large', 'wprig-webuildsites' ),
+					'shortName' => __( 'L', 'wprig-webuildsites' ),
 					'size'      => 31,
 					'slug'      => 'large',
 				),
 				array(
-					'name'      => __( 'Larger', 'wprig-accelerator' ),
-					'shortName' => __( 'XL', 'wprig-accelerator' ),
+					'name'      => __( 'Larger', 'wprig-webuildsites' ),
+					'shortName' => __( 'XL', 'wprig-webuildsites' ),
 					'size'      => 39,
 					'slug'      => 'larger',
 				),

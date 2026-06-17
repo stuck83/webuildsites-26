@@ -2,10 +2,10 @@
 /**
  * Template part for displaying the page content when an error has occurred
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 ?>
 <section class="error">
@@ -20,7 +20,7 @@ namespace Accelerator;
 				printf(
 					wp_kses(
 						/* translators: 1: link to WP admin new post page. */
-						__( 'Ready to publish your first post? <a href="">Get started here</a>.', 'wprig-accelerator' ),
+						__( 'Ready to publish your first post? <a href="">Get started here</a>.', 'wprig-webuildsites' ),
 						array(
 							'a' => array(
 								'href' => array(),
@@ -36,13 +36,13 @@ namespace Accelerator;
 		} elseif ( is_search() ) {
 			?>
 			<p>
-				<?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'wprig-accelerator' ); ?>
+				<?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'wprig-webuildsites' ); ?>
 			</p>
 			<?php
 		} else {
 			?>
 			<p>
-				<?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'wprig-accelerator' ); ?>
+				<?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'wprig-webuildsites' ); ?>
 			</p>
 
 			

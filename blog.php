@@ -6,10 +6,10 @@
  * A custom page template for displaying WordPress posts as cards in a 3-column grid.
  * No sidebar is displayed.
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 // Remove has-sidebar body class on this template.
 add_filter( 'body_class', function( $classes ) {
@@ -17,7 +17,7 @@ add_filter( 'body_class', function( $classes ) {
 } );
 
 get_header();
-wprig_accelerator()->print_styles( 'wprig-accelerator-content' );
+wprig_webuildsites()->print_styles( 'wprig-webuildsites-content' );
 
 $paged = max( 1, get_query_var( 'paged' ) ? intval( get_query_var( 'paged' ) ) : 1 );
 $blog_query = new \WP_Query(
@@ -58,7 +58,7 @@ $blog_query = new \WP_Query(
                             </div>
 
                             <a class="blog-card-readmore" href="<?php the_permalink(); ?>">
-                                <?php esc_html_e( 'Read more', 'wprig-accelerator' ); ?>
+                                <?php esc_html_e( 'Read more', 'wprig-webuildsites' ); ?>
                             </a>
                         </div>
                     </article>
@@ -73,15 +73,15 @@ $blog_query = new \WP_Query(
                         'format'    => '?paged=%#%',
                         'current'   => $paged,
                         'total'     => $blog_query->max_num_pages,
-                        'prev_text' => esc_html__( 'Previous', 'wprig-accelerator' ),
-                        'next_text' => esc_html__( 'Next', 'wprig-accelerator' ),
+                        'prev_text' => esc_html__( 'Previous', 'wprig-webuildsites' ),
+                        'next_text' => esc_html__( 'Next', 'wprig-webuildsites' ),
                     )
                 );
                 ?>
             </div>
         <?php else : ?>
             <div class="blog-no-posts">
-                <?php esc_html_e( 'No posts were found.', 'wprig-accelerator' ); ?>
+                <?php esc_html_e( 'No posts were found.', 'wprig-webuildsites' ); ?>
             </div>
         <?php endif; ?>
 

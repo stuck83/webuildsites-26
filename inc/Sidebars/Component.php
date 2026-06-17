@@ -1,14 +1,14 @@
 <?php
 /**
- * Accelerator\Sidebars\Component class
+ * Webuildsites\Sidebars\Component class
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator\Sidebars;
+namespace Webuildsites\Sidebars;
 
-use Accelerator\Component_Interface;
-use Accelerator\Templating_Component_Interface;
+use Webuildsites\Component_Interface;
+use Webuildsites\Templating_Component_Interface;
 use function add_action;
 use function add_filter;
 use function register_sidebar;
@@ -20,8 +20,8 @@ use function dynamic_sidebar;
  * Class for managing sidebars.
  *
  * Exposes template tags:
- * * `wprig_accelerator()->is_primary_sidebar_active()`
- * * `wprig_accelerator()->display_primary_sidebar()`
+ * * `wprig_webuildsites()->is_primary_sidebar_active()`
+ * * `wprig_webuildsites()->display_primary_sidebar()`
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/
  */
@@ -47,7 +47,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	}
 
 	/**
-	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_accelerator()`.
+	 * Gets template tags to expose as methods on the Template_Tags class instance, accessible through `wprig_webuildsites()`.
 	 *
 	 * @return array Associative array of $method_name => $callback_info pairs. Each $callback_info must either be
 	 *               a callable or an array with key 'callable'. This approach is used to reserve the possibility of
@@ -66,9 +66,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 	public function action_register_sidebars() {
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Sidebar', 'wprig-accelerator' ),
+				'name'          => esc_html__( 'Sidebar', 'wprig-webuildsites' ),
 				'id'            => static::PRIMARY_SIDEBAR_SLUG,
-				'description'   => esc_html__( 'Add widgets here.', 'wprig-accelerator' ),
+				'description'   => esc_html__( 'Add widgets here.', 'wprig-webuildsites' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
 				'after_widget'  => '</section>',
 				'before_title'  => '<h3 class="widget-title">',
@@ -77,9 +77,9 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		);
 		register_sidebar(
     array(
-        'name'          => esc_html__( 'Blog Sidebar', 'wprig-accelerator' ),
+        'name'          => esc_html__( 'Blog Sidebar', 'wprig-webuildsites' ),
         'id'            => 'blog-sidebar',
-        'description'   => esc_html__( 'Widgets for the blog and single post pages.', 'wprig-accelerator' ),
+        'description'   => esc_html__( 'Widgets for the blog and single post pages.', 'wprig-webuildsites' ),
         'before_widget' => '<section id="%1$s" class="widget %2$s">',
         'after_widget'  => '</section>',
         'before_title'  => '<h3 class="widget-title">',

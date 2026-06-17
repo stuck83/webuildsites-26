@@ -2,8 +2,8 @@ const apiRoot = `${window.location.origin}/wp-json/my-theme/v1/settings`;
 
 export const updateSettings = (settings) => {
 	const nonceToken =
-		window.wprigAcceleratorThemeSettings?.nonce ||
-		window.wprigAcceleratorThemeSettings?.nonce ||
+		window.wprigWebuildsitesThemeSettings?.nonce ||
+		window.wprigWebuildsitesThemeSettings?.nonce ||
 		"";
 
 	return fetch(apiRoot, {

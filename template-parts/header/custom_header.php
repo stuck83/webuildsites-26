@@ -2,10 +2,10 @@
 /**
  * Template part for displaying the custom header media
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 if ( ! has_header_image() ) {
 	return;

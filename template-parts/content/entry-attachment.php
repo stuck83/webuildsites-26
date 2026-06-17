@@ -2,10 +2,10 @@
 /**
  * Template part for displaying a post of post type 'attachment'
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 ?>
 
@@ -30,7 +30,7 @@ if ( is_singular( get_post_type() ) ) {
 		$prev_link = ob_get_clean();
 		if ( ! ( '' === $prev_link || '0' === $prev_link || false === $prev_link ) ) {
 			$attachment_navigation .= '<div class="nav-previous">';
-			$attachment_navigation .= '<div class="post-navigation-sub"><span>' . esc_html__( 'Previous:', 'wprig-accelerator' ) . '</span></div>';
+			$attachment_navigation .= '<div class="post-navigation-sub"><span>' . esc_html__( 'Previous:', 'wprig-webuildsites' ) . '</span></div>';
 			$attachment_navigation .= $prev_link;
 			$attachment_navigation .= '</div>';
 		}
@@ -40,13 +40,13 @@ if ( is_singular( get_post_type() ) ) {
 		$next_link = ob_get_clean();
 		if ( ! ( '' === $next_link || '0' === $next_link || false === $next_link ) ) {
 			$attachment_navigation .= '<div class="nav-next">';
-			$attachment_navigation .= '<div class="post-navigation-sub"><span>' . esc_html__( 'Next:', 'wprig-accelerator' ) . '</span></div>';
+			$attachment_navigation .= '<div class="post-navigation-sub"><span>' . esc_html__( 'Next:', 'wprig-webuildsites' ) . '</span></div>';
 			$attachment_navigation .= $next_link;
 			$attachment_navigation .= '</div>';
 		}
 
 		if ( '' !== $attachment_navigation && '0' !== $attachment_navigation ) {
-			echo _navigation_markup( $attachment_navigation, $class = 'post-navigation', __( 'Post navigation', 'wprig-accelerator' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo _navigation_markup( $attachment_navigation, $class = 'post-navigation', __( 'Post navigation', 'wprig-webuildsites' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 

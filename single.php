@@ -2,14 +2,14 @@
 /**
  * The template for displaying all single blog posts
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 get_header();
 
-wprig_accelerator()->print_styles( 'wprig-accelerator-content' );
+wprig_webuildsites()->print_styles( 'wprig-webuildsites-content' );
 ?>
 
 <div class="scroll-progress-container">
@@ -45,7 +45,7 @@ wprig_accelerator()->print_styles( 'wprig-accelerator-content' );
                         
                         wp_link_pages(
                             array(
-                                'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wprig_accelerator' ),
+                                'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'wprig_webuildsites' ),
                                 'after'  => '</div>',
                             )
                         );

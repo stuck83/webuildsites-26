@@ -4,18 +4,18 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package wprig_accelerator
+ * @package wprig_webuildsites
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
-if ( ! wprig_accelerator()->is_primary_sidebar_active() ) {
+if ( ! wprig_webuildsites()->is_primary_sidebar_active() ) {
 	return;
 }
 
-wprig_accelerator()->print_styles( 'wprig-accelerator-sidebar', 'wprig-accelerator-widgets' );
+wprig_webuildsites()->print_styles( 'wprig-webuildsites-sidebar', 'wprig-webuildsites-widgets' );
 
 ?>
 <aside id="secondary" class="primary-sidebar widget-area" aria-label="Sidebar">
-	<?php wprig_accelerator()->display_primary_sidebar(); ?>
+	<?php wprig_webuildsites()->display_primary_sidebar(); ?>
 </aside><!-- #secondary -->

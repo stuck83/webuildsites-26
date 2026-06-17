@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Main Services
- * Slug: accelerator/main-services
+ * Slug: webuildsites/main-services
  * Categories: featured
  */
 ?>
@@ -19,7 +19,7 @@
             <!-- /wp:heading -->
 
             <!-- wp:paragraph -->
-            <p>At Accelerator, we provide a comprehensive selection of services designed to cater to the varied needs of our B2B clients. Whether it's Network Infrastructure or Cyber Security, we are dedicated to delivering customised IT and telecom solutions for businesses of every size.</p>
+            <p>At Webuildsites, we provide a comprehensive selection of services designed to cater to the varied needs of our B2B clients. Whether it's Network Infrastructure or Cyber Security, we are dedicated to delivering customised IT and telecom solutions for businesses of every size.</p>
             <!-- /wp:paragraph -->
 
             <!-- wp:buttons -->

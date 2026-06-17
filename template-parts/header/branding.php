@@ -5,7 +5,7 @@
  * @package WP_Rig
  */
 
-namespace Accelerator;
+namespace Webuildsites;
 
 ?>
 <div class="site-branding flex-1">

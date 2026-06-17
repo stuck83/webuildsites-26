@@ -1,7 +1,7 @@
 <?php
 /**
  * Title: Trust Icons
- * Slug: accelerator/trust-stats
+ * Slug: webuildsites/trust-stats
  * Categories: featured
  */
 ?>
