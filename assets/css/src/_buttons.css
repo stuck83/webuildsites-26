@@ -1,0 +1,9 @@
+/* Force Button Links to ignore global blue variable */
+.wp-block-button__link, 
+.wp-block-button a,
+.wp-block-button a:hover,
+.wp-block-button a:focus {
+    color: #000000 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}

@@ -1,0 +1,152 @@
+/*--------------------------------------------------------------
+# Imports
+--------------------------------------------------------------*/
+@import "_navigation.css";
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+
+.site-header {
+    padding: 1em 2rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+
+    > .menu-toggle {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.header-image {
+    margin: 0 auto;
+}
+
+.header-image img {
+    display: block;
+    margin: 0 auto;
+}
+
+.custom-logo-link {
+    display: inline-block;
+    margin: 0 auto 0em;
+}
+
+.site-title {
+    margin: 0 1em;
+    font-family: var(--highlight-font-family);
+    font-stretch: condensed;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.site-branding {
+    text-align: center;
+    max-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+
+    img {
+        max-width: 100%;
+        height: auto;
+        width: initial;
+        display: block;
+        max-height: 150px;
+    }
+
+    &:has(img) {
+        .site-title {
+            display: none;
+        }
+    }
+
+    @media (--narrow-menu-query) {
+        padding: 1.75em 0;
+        margin: 0;
+    }
+}
+
+.site-title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.site-description {
+    margin: 0.4375em 0 0;
+    font-family: var(--highlight-font-family);
+    font-stretch: condensed;
+    font-size: 17px;
+    font-weight: inherit;
+    line-height: 1.4;
+    word-wrap: break-word;
+    color: #757575;
+}
+
+
+
+@media (min-width: 64em) {
+    header#masthead.site-header .site-branding {
+        grid-column: span 2;
+        justify-self: start;
+        text-align: left;
+        padding: 0;
+        justify-content: flex-start;
+    }
+
+    header#masthead.site-header .primary-menu-container {
+        grid-column: span 10;
+    }
+}
+
+@media (--narrow-menu-query) {
+    header#masthead:has(nav) {
+        display: grid;
+        grid-template-columns: 1fr 6fr;
+        width: 100%;
+        max-width: 100%;
+        padding: 0.5rem 1rem;
+        box-sizing: border-box;
+
+        & .site-branding {
+            order: 2;
+            padding: 0.5rem 0;  /* Added vertical padding */
+            text-align: right;
+
+            img {
+                max-height: 75px;
+            }
+
+            & .site-title {
+                margin: 0.5em 0;
+            }
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            outline: none;          /* Remove focus outline */
+        }
+
+        /* Remove orange hover on toggle button */
+        .menu-toggle:hover,
+        .menu-toggle:focus,
+        .menu-toggle:active {
+            background: none !important;
+            background-color: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            outline: none !important;
+        }
+    }
+
+    .mobile-menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.75rem 1rem;      /* More breathing room around logo */
+        width: 100%;
+    }
+}

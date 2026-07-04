@@ -1,0 +1,630 @@
+@import "virtual:preload.css";
+
+/* ==========================================================================
+   Global Layout & Structural Container Constants
+   ========================================================================== */
+
+:root {
+    --container-width: 1200px;
+    --container-padding: 1.5rem;
+}
+
+/* 1. Normalize the parent site wrapper layout engine */
+#page.site {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ==========================================================================
+   WP RIG CORE OVERRIDE: Single Blog Post Reset
+   Neutralizes the aggressive padding & max-widths coming from content.css
+   ========================================================================== */
+body.single-post .single-post-main .entry,
+body.single-post .single-post-main .entry-header,
+body.single-post .single-post-main .entry-content,
+body.single-post .single-post-main .entry-footer,
+body.single-post .single-post-main .entry-content > * {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+}
+
+/* 3. Safe full-width breakout sections (Hero & Block Editor banners) */
+.site-main .alignfull,
+.webuildsites-hero-video {
+    position: relative;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+}
+
+/* 4. Indestructible horizontal scroll prevention */
+html, body {
+    overflow-x: hidden !important;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   Global Site Components
+   ========================================================================== */
+
+/**** LOGO SIZE ****/
+.site-branding .custom-logo {
+    width: 90%; 
+    height: auto;
+}
+
+/**** ANIMATIONS ON SCROLL ****/
+.reveal-on-scroll {
+    opacity: 0;
+}
+.reveal-on-scroll.animate__animated {
+    opacity: 1;
+}
+
+/**** FLOATING CONTACT BUTTON ****/
+.floating-contact-button {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: right bottom;
+    z-index: 99999;
+    display: inline-block;
+    text-decoration: none;
+    background: var(--brand-orange);
+    color: #000000 !important;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 12px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.floating-contact-button:hover {
+    background-color: #d36110;
+    color: #000000 !important;
+}
+
+@media (max-width: 480px) {
+    .floating-contact-button {
+        display: none;
+    }
+}
+
+/* ==========================================================================
+   Homepage Components
+   ========================================================================== */
+
+/*** VIDEO HOMEPAGE ***/
+.webuildsites-hero-video {
+    position: relative;
+    width: 100vw;       
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 550px;      
+    overflow: hidden;
+}
+
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -1;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.video-overlay .grid-container {
+    position: relative;
+    height: 100%;
+}
+
+
+
+
+
+.hero-text-box {
+    position: absolute;
+    bottom: 60px;          
+    right: 0%;         
+    background-color: #f0f0f0e8;
+    padding: 20px;
+    max-width: 410px;
+    z-index: 10;
+    border-radius: 12px;
+}
+
+
+@media (min-width: 480px) {
+.hero-text-box {
+    position: absolute;
+    bottom: 110px;          
+    right: 20%;     
+
+}
+}
+
+
+
+
+.hero-title {
+    color: var(--global-font-color);
+    font-size: 2.5rem;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.orange-divider {
+    max-width: 200px;
+    height: 4px;
+    background-color: var(--brand-orange);
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    color: #022949;
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.page-template-homepage .site {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ==========================================================================
+   Archive / Blog Roll Layout
+   ========================================================================== */
+
+.blog-page-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--brand-white, #ffffff);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+}
+
+.blog-card-image-link {
+    display: block !important;
+    width: 100% !important;
+    height: 250px !important;
+    max-height: 250px !important;
+    overflow: hidden !important;
+    background-color: var(--brand-grey-light, #f7f8fb) !important;
+}
+
+.blog-card-image-link img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 250px !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+.blog-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.blog-card-meta {
+    margin-bottom: 0.75rem;
+    color: var(--brand-grey-dark, #5d6d7d);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.blog-card-title {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.blog-card-title a {
+    color: var(--brand-dark-blue, #032d44);
+    text-decoration: none;
+}
+
+.blog-card-title a:hover {
+    color: var(--brand-orange, #f28524);
+}
+
+.blog-card-excerpt {
+    margin-bottom: 1.5rem;
+    color: var(--text-color, #4f5f6f);
+    line-height: 1.7;
+    flex: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+}
+
+.blog-card-readmore {
+    display: inline-block;
+    margin-top: auto;
+    color: var(--brand-orange, #f28524);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.blog-card-readmore:hover {
+    text-decoration: underline;
+}
+
+.blog-pagination {
+    text-align: center;
+}
+
+.blog-pagination .page-numbers {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.blog-pagination .page-numbers a,
+.blog-pagination .page-numbers span {
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 999px;
+    color: var(--brand-dark-blue, #032d44);
+    text-decoration: none;
+}
+
+.blog-pagination .page-numbers .current {
+    background: var(--brand-orange, #f28524);
+    color: #ffffff;
+    border-color: var(--brand-orange, #f28524);
+}
+
+/* Blog Responsive Grid Structure */
+.blog-post-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important; 
+    gap: 2.5rem !important; 
+    margin-bottom: 3rem;
+}
+
+@media (max-width: 1080px) {
+    .blog-post-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important; 
+        gap: 2rem !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .blog-post-grid {
+        grid-template-columns: 1fr !important; 
+        gap: 1.5rem !important;
+    }
+}
+
+/* ==========================================================================
+   Single Post Detail Layout Modules (Cleaned & Unlocked)
+   ========================================================================== */
+
+.single-post-wrapper {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 2rem var(--container-padding);
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.single-post-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2.5rem;
+    width: 100%;
+}
+
+.single-post-main,
+.single-post-sidebar {
+    width: 100% !important;
+    box-sizing: border-box;
+    min-width: 0;
+}
+
+@media (min-width: 952px) {
+    .single-post-row {
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: flex-start;
+    }
+
+    .single-post-main {
+        flex: 0 0 calc(75% - 1.25rem) !important;
+        max-width: calc(75% - 1.25rem) !important;
+    }
+
+    .single-post-sidebar {
+        flex: 0 0 calc(25% - 1.25rem) !important;
+        max-width: calc(25% - 1.25rem) !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Isolated Typography & Content Rules for the New Elements
+   -------------------------------------------------------------------------- */
+
+.blog-post-grid {
+    padding:20px;
+}
+
+.blog-view-article {
+    width: 100%;
+}
+
+.blog-view-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.blog-view-meta {
+    font-size: 0.9rem;
+    color: #5d6d7d;
+    margin-bottom: 2rem;
+}
+
+.blog-view-thumbnail img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.blog-view-content {
+    width: 100%;
+}
+
+/* Clean child item rules with zero inherited formatting conflicts */
+.blog-view-content > p,
+.blog-view-content > h2,
+.blog-view-content > h3,
+.blog-view-content > ul,
+.blog-view-content > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-bottom: 1.5rem;
+}
+
+/* Scroll Progress Bar for Single Posts */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px; 
+    z-index: 999999; 
+    pointer-events: none; 
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    width: 0%; 
+    background-color: #ec7c30; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: width 0.1s ease-out; 
+}
+
+@media (max-width: 768px) {
+    .scroll-progress-container {
+        height: 4px;
+    }
+}
+
+
+/* Enable smooth scrolling document-wide */
+html {
+    scroll-behavior: smooth !important;
+}
+
+/* 1. The Container Wrapper (Fixed to the glass, hidden by default) */
+.back-to-top-wrapper {
+    position: fixed !important;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999999 !important;
+    pointer-events: none; /* Prevents clicks when hidden */
+    display: block !important; /* Forces layout rendering across breakpoints */
+    
+    /* Smooth fading physics */
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* 2. The Trigger State (Fires automatically at 40% scroll depth) */
+.back-to-top-wrapper.is-visible {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    pointer-events: auto !important; /* Restores click functionality */
+}
+
+/* 3. The Floating Action Button Styling */
+.back-to-top-btn {
+    display: flex !important;
+    width: 50px !important;
+    height: 50px !important;
+    background-color: var(--brand-orange) !important; /* Brand Orange stays consistent across all viewports */
+    border-radius: 50% !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25) !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Interactive Hover State (Desktop Only optimization) */
+@media (min-width: 992px) {
+    .back-to-top-btn:hover {
+        background-color: #d36110 !important; /* Deeper brand orange */
+        transform: translateY(-4px); /* Physical lift */
+    }
+}
+
+/* 4. Pure CSS White Chevron */
+.back-to-top-btn .chevron {
+    content: "";
+    display: inline-block !important;
+    width: 10px;
+    height: 10px;
+    border-right: 3px solid #000000 !important;
+    border-top: 3px solid #000000 !important;
+    transform: rotate(-45deg) !important;
+    margin-top: 4px !important;
+}
+
+/* 5. Mobile Layout Shift Adjustments */
+@media screen and (max-width: 991px) {
+    .back-to-top-wrapper {
+        bottom: 40px !important; /* Moves it up slightly away from mobile browser overlay bars */
+        right: 20px !important;  /* Nudges it closer to the edge for comfortable thumb reach */
+    }
+    
+    .back-to-top-btn {
+        width: 48px !important;  /* Slightly tighter standard footprint for mobile grids */
+        height: 48px !important;
+        background-color: var(--brand-orange) !important; /* Hardcoded guarantee for mobile inheritance */
+    }
+}
+
+/* ==========================================================================
+   Service & Location Page Templates: Full-Bleed Top Banner Fix
+   ========================================================================== */
+
+/* Break out of the CSS grid alignment specifically on custom templates */
+.page-template-service-page .site-main,
+.page-template-locationpage .site-main {
+    display: block !important;    /* Disables the layout grid pushing content down */
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+}
+
+/* Ensure the article wrapper inside has absolutely zero top spacing */
+.page-template-service-page .service-page-article,
+.page-template-locationpage .service-page-article,
+.page-template-locationpage article {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Ensure the entry content block is completely flush against the top */
+.page-template-service-page .entry-content,
+.page-template-locationpage .entry-content {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    display: block !important;
+    margin: 0 !important;
+}
+
+/* Remove top margin from ALL child elements in entry content */
+.page-template-service-page .entry-content > *,
+.page-template-locationpage .entry-content > * {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Specifically target WordPress block groups and alignfull blocks */
+.page-template-service-page .entry-content > .wp-block-group,
+.page-template-service-page .entry-content > .alignfull,
+.page-template-service-page .entry-content > [class*="alignfull"],
+.page-template-locationpage .entry-content > .wp-block-group,
+.page-template-locationpage .entry-content > .alignfull,
+.page-template-locationpage .entry-content > [class*="alignfull"] {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Fallback rule for any element with template article classes */
+.service-page-article .entry-content,
+.page-template-locationpage article .entry-content {
+    margin: 0 !important;
+    padding-top: 0 !important;
+}
+
+.service-page-article .entry-content > *,
+.page-template-locationpage article .entry-content > * {
+    margin-top: 0 !important;
+}
+
+
+/* Pad paragraph blocks inside columns */
+.wp-block-paragraph {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    box-sizing: border-box;
+}
+
+/* But not inside patterns that handle their own layout */
+.service-banner-section .wp-block-paragraph,
+.services-section .wp-block-paragraph,
+.partners-slider-section .wp-block-paragraph,
+.trust-section .wp-block-paragraph,
+.features-section .wp-block-paragraph,
+.image-content-section .wp-block-paragraph {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+
+
+/**Removed POSTED by NAME**/
+.posted-by{
+    display:none;
+}
+
+
+/***testing***/
+body{background-color: pink;}

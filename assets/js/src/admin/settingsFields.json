@@ -1,0 +1,19 @@
+{
+  "tabs": [
+    {
+      "id": "maintenance",
+      "tabControl": {
+        "label": "Maintenance"
+      },
+      "tabContent": {
+        "fields": [
+          {
+            "name": "maintenance_mode",
+            "label": "Enable maintenance page",
+            "type": "toggle"
+          }
+        ]
+      }
+    }
+  ]
+}

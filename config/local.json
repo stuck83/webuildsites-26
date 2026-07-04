@@ -1,0 +1,12 @@
+{
+  "theme": {
+    "slug": "webuildsites-production"
+  },
+  "dev": {
+    "browserSync": {
+      "proxyURL": "webuildsites.local",
+      "live": true,
+      "https": false
+    }
+  }
+}

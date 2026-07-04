@@ -1,0 +1,19 @@
+{
+  "theme_name": "webuildsites",
+  "settings_id": "webuildsites_theme",
+  "sections": [
+    {
+      "id": "global",
+      "title": "Webuildsites Settings",
+      "priority": 30
+    }
+  ],
+  "settings": [
+    {
+      "id": "ga_id",
+      "label": "Google Analytics ID",
+      "section": "global",
+      "refresh": false
+    }
+  ]
+}

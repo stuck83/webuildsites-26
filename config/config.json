@@ -1,0 +1,51 @@
+{
+  "theme": {
+    "PHPNamespace": "Webuildsites",
+    "slug": "webuildsites-production",
+    "name": "WeBuildSites",
+    "theme_uri": "https://webuildsites.co.nz",
+    "author": "Simon Tucker",
+    "author_uri": "https://webuildsites.co.nz/",
+    "description": "A custom high-performance theme for the WeBuildSites project.",
+    "version": "1.0.0",
+    "enableBlocks": true
+  },
+  "dev": {
+    "browserSync": {
+      "proxyURL": "webuildsites.local",
+      "live": true,
+      "https": false
+    },
+    "styles": {
+      "stage": 3,
+      "autoprefixer": {
+        "grid": false
+      },
+      "preload": [
+        "_custom-media.css"
+      ],
+      "features": {
+        "custom-media-queries": true,
+        "custom-properties": true,
+        "nesting-rules": true
+      }
+    },
+    "debug": {
+      "styles": true,
+      "scripts": false,
+      "phpcs": false
+    }
+  },
+  "export": {
+    "filesToCopy": [
+      "LICENSE", "readme.txt", "screenshot.png", "theme.json",
+      "assets/css/admin/**", "assets/css/editor/**", "assets/css/vendor/**",
+      "assets/css/*.css", "assets/css/*.map",
+      "assets/js/admin/**", "assets/js/vendor/**",
+      "assets/js/*.js", "assets/js/*.map",
+      "assets/images/**", "assets/svg/**", "assets/video/**",
+      "assets/fonts/**", "patterns", "patterns/**",
+      "template-parts", "template-parts/**", "languages/**"
+    ]
+  }
+}
