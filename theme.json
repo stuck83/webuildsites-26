@@ -1,0 +1,60 @@
+{
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        
+        {
+          "slug": "primary",
+          "color": "#10374c",
+          "name": "Blue Dark"
+        },
+        {
+          "slug": "secondary",
+          "color": "#022949",
+          "name": "Blue Deep"
+        },
+        {
+          "slug": "third",
+          "color": "#ec7c30",
+          "name": "Orange"
+        },
+        {
+          "slug": "forth",
+          "color": "#ffffff",
+          "name": "White"
+        }
+      ]
+    },
+    "layout": {
+      "contentSize": "1200px",
+      "wideSize": "1400px"
+    }
+  },
+  "styles": {
+    "elements": {
+      "button": {
+        "border": { "radius": "0px" },
+        "color": {
+          "background": "var(--wp--preset--color--third)",
+          "text": "#ffffff"
+        },
+        ":hover": {
+          "color": { "background": "#d36110" }
+        }
+      }
+    },
+    "blocks": {
+      "core/button": {
+        "elements": {
+          "link": {
+            "color": { "text": "#ffffff" },
+            ":hover": { "color": { "text": "#ffffff" } },
+            "typography": { "textDecoration": "none" }
+          }
+        },
+        "border": { "radius": "0px" }
+      }
+    }
+  }
+}
