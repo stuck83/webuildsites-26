@@ -183,7 +183,7 @@ class Component implements Component_Interface, Templating_Component_Interface {
 		return '<button class="menu-toggle icon" aria-label="' . esc_html__( 'Open menu', 'wprig-accelerator' ) . '" aria-controls="primary-menu" aria-expanded="false">
 					' . $this->menu_icon_svg . '
 					' . $this->close_icon_svg . '
-					</button>'
+					</button>';
 	}
 
 	/**
