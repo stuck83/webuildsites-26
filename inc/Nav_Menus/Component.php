@@ -3,7 +3,7 @@
  * Webuildsites\Nav_Menus\Component class
  *
  * @package wprig_webuildsites
- */
+ **/
 
 namespace Webuildsites\Nav_Menus;
 
